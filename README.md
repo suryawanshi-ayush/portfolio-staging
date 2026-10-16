@@ -1,18 +1,49 @@
 # Ayush Suryawanshi, portfolio (STAGING COPY)
 
-> Test copy of [suryawanshi-ayush/suryawanshi-ayush.github.io](https://github.com/suryawanshi-ayush/suryawanshi-ayush.github.io) for trying changes before they go to the live site.
-> Staging-only differences, which must NOT be copied back to the live site: `noindex, nofollow` robots meta tag in `index.html`, a block-all `robots.txt`, and no Google verification file.
+> Test copy of the live site at https://suryawanshi-ayush.github.io/ for trying changes before they go live.
 > Preview: https://suryawanshi-ayush.github.io/portfolio-staging/
+> This copy is kept out of search engines (`noindex` on every page and a block-all `robots.txt`).
 
-Personal portfolio website of Ayush Suryawanshi, chemical engineer (M.Tech Catalysis Technology, IIT Madras).
+## How the site is built
 
-Live at https://suryawanshi-ayush.github.io/
+GitHub Pages serves this repository's root directly from the branch, so the built pages are committed.
+There is no framework and no npm install: one Node script turns the content into static HTML.
 
-## Files
+```
+src/content.mjs     every fact, date, number and project write-up (edit this to change content)
+src/site.css        design tokens, layout, light/dark themes, motion rules
+src/site.js         interactions: theme, menu, reveals, chart toggle, filters, lightbox, schematic
+src/lib.mjs         image and URL helpers
+src/images.json     image sizes, used for responsive srcset and width/height
+scripts/build.mjs   page templates; writes the site into the repo root
+site.config.json    staging flag, base path and canonical origin
+```
 
-- `index.html`: the whole site (single page with hash routes).
-- `images/`: photos and figures used on the page.
-- `Ayush_CV.pdf`: the CV behind the "Download CV as PDF" button.
-- `robots.txt`, `sitemap.xml`: crawling rules and sitemap for search engines and AI crawlers.
-- `llms.txt`: plain-text profile for AI assistants.
-- SEO metadata (description, Open Graph, schema.org JSON-LD) lives in the `<head>` of `index.html`.
+Build after any change, then commit the source and the generated files together:
+
+```
+node scripts/build.mjs      # or: npm run build
+```
+
+Generated (do not edit by hand): `index.html`, `projects/`, `about/`, `cv/`, `404.html`, `assets/`,
+`sitemap.xml`, `robots.txt`, `llms.txt`.
+
+Images: originals stay in `images/*.jpg` (old links keep working); the pages use WebP copies in
+`images/w/` at 640 px and 1280 px wide.
+
+## Moving a change to the live site
+
+Copy the repository contents over, then in the live repo set `site.config.json` to
+
+```json
+{ "staging": false, "basePath": "/", "canonicalOrigin": "https://suryawanshi-ayush.github.io" }
+```
+
+and run the build. That switches every page to `index, follow`, writes the open `robots.txt`
+for search and AI crawlers, and fixes all links for the root path. Keep the live repo's
+`google2a67caef4377869e.html` (Search Console verification); the build does not touch it.
+
+## Chart colours
+
+The two chart series were checked with a colour-vision-deficiency validator against both
+backgrounds: light `#2457C5` / `#C27C1A` on `#FFFFFF`, dark `#5F8BF0` / `#B77B26` on `#161B22`.
