@@ -8,7 +8,7 @@ export const person = {
   email: 'ayush.suryawanshi0803@gmail.com',
   linkedin: 'https://www.linkedin.com/in/ayush-suryawanshi',
   github: 'https://github.com/suryawanshi-ayush',
-  cv: 'Ayush_CV.pdf',
+  cv: 'Ayush_CV_revised.pdf',  // revised summary; Ayush_CV.pdf is the preserved original
   role: 'Chemical engineer',
   location: 'Ahmedabad, India',
   updated: 'October 2026',
