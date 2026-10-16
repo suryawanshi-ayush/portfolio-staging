@@ -219,6 +219,15 @@
    1280
   ]
  },
+ "hiking-with-friends-norway.jpg": {
+  "name": "hiking-with-friends-norway",
+  "w": 1600,
+  "h": 1200,
+  "widths": [
+   640,
+   1280
+  ]
+ },
  "portrait-of-ayush-suryawanshi.jpg": {
   "name": "portrait-of-ayush-suryawanshi",
   "w": 800,
@@ -236,6 +245,15 @@
    640,
    1280,
    1800
+  ]
+ },
+ "sncr-project-team-dinner-trondheim.jpg": {
+  "name": "sncr-project-team-dinner-trondheim",
+  "w": 1280,
+  "h": 591,
+  "widths": [
+   640,
+   1280
   ]
  }
 }

@@ -741,3 +741,41 @@ html.motion .cred figure:hover .cred-thumb img { transform: scale(1.03); }
 /* lightbox: full-size link for posters and certificates */
 .lb-full { color: #c4c9d0; font-size: 0.88rem; margin-top: 0.6rem; }
 .lb-full:hover { color: #fff; }
+
+/* ---------- about: jump links ---------- */
+.jump { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 1rem; margin-top: 1.8rem; padding-top: 1rem; border-top: 1px solid var(--rule); }
+.jump .eyebrow { margin: 0; }
+.jump ul { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0; padding: 0; }
+.jump a { display: inline-block; padding: 0.4rem 0.8rem; border: 1px solid var(--rule-strong); border-radius: 999px; font-size: 0.9rem; color: var(--ink); text-decoration: none; }
+.jump a:hover { border-color: var(--ink); }
+#journey, #mtech, #photos, #credentials { scroll-margin-top: 84px; }
+
+/* ---------- gallery: wide group photos span two columns ---------- */
+.gallery { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.gallery .fig { grid-column: span 2; }
+.gallery .fig.wide { grid-column: span 4; }
+.gallery .fig.wide img { aspect-ratio: 8 / 3; }
+@media (max-width: 860px) {
+  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .gallery .fig { grid-column: span 1; }
+  .gallery .fig.wide { grid-column: span 2; }
+}
+@media (max-width: 520px) {
+  .gallery { grid-template-columns: 1fr; }
+  .gallery .fig, .gallery .fig.wide { grid-column: auto; }
+  .gallery .fig.wide img { aspect-ratio: 2 / 1; }
+}
+
+/* ---------- credentials stay in a supporting role ---------- */
+.creds { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+.cred h3 { font-size: 0.95rem; }
+
+/* ---------- projects: the three strands ---------- */
+.strands { list-style: none; padding: 0; margin: 1.8rem 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; border-top: 1px solid var(--rule); padding-top: 1.2rem; }
+.strands li { display: flex; flex-direction: column; gap: 0.2rem; font-size: 0.93rem; color: var(--ink-2); }
+.strand-n { font-weight: 600; color: var(--ink); }
+.strands .muted { font: 0.78rem var(--mono); }
+@media (max-width: 760px) { .strands { grid-template-columns: 1fr; } }
+.aside-row { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.aside-row .earlier { max-width: none; }
+@media (max-width: 760px) { .aside-row { grid-template-columns: 1fr; gap: 0; } }

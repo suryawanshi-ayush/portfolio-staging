@@ -26,7 +26,7 @@ export const education = [
     title: 'Semester exchange',
     org: 'Department of Chemical Engineering, NTNU, Trondheim, Norway',
     when: 'Aug – Dec 2025',
-    detail: 'UTFORSK mobility scholarship. Thesis synthesis in the group of Prof. Edd Anders Blekkan.',
+    detail: 'UTFORSK mobility scholarship. Thesis catalyst synthesis in the KinCat group, hosted and supervised by Prof. Edd Anders Blekkan.',
   },
   {
     title: 'B.Tech, Chemical Engineering',
@@ -131,7 +131,7 @@ export const timeline = [
     when: 'Aug – Dec 2025',
     title: 'Research semester at NTNU, Norway',
     where: 'Trondheim, on a UTFORSK mobility scholarship',
-    text: 'Synthesised the thesis catalysts in Prof. Edd Anders Blekkan’s group, reworked the route after an ignition on the filter, and joined a four-person SNCR process design project for two Norwegian industry partners. Attended EuropaCat 2025 in Trondheim and presented our poster at Treforedlingsforum 2025 in Oslo.',
+    text: 'Synthesised the thesis catalysts in the KinCat group, where Prof. Edd Anders Blekkan hosted and supervised the work, reworked the route after an ignition on the filter, and joined a four-person SNCR process design project for two Norwegian industry partners. Attended EuropaCat 2025 in Trondheim and presented our poster at Treforedlingsforum 2025 in Oslo.',
     photo: ['ayush-at-ntnu-main-building-trondheim.jpg', 'Ayush and a friend standing behind the large blue NTNU letters in front of the main university building in Trondheim', 'At NTNU’s main building in Trondheim during the exchange semester.'],
   },
   {
@@ -199,11 +199,13 @@ export const credentials = [
 ];
 
 export const gallery = [
+  // [file, alt, caption, focal point, wide]
   ['ayush-in-front-of-the-europacat-2025-trondheim.jpg', 'Ayush standing in front of the EuropaCat 2025 Trondheim backdrop', 'At EuropaCat 2025, the European catalysis congress, in Trondheim.', '72% 50%'],
   ['ayush-reading-conference-posters.jpg', 'Ayush reading posters at a conference poster session', 'Reading the poster session at EuropaCat 2025.', '50% 40%'],
   ['ayush-suryawanshi-group-selfie-of-a-research-group.jpg', 'Group selfie of a research group of about fifteen people', 'With my thesis supervisor’s research group at IIT Madras.'],
-  ['ayush-presenting-slides-to-a-classroom.jpg', 'Ayush presenting slides to a classroom', 'Presenting a course project at IIT Madras.'],
-  ['ayush-suryawanshi-group-photo-of-m-tech-students-in-convocation.jpg', 'Group photo of M.Tech students in convocation stoles with faculty', 'My M.Tech Catalysis Technology batch with faculty on convocation day.'],
+  ['sncr-project-team-dinner-trondheim.jpg', 'Ayush and friends from the SNCR project smiling around a dinner table', 'A dinner I hosted for my SNCR project group in Norway.', '50% 15%', true],
+  ['hiking-with-friends-norway.jpg', 'Ayush and three friends in rain jackets beside a stone cairn on a misty hike', 'Hiking with friends in Norway.'],
+  ['ayush-suryawanshi-group-photo-of-m-tech-students-in-convocation.jpg', 'Group photo of M.Tech students in convocation stoles with faculty', 'My M.Tech Catalysis Technology batch with faculty on convocation day.', '50% 20%', true],
   ['ayush-sitting-on-a-snow-covered-bench-outside.jpg', 'Ayush sitting on a snow-covered bench outside NTNU buildings', 'First snow in Trondheim during the exchange semester.'],
 ];
 
@@ -236,7 +238,7 @@ function durabilityChart() {
   return `<figure class="chart" data-chart="durability" aria-labelledby="dur-title">
   <div class="chart-head">
     <p class="chart-title" id="dur-title">Current kept after one hour at 0.55 V vs RHE</p>
-    <p class="chart-sub">Half-cell, carbon paper electrodes, 0.5 M HCOOH in 0.5 M H<sub>2</sub>SO<sub>4</sub>. Current at 3600 s as a share of the current at 61 s.</p>
+    <p class="chart-sub">Separate durability experiment on 1 cm² carbon paper electrodes (not the glassy carbon disk used for voltammetry), in a half-cell with 0.5 M HCOOH in 0.5 M H<sub>2</sub>SO<sub>4</sub>. Current at 3600 s as a share of the current at 61 s, after the first-minute charging transient.</p>
     <div class="seg" role="group" aria-label="Series shown">
       <button type="button" aria-pressed="true" data-show="both">Both</button>
       <button type="button" aria-pressed="false" data-show="fa">Formic acid only</button>
@@ -319,7 +321,7 @@ export const projects = [
   {
     slug: 'thesis-bi-pt-formic-acid',
     kind: ['lab'],
-    kindLabel: 'Lab research · M.Tech thesis',
+    kindLabel: 'Experimental research · M.Tech thesis',
     title: 'Keeping platinum clean in formic acid fuel cells',
     short: 'Bi-modified Pt/C catalysts and a quinone mediator, tested for how long they hold their current.',
     description:
@@ -337,7 +339,7 @@ export const projects = [
     meta: [
       ['Type', 'M.Tech thesis'],
       ['Supervisor', 'Prof. Raghuram Chetty, IIT Madras'],
-      ['At NTNU', 'Group of Prof. Edd Anders Blekkan'],
+      ['At NTNU', 'KinCat group; hosted and supervised by Prof. Edd Anders Blekkan'],
       ['Methods', 'Wet-chemical synthesis, catalyst inks, CV, chronoamperometry, ECSA, FE-SEM, EDX, XRD, BET'],
       ['Tools', 'Autolab potentiostat with NOVA, OriginPro'],
       ['Full title', 'Feasibility Study and Performance Evaluation of Hybrid Quinone–Formic Acid Systems as Alternative Fuels for Proton Exchange Membrane Fuel Cells'],
@@ -359,8 +361,8 @@ ${mechanism()}`],
   <li><h3>Made four catalysts</h3><p>Commercial 20 wt% Pt/C was soaked for 48 hours in bismuth nitrate at 1.25, 2.5, 5 and 10 mM in dilute sulphuric acid under nitrogen, then reduced with sodium borohydride and annealed at 300 °C under argon.</p></li>
   <li><h3>Tracked where the bismuth went</h3><p>FE-SEM, EDX averaged over four spots per sample, powder XRD and, for the best catalyst, nitrogen physisorption (BET).</p></li>
   <li><h3>Tuned the catalyst ink</h3><p>5 mg of catalyst in water and isopropanol, with either 5 µL or 20 µL of Nafion as binder.</p></li>
-  <li><h3>Built and tested electrodes</h3><p>Drop-cast on polished glassy carbon for voltammetry and on 1 cm² carbon paper for long holds, measured in a three-electrode cell on an Autolab potentiostat. AQSA was screened at 0, 1, 2 and 10 mM.</p></li>
-  <li><h3>Ran durability holds</h3><p>Each catalyst was held at 0.55 V vs RHE for 3600 s, with and without 1 mM AQSA.</p></li>
+  <li><h3>Built and tested electrodes</h3><p>For voltammetry and active-area measurements, 4 µL of ink was drop-cast on a polished glassy carbon disk (0.0707 cm²), the electrode in the photos. For the separate one-hour durability holds, the same ink was spread on 1 cm² carbon paper at the same loading, which gives a larger, more even area for long tests. Both were measured in a three-electrode cell with a platinum-coil counter and an Ag/AgCl reference on an Autolab potentiostat. AQSA was screened at 0, 1, 2 and 10 mM.</p></li>
+  <li><h3>Ran durability holds</h3><p>Each catalyst, on carbon paper, was held at 0.55 V vs RHE for 3600 s, with and without 1 mM AQSA.</p></li>
 </ol>
 <details class="more"><summary>Synthesis route and test setup</summary>
 ${fig('ayush-suryawanshi-six-step-schematic-of-the-catalyst-synthesis.jpg', 'Six-step schematic of the catalyst synthesis', 'How each catalyst was made, step by step: bismuth adsorbed onto commercial Pt/C under nitrogen, filtered, reduced with borohydride, filtered again and annealed under argon. The same route was used at every bismuth level, so differences in performance come from the bismuth, not the method.', { sizes: '(min-width: 1100px) 720px, 100vw' })}
@@ -392,7 +394,7 @@ ${fig('ayush-suryawanshi-edx-maps-for-carbon-platinum-bismuth-and-oxygen.jpg', '
 </details>
 
 <h3>Less Nafion, more current</h3>
-<p>The thinner Nafion film (5 µL) gave 2.4–2.8× higher peak current than the thicker one (20 µL), even though the thicker film showed slightly more active area on plain Pt/C. The active-area measurement only needs protons to reach the platinum, but formic acid has to diffuse through the film, so a thick ionomer layer wins one test and loses the other.</p>
+<p>On the glassy carbon electrode, the thinner Nafion film (5 µL per 5 mg of catalyst) gave 2.4–2.8× higher peak current than the thicker one (20 µL), even though the thicker film showed slightly more active area on plain Pt/C. The active-area measurement only needs protons to reach the platinum, but formic acid has to diffuse through the film, so a thick ionomer layer wins one test and loses the other.</p>
 
 <h3>Which catalyst lasted</h3>
 ${durabilityChart()}
@@ -400,8 +402,8 @@ ${durabilityChart()}
 <p>One result surprised me. Bi(5)-Pt/C had the most impressive voltammogram, 851.7 mA per mg of Pt, but most of that peak came from oxidising CO that had already formed. It was recovering from poisoning rather than avoiding it, and kept only 52.8% of its current. On the activity that comes from the direct pathway, before any CO is burned off, Bi(1.25)-Pt/C led at 494.9 mA per mg of Pt, 5.5 times commercial Pt/C.</p>
 <details class="more"><summary>The measured curves behind these numbers</summary>
 <div class="fig-row">
-${fig('ayush-suryawanshi-cyclic-voltammograms-of-three-catalysts-in-formic-acid.jpg', 'Cyclic voltammograms of three catalysts in formic acid', 'Cyclic voltammograms of Pt/C, Bi(1.25)-Pt/C and Bi(10)-Pt/C in 0.5 M formic acid at 50 mV/s. A large peak late in the forward scan is CO being burned off, so peak height alone can flatter a catalyst.', { sizes: '(min-width: 720px) 340px, 100vw' })}
-${fig('ayush-suryawanshi-current-retention-curves-over-one-hour-for-five.jpg', 'Current retention curves over one hour for five catalysts', 'The full one-hour current traces at 0.55 V vs RHE behind the chart above. The flatter the curve, the less the catalyst is being poisoned.', { sizes: '(min-width: 720px) 340px, 100vw' })}
+${fig('ayush-suryawanshi-cyclic-voltammograms-of-three-catalysts-in-formic-acid.jpg', 'Cyclic voltammograms of three catalysts in formic acid', 'Cyclic voltammograms of Pt/C, Bi(1.25)-Pt/C and Bi(10)-Pt/C on the glassy carbon electrode in 0.5 M formic acid at 50 mV/s. A large peak late in the forward scan is CO being burned off, so peak height alone can flatter a catalyst.', { sizes: '(min-width: 720px) 340px, 100vw' })}
+${fig('ayush-suryawanshi-current-retention-curves-over-one-hour-for-five.jpg', 'Current retention curves over one hour for five catalysts', 'The full one-hour current traces on carbon paper at 0.55 V vs RHE, behind the chart above. The flatter the curve, the less the catalyst is being poisoned.', { sizes: '(min-width: 720px) 340px, 100vw' })}
 </div>
 </details>`],
       ['limits', 'What it doesn’t show yet', `
@@ -413,13 +415,13 @@ ${fig('ayush-suryawanshi-current-retention-curves-over-one-hour-for-five.jpg', '
   {
     slug: 'ntnu-synthesis-scale-up',
     kind: ['lab'],
-    kindLabel: 'Lab research · NTNU, Norway',
+    kindLabel: 'Experimental research · KinCat group, NTNU',
     title: 'Making the catalyst synthesis safe to scale',
     short: 'Three batches of Bi-modified Pt/C, one ignition on the filter, and a cleaner aqueous route.',
     description:
       'Catalyst synthesis rework at NTNU, Norway, by Ayush Suryawanshi: three batches of Bi-modified Pt/C, a borohydride ignition during filtration, and a safer aqueous route.',
     when: 'Aug – Dec 2025',
-    where: 'Department of Chemical Engineering, NTNU, Trondheim',
+    where: 'KinCat group, Department of Chemical Engineering, NTNU, Trondheim',
     cardImg: ['ayush-suryawanshi-photo-baa04525.jpg', 'Ayush in cleanroom gear at an SEM workstation'],
     stats: [
       ['3', 'synthesis batches'],
@@ -428,7 +430,7 @@ ${fig('ayush-suryawanshi-current-retention-curves-over-one-hour-for-five.jpg', '
     tags: ['Catalyst synthesis', 'Process safety', 'SEM'],
     meta: [
       ['Type', 'Lab research, part of the thesis'],
-      ['Host', 'Prof. Edd Anders Blekkan'],
+      ['Supervisor at NTNU', 'Prof. Edd Anders Blekkan'],
       ['Funding', 'UTFORSK mobility scholarship'],
       ['Methods', 'Aqueous chemical reduction, filtration and drying, SEM'],
     ],
@@ -441,7 +443,7 @@ ${fig('ayush-suryawanshi-current-retention-curves-over-one-hour-for-five.jpg', '
     hero: ['ayush-suryawanshi-photo-baa04525.jpg', 'Ayush in cleanroom gear at an SEM workstation', 'At the SEM in the NTNU cleanroom, checking a batch.'],
     sections: () => [
       ['question', 'The problem', `
-<p>The thesis needed one synthesis route I could rely on, and the first route I tried did not give it. I ran the Bi-modified Pt/C synthesis in three batches at NTNU and changed it after each one.</p>`],
+<p>The thesis needed one synthesis route I could rely on, and the first route I tried did not give it. I ran the Bi-modified Pt/C synthesis in three batches in the KinCat group at NTNU and changed it after each one.</p>`],
       ['approach', 'Batch by batch', `
 <ol class="steps">
   <li><h3>Batch 1: following the paper</h3><p>The literature procedure recovered very little catalyst. Most of the loss happened during filtration, and SEM showed irregular, sheet-like features that pointed to contamination during recovery.</p></li>
@@ -463,7 +465,7 @@ ${fig('ayush-suryawanshi-two-high-magnification-sem-micrographs.jpg', 'Two high-
   {
     slug: 'dft-orr-pt13',
     kind: ['computation'],
-    kindLabel: 'Computation · Course project',
+    kindLabel: 'Modelling and simulation · Course project',
     title: 'Oxygen reduction on a 13-atom platinum cluster',
     short: 'A DFT study of the four-electron oxygen reduction pathway on Pt<sub>13</sub>.',
     description:
@@ -512,7 +514,7 @@ ${fig('ayush-suryawanshi-photo-4972ceff.jpg', 'Plot of step energies with the op
   {
     slug: 'sncr-biomass-boiler',
     kind: ['process', 'computation'],
-    kindLabel: 'Process design · NTNU, team of four',
+    kindLabel: 'Process engineering · NTNU, team of four',
     title: 'Cutting NOx from a biomass boiler',
     short: 'Process design for an SNCR retrofit, modelled in Cantera and presented in Oslo.',
     description:
@@ -566,8 +568,8 @@ ${fig('sncr-poster-treforedlingsforum-2025.jpg', 'Conference poster titled SNCR 
 ];
 
 export const kinds = [
-  ['all', 'All'],
-  ['lab', 'Lab research'],
-  ['computation', 'Computation'],
-  ['process', 'Process design'],
+  ['all', 'All', ''],
+  ['lab', 'Experimental research', 'Making catalysts and electrodes and measuring what they do.'],
+  ['computation', 'Modelling and simulation', 'DFT of reaction intermediates and reaction-kinetics models.'],
+  ['process', 'Process engineering', 'Designing and choosing processes under cost, safety and emission limits.'],
 ];

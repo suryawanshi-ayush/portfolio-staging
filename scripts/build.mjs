@@ -217,7 +217,7 @@ function home() {
     <div class="hero-text">
       <p class="eyebrow" data-reveal>Chemical engineer · Catalysis · Electrochemistry · Process design</p>
       <h1 class="hero-title" data-reveal>Ayush Suryawanshi</h1>
-      <p class="hero-lede" data-reveal>My work runs from the lab bench to the plant: making catalysts, building and testing electrodes, modelling reactions on a computer, and weighing process options against cost and safety. It started with fuel-cell catalysts and now includes industrial effluent treatment.</p>
+      <p class="hero-lede" data-reveal>My work runs from the lab bench to the plant: making catalysts, building and testing electrodes, modelling reactions on a computer, and weighing process options against cost and safety, while being clear about what each result can and can’t show. It started with fuel-cell catalysts and now includes industrial effluent treatment.</p>
       <div class="hero-cta" data-reveal>
         <a class="btn btn-primary" href="${url('projects/')}">Explore my work ${ARROW}</a>
         <a class="btn btn-ghost" href="${url('cv/')}">View CV</a>
@@ -225,7 +225,7 @@ function home() {
       <ul class="facts" data-reveal>
         <li><span class="k">Now</span>Management Trainee, LOXIM Industries</li>
         <li><span class="k">M.Tech</span>Catalysis Technology, IIT Madras, 2026</li>
-        <li><span class="k">Abroad</span>Research semester, NTNU, Norway, 2025</li>
+        <li><span class="k">Abroad</span>Research semester, KinCat group, NTNU, Norway, 2025</li>
       </ul>
     </div>
     <figure class="hero-photo" data-reveal>
@@ -325,7 +325,7 @@ function home() {
       <li><span class="when">2019–23</span><strong>B.Tech, Chemical Engineering</strong><span>IIST Indore (RGPV)</span></li>
       <li><span class="when">2024</span><strong>GATE, AIR 864</strong><span>of 13,937 candidates</span></li>
       <li><span class="when">2024–26</span><strong>M.Tech, Catalysis Technology</strong><span>IIT Madras · CGPA 8.51/10</span></li>
-      <li class="abroad"><span class="when">2025</span><strong>Research semester</strong><span>NTNU, Norway · UTFORSK</span></li>
+      <li class="abroad"><span class="when">2025</span><strong>Research semester</strong><span>KinCat group, NTNU · UTFORSK</span></li>
       <li><span class="when">2026–</span><strong>Management Trainee</strong><span>LOXIM Industries</span></li>
     </ol>
   </div>
@@ -357,7 +357,10 @@ function projectsIndex() {
   <div class="wrap">
     <p class="eyebrow">Work</p>
     <h1>Projects</h1>
-    <p class="page-lede">Lab research, computation and process design from my M.Tech at IIT Madras and my semester at NTNU. Each project page covers the problem, what I did, the results and their limits.</p>
+    <p class="page-lede">Experimental research, modelling and process engineering from my M.Tech at IIT Madras and my semester at NTNU. Each project page covers the problem, my part in it, the methods, the results and their limits.</p>
+    <ul class="strands">
+      ${kinds.slice(1).map(([k, label, text]) => `<li><span class="strand-n">${label}</span><span>${text}</span> <span class="muted">${projects.filter((p) => p.kind.includes(k)).length} project${projects.filter((p) => p.kind.includes(k)).length === 1 ? '' : 's'}</span></li>`).join('')}
+    </ul>
   </div>
 </section>
 <section class="section tight">
@@ -367,10 +370,16 @@ function projectsIndex() {
       <p class="count" aria-live="polite" data-count>${projects.length} projects</p>
     </div>
     <div class="cards cards-2">${projects.map((p) => projectCard(p, { headingLevel: 2 })).join('')}</div>
-    <aside class="earlier" data-reveal>
-      <h2>Earlier work</h2>
-      <p>As a B.Tech student I presented a paper at SCHEMCON 2021, organised by MANIT and IISER Bhopal.</p>
-    </aside>
+    <div class="aside-row">
+      <aside class="earlier" data-reveal>
+        <h2>Current industrial work</h2>
+        <p>At LOXIM Industries in Ahmedabad I’m leading technology selection for sulphate removal from plant effluent, including electrocoagulation and electroflocculation as pretreatment, with vendor screening, sample trials and feasibility checks. It is ongoing, so it is summarised <a href="${url('#now')}">on the home page</a> rather than written up as a project.</p>
+      </aside>
+      <aside class="earlier" data-reveal>
+        <h2>Earlier work</h2>
+        <p>As a B.Tech student I presented a paper at SCHEMCON 2021, organised by MANIT and IISER Bhopal.</p>
+      </aside>
+    </div>
   </div>
 </section>`;
   return page({
@@ -461,10 +470,24 @@ function about() {
     </div>
     <figure class="about-photo">${img('portrait-of-ayush-suryawanshi.jpg', 'Portrait of Ayush Suryawanshi', { sizes: '(min-width: 900px) 300px, 60vw', eager: true })}</figure>
   </div>
-</section>
-<section class="section tight" aria-labelledby="journey-h">
   <div class="wrap">
-    <h2 id="journey-h" class="section-title">Journey, most recent first</h2>
+    <nav class="jump" aria-label="On this page">
+      <span class="eyebrow">On this page</span>
+      <ul>
+        <li><a href="#journey">Journey</a></li>
+        <li><a href="#mtech">M.Tech at IIT Madras</a></li>
+        <li><a href="#photos">People and places</a></li>
+        <li><a href="#credentials">Credentials</a></li>
+      </ul>
+    </nav>
+  </div>
+</section>
+<section class="section tight" id="journey" aria-labelledby="journey-h">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="journey-h" class="section-title">Journey, most recent first</h2>
+      <p class="section-lede">From a B.Tech in Indore to an M.Tech at IIT Madras, a research semester in Trondheim and industry in Ahmedabad. The M.Tech entry has the thesis summary and my placement role.</p>
+    </div>
     <ol class="timeline">
       ${timeline
         .map(
@@ -483,11 +506,20 @@ function about() {
     </ol>
   </div>
 </section>
+<section class="section" id="photos" aria-labelledby="gallery-h">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="gallery-h" class="section-title">People and places</h2>
+      <p class="section-lede">Conferences, the groups I worked with, and some of life around the work.</p>
+    </div>
+    <div class="gallery">${gallery.map(([f, a, c, pos, wide], i) => fig(f, a, c, { cls: `g${i + 1}${wide ? ' wide' : ''}`, sizes: wide ? '(min-width: 900px) 760px, 100vw' : '(min-width: 900px) 380px, 100vw', pos })).join('')}</div>
+  </div>
+</section>
 <section class="section" id="credentials" aria-labelledby="cred-h">
   <div class="wrap">
     <div class="section-head">
       <h2 id="cred-h" class="section-title">Selected credentials</h2>
-      <p class="section-lede">A few certificates behind the story above. Select one to see it at full size.</p>
+      <p class="section-lede">Supporting documents for the degree and the talks and courses above. Select one to see it at full size.</p>
     </div>
     <ul class="creds">
       ${credentials
@@ -508,12 +540,7 @@ function about() {
     <p class="note">Also on record: GATE 2024 Chemical Engineering, All India Rank 864 of 13,937 candidates, and a UTFORSK mobility scholarship from NTNU for August–December 2025. Identification numbers and QR codes on the certificates are hidden.</p>
   </div>
 </section>
-<section class="section" aria-labelledby="gallery-h">
-  <div class="wrap">
-    <h2 id="gallery-h" class="section-title">People and places</h2>
-    <div class="gallery">${gallery.map(([f, a, c, pos], i) => fig(f, a, c, { cls: `g${i + 1}`, sizes: '(min-width: 900px) 380px, 100vw', pos })).join('')}</div>
-  </div>
-</section>`;
+`;
   return page({
     path: 'about/',
     title: 'About – Ayush Suryawanshi',
