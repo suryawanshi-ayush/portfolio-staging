@@ -1,4 +1,8 @@
-# Ayush Suryawanshi, portfolio
+# Ayush Suryawanshi, portfolio (STAGING COPY)
+
+> Test copy of [suryawanshi-ayush/suryawanshi-ayush.github.io](https://github.com/suryawanshi-ayush/suryawanshi-ayush.github.io) for trying changes before they go to the live site.
+> Staging-only differences, which must NOT be copied back to the live site: `noindex, nofollow` robots meta tag in `index.html`, a block-all `robots.txt`, and no Google verification file.
+> Preview: https://suryawanshi-ayush.github.io/portfolio-staging/
 
 Personal portfolio website of Ayush Suryawanshi, chemical engineer (M.Tech Catalysis Technology, IIT Madras).
 
