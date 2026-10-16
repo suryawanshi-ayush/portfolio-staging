@@ -4,7 +4,7 @@ There is no editable source for the CV (it was generated straight to PDF), so th
 made on the PDF itself, keeping the original fonts, sizes, colours and positions:
 
   * professional summary rewritten (same five justified lines)
-  * header: phone number removed; the website shown as its address, not the word "Portfolio"
+  * header: phone number removed; LinkedIn and the website shown as their addresses
   * NTNU research stay names the KinCat group
   * British/Indian English spellings (sulphate, optimised, characterisation); official
     course titles are left as the institutes spell them
@@ -185,7 +185,7 @@ def header(page, src_page):
              "web": pymupdf.Rect(461.67, 54.5, 469.98, 63.4)}
     sep = "   |   "
     parts = [("email", "ayush.suryawanshi0803@gmail.com", "mailto:ayush.suryawanshi0803@gmail.com"),
-             ("linkedin", "LinkedIn", "https://linkedin.com/in/ayush-suryawanshi"),
+             ("linkedin", "linkedin.com/in/ayush-suryawanshi", "https://linkedin.com/in/ayush-suryawanshi"),
              ("web", WEBSITE[0], WEBSITE[1])]
     gap, size, base = 4.4, 10.5, 62.6
     texts = [t + (sep if i < len(parts) - 1 else "") for i, (_, t, _) in enumerate(parts)]
