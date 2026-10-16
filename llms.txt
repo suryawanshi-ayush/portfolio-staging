@@ -1,6 +1,6 @@
 # Ayush Suryawanshi
 
-> Ayush Suryawanshi is an Indian chemical engineer working across electrocatalyst synthesis, electrode preparation, electrochemical testing and process engineering. Ayush holds an M.Tech in Catalysis Technology from IIT Madras (2026, CGPA 8.5/10), spent a research semester at NTNU, Norway (2025), and is currently a Management Trainee at LOXIM Industries Ltd., Ahmedabad. Ayush wants to work on electrodes and cells for green hydrogen, AEM electrolysers and fuel cells, and is open to PhD positions in electrocatalysis.
+> Ayush Suryawanshi is an Indian chemical engineer working across electrocatalyst synthesis, electrode preparation, electrochemical testing and process engineering. Ayush holds an M.Tech in Catalysis Technology from IIT Madras (2026, CGPA 8.51/10), spent a research semester at NTNU, Norway (2025), and is currently a Management Trainee at LOXIM Industries Ltd., Ahmedabad, working on effluent treatment technology. The work spans catalyst synthesis, electrode preparation and three-electrode electrochemical testing, DFT and reaction-kinetics modelling, and process design. Research interests include electrochemical energy conversion such as AEM electrolysis, fuel cells and green hydrogen.
 
 Website: https://suryawanshi-ayush.github.io/
 LinkedIn: https://www.linkedin.com/in/ayush-suryawanshi
@@ -8,7 +8,7 @@ Email: ayush.suryawanshi0803@gmail.com
 CV (PDF): https://suryawanshi-ayush.github.io/Ayush_CV.pdf
 
 ## Education
-- M.Tech, Catalysis Technology, Department of Chemical Engineering, IIT Madras, Chennai, Jun 2024 – May 2026. CGPA 8.5/10. Degree received at the 63rd convocation, July 2026.
+- M.Tech, Catalysis Technology, Department of Chemical Engineering, IIT Madras, Chennai, Jun 2024 – May 2026. CGPA 8.51/10. Degree conferred at the 63rd convocation, 17 July 2026.
 - Semester exchange, Department of Chemical Engineering, NTNU, Trondheim, Norway, Aug – Dec 2025. UTFORSK mobility scholarship. Thesis synthesis in the group of Prof. Edd Anders Blekkan.
 - B.Tech, Chemical Engineering, Indore Institute of Science and Technology, affiliated to RGPV Bhopal, 2019 – 2023. CGPA 8.17/10, First Division with Honours.
 - Senior School Certificate (Class XII, CBSE), Delhi Public School, Chhindwara, 2019. 84.2%.

@@ -29,7 +29,14 @@ Generated (do not edit by hand): `index.html`, `projects/`, `about/`, `cv/`, `40
 `sitemap.xml`, `robots.txt`, `llms.txt`.
 
 Images: originals stay in `images/*.jpg` (old links keep working); the pages use WebP copies in
-`images/w/` at 640 px and 1280 px wide.
+`images/w/` at 640 px and 1280 px wide. After adding a photo to `images/`, run
+`python3 scripts/images.py` to make its WebP copies and update `src/images.json`.
+
+Certificates: previews in `images/certificates/` are made from the private documents repository
+(`suryawanshi-ayush/documents`) with `python3 scripts/certificates.py /path/to/documents`. The
+script crops each certificate to its edges and paints out QR codes and ID numbers. The original
+PDFs, thesis and reports are never copied into this site; only the findings are summarised in
+`src/content.mjs`.
 
 ## Moving a change to the live site
 

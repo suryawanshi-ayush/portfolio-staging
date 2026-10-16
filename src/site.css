@@ -463,7 +463,7 @@ html.motion .card:hover .card-media img { transform: scale(1.03); }
 .page-lede { font-size: clamp(1.05rem, 1.6vw, 1.2rem); color: var(--ink-2); max-width: 62ch; }
 .crumbs { display: flex; gap: 0.5rem; flex-wrap: wrap; font-size: 0.9rem; color: var(--muted); margin-bottom: 1.6rem; }
 .crumbs [aria-current] { color: var(--muted); }
-.proj-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1rem 2rem; margin: 2rem 0 0; padding-top: 1.4rem; border-top: 1px solid var(--rule); }
+.proj-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem 2rem; margin: 2rem 0 0; padding-top: 1.4rem; border-top: 1px solid var(--rule); }
 .proj-meta dt { font: 0.74rem var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.2rem; }
 .proj-meta dd { margin: 0; font-size: 0.95rem; }
 .proj-hero { margin: clamp(1.5rem, 4vw, 2.5rem) 0 0; }
@@ -706,3 +706,38 @@ html.motion .hero [data-reveal] { transition-duration: 0.8s; }
   body { background: #fff; color: #000; }
   details.more > :not(summary) { display: block; }
 }
+
+/* ---------- uncropped project photos (people stay in frame) ---------- */
+.proj-hero.natural { display: flex; flex-direction: column; align-items: center; }
+.proj-hero.natural img { width: auto; max-width: 100%; max-height: min(640px, 80vh); object-fit: contain; }
+.proj-hero.natural figcaption { text-align: center; }
+.fig.poster { max-width: 420px; }
+.fig.poster img { border: 1px solid var(--rule); }
+
+/* ---------- M.Tech detail in the timeline ---------- */
+.timeline > li.wide .tl-text { max-width: 74ch; }
+.tl-blocks { margin: 1.2rem 0 0; display: grid; gap: 0; border-top: 1px solid var(--rule); }
+.tl-block { display: grid; grid-template-columns: 4.6rem minmax(0, 1fr); gap: 1rem; padding: 0.85rem 0; border-bottom: 1px solid var(--rule); }
+.tl-block dt { font: 500 0.74rem var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding-top: 0.25rem; }
+.tl-block dd { margin: 0; color: var(--ink-2); }
+.tl-block dd a { white-space: nowrap; }
+.tl-block.role { background: var(--surface); padding-left: 0.9rem; padding-right: 0.9rem; border-left: 2px solid var(--warm); border-bottom-color: transparent; margin-top: 0.6rem; border-radius: 0 var(--radius-s) var(--radius-s) 0; }
+@media (max-width: 560px) {
+  .tl-block { grid-template-columns: 1fr; gap: 0.25rem; }
+}
+
+/* ---------- credentials ---------- */
+.creds { list-style: none; padding: 0; margin: 0 0 1.4rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1.2rem; }
+.cred figure { height: 100%; display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); overflow: hidden; transition: border-color 0.2s; }
+.cred figure:hover { border-color: var(--rule-strong); }
+.cred-thumb { position: relative; aspect-ratio: 4 / 3; background: var(--surface-2); border-bottom: 1px solid var(--rule); overflow: hidden; }
+.cred-thumb img { position: absolute; inset: 14px; width: calc(100% - 28px); height: calc(100% - 28px); object-fit: contain; filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.12)) drop-shadow(0 6px 10px rgba(0, 0, 0, 0.18)); transition: transform 0.3s var(--ease); }
+html.motion .cred figure:hover .cred-thumb img { transform: scale(1.03); }
+.cred figcaption { padding: 1rem 1.1rem 1.2rem; }
+.cred h3 { font-size: 1rem; line-height: 1.35; margin: 0 0 0.4rem; }
+.cred-meta { font-size: 0.86rem; color: var(--muted); margin: 0 0 0.4rem; }
+.cred-note { font-size: 0.88rem; color: var(--ink-2); margin: 0; }
+
+/* lightbox: full-size link for posters and certificates */
+.lb-full { color: #c4c9d0; font-size: 0.88rem; margin-top: 0.6rem; }
+.lb-full:hover { color: #fff; }

@@ -5,7 +5,7 @@ import { createHash } from 'node:crypto';
 import { dirname } from 'node:path';
 import { config, url, liveUrl, esc, strip, img, fig } from '../src/lib.mjs';
 import {
-  person, education, experience, skills, coursework, recognition, stages, timeline, gallery, projects, kinds, mechanism,
+  person, education, experience, skills, coursework, recognition, stages, timeline, gallery, projects, kinds, mechanism, credentials,
 } from '../src/content.mjs';
 
 const ROOT = new URL('../', import.meta.url).pathname;
@@ -53,7 +53,7 @@ const personLd = {
   email: 'mailto:' + person.email,
   jobTitle: 'Management Trainee',
   description:
-    'Chemical engineer working across electrocatalyst synthesis, electrode preparation, electrochemical testing and process engineering. M.Tech in Catalysis Technology, IIT Madras (2026), with a research semester at NTNU, Norway (2025).',
+    'Chemical engineer working across catalyst synthesis, electrode preparation, electrochemical testing, simulation and process engineering. M.Tech in Catalysis Technology, IIT Madras (2026), with a research semester at NTNU, Norway (2025).',
   worksFor: { '@type': 'Organization', name: 'LOXIM Industries Ltd.', address: { '@type': 'PostalAddress', addressLocality: 'Ahmedabad', addressCountry: 'IN' } },
   alumniOf: [
     { '@type': 'CollegeOrUniversity', name: 'Indian Institute of Technology Madras', alternateName: 'IIT Madras', sameAs: 'https://www.iitm.ac.in/' },
@@ -113,8 +113,8 @@ function footer() {
     <div class="contact-grid">
       <div>
         <p class="eyebrow">Contact</p>
-        <h2 class="contact-title">Working on electrodes, electrolysers or fuel cells?</h2>
-        <p class="contact-lede">I’m looking for hands-on electrode and cell work in green hydrogen, and I’m open to PhD positions in electrocatalysis. Email is the quickest way to reach me.</p>
+        <h2 class="contact-title">Let’s talk about catalysts, cells or process design</h2>
+        <p class="contact-lede">Questions about a project, a collaboration, or something you read here are all welcome. Email is the quickest way to reach me.</p>
       </div>
       <div class="contact-actions">
         <a class="btn btn-primary" href="mailto:${person.email}">Email me ${ARROW}</a>
@@ -136,6 +136,7 @@ function footer() {
   <form method="dialog"><button class="lb-close" aria-label="Close">Close <kbd>Esc</kbd></button></form>
   <img alt="">
   <p class="lb-cap"></p>
+  <a class="lb-full" href="#" target="_blank" rel="noopener">Open full size in a new tab</a>
   <div class="lb-nav"><button type="button" data-step="-1" aria-label="Previous image">←</button><button type="button" data-step="1" aria-label="Next image">→</button></div>
 </dialog>`;
 }
@@ -190,11 +191,11 @@ const projectUrl = (slug) => url(`projects/${slug}/`);
 const linkFor = (slug) => (slug.startsWith('#') ? slug : projectUrl(slug));
 
 function projectCard(p, { headingLevel = 3 } = {}) {
-  const [file, alt] = p.cardImg;
+  const [file, alt, pos] = p.cardImg;
   const h = `h${headingLevel}`;
   return `<article class="card" data-kind="${p.kind.join(' ')}" data-reveal>
   <a class="card-link" href="${projectUrl(p.slug)}">
-    <div class="card-media${p.cardContain ? ' contain' : ''}">${img(file, alt, { sizes: '(min-width: 1100px) 360px, (min-width: 720px) 45vw, 100vw' })}</div>
+    <div class="card-media${p.cardContain ? ' contain' : ''}">${img(file, alt, { sizes: '(min-width: 1100px) 360px, (min-width: 720px) 45vw, 100vw', pos })}</div>
     <div class="card-body">
       <p class="eyebrow">${p.kindLabel}</p>
       <${h} class="card-title">${p.title}</${h}>
@@ -214,11 +215,11 @@ function home() {
 <section class="hero">
   <div class="wrap hero-grid">
     <div class="hero-text">
-      <p class="eyebrow" data-reveal>Chemical engineer · Electrocatalysis</p>
+      <p class="eyebrow" data-reveal>Chemical engineer · Catalysis · Electrochemistry · Process design</p>
       <h1 class="hero-title" data-reveal>Ayush Suryawanshi</h1>
-      <p class="hero-lede" data-reveal>I make catalysts, build electrodes and test them on a potentiostat, and I bring a process engineer’s view of what it takes to run things at scale. Next, I want to put that work into green hydrogen.</p>
+      <p class="hero-lede" data-reveal>My work runs from the lab bench to the plant: making catalysts, building and testing electrodes, modelling reactions on a computer, and weighing process options against cost and safety. It started with fuel-cell catalysts and now includes industrial effluent treatment.</p>
       <div class="hero-cta" data-reveal>
-        <a class="btn btn-primary" href="${projectUrl(thesis.slug)}">Read my thesis work ${ARROW}</a>
+        <a class="btn btn-primary" href="${url('projects/')}">Explore my work ${ARROW}</a>
         <a class="btn btn-ghost" href="${url('cv/')}">View CV</a>
       </div>
       <ul class="facts" data-reveal>
@@ -292,7 +293,7 @@ function home() {
     <div class="place-grid">
       ${fig('ayush-at-a-fume-hood-in-the-ntnu.jpg', 'Ayush working at a fume hood in the NTNU lab', 'Synthesising catalyst at the fume hood, NTNU.', { cls: 'p1', sizes: '(min-width: 900px) 300px, 50vw', pos: '50% 30%' })}
       ${fig('ayush-suryawanshi-photo-baa04525.jpg', 'Ayush in cleanroom gear at an SEM workstation', 'Checking a batch on the SEM in the NTNU cleanroom.', { cls: 'p2', sizes: '(min-width: 900px) 560px, 100vw' })}
-      ${fig('ayush-in-front-of-the-europacat-2025-trondheim.jpg', 'Ayush standing in front of the EuropaCat 2025 Trondheim backdrop', 'At EuropaCat 2025 in Trondheim.', { cls: 'p3', sizes: '(min-width: 900px) 300px, 50vw' })}
+      ${fig('ayush-in-front-of-the-europacat-2025-trondheim.jpg', 'Ayush standing in front of the EuropaCat 2025 Trondheim backdrop', 'At EuropaCat 2025 in Trondheim.', { cls: 'p3', sizes: '(min-width: 900px) 300px, 50vw', pos: '72% 50%' })}
     </div>
   </div>
 </section>
@@ -306,10 +307,10 @@ function home() {
       <p class="note">The options shortlisted so far point to a projected 50–60% lower operating cost, from INR 2.5/L to about INR 1.0–1.2/L. The selection is still in progress.</p>
     </div>
     <div class="now-card next" data-reveal>
-      <p class="eyebrow">Next</p>
-      <h2>Electrodes for green hydrogen</h2>
-      <p>I want hands-on electrode and cell work on AEM electrolysers or fuel cells, taking what I learned in half-cells into full devices: membrane electrode assemblies, single cells and longer durability tests. I’m also open to PhD positions in electrocatalysis.</p>
-      <p class="note">These are the directions I’m aiming for, not work I have done yet.</p>
+      <p class="eyebrow">What interests me</p>
+      <h2>From half-cells to working devices</h2>
+      <p>The questions I keep coming back to sit where electrochemistry meets process engineering: how a catalyst that looks good in a half-cell behaves in a membrane electrode assembly or a full electrolyser, how it ages over hundreds of hours, and what it takes to run it at plant scale. AEM electrolysis, fuel cells and green hydrogen are where those questions are most alive.</p>
+      <p class="note">These are interests, not work I have done yet; my device-level experience so far is in three-electrode half-cells.</p>
     </div>
   </div>
 </section>
@@ -323,7 +324,7 @@ function home() {
     <ol class="path-line" data-reveal>
       <li><span class="when">2019–23</span><strong>B.Tech, Chemical Engineering</strong><span>IIST Indore (RGPV)</span></li>
       <li><span class="when">2024</span><strong>GATE, AIR 864</strong><span>of 13,937 candidates</span></li>
-      <li><span class="when">2024–26</span><strong>M.Tech, Catalysis Technology</strong><span>IIT Madras · CGPA 8.5/10</span></li>
+      <li><span class="when">2024–26</span><strong>M.Tech, Catalysis Technology</strong><span>IIT Madras · CGPA 8.51/10</span></li>
       <li class="abroad"><span class="when">2025</span><strong>Research semester</strong><span>NTNU, Norway · UTFORSK</span></li>
       <li><span class="when">2026–</span><strong>Management Trainee</strong><span>LOXIM Industries</span></li>
     </ol>
@@ -331,9 +332,9 @@ function home() {
 </section>`;
   return page({
     path: '',
-    title: 'Ayush Suryawanshi – Chemical Engineer, Electrocatalysis | IIT Madras',
+    title: 'Ayush Suryawanshi – Chemical Engineer | Catalysis, Electrochemistry, Process Design',
     description:
-      'Ayush Suryawanshi is a chemical engineer with an M.Tech in Catalysis Technology from IIT Madras, working on electrocatalysts, electrodes, electrochemical testing and process engineering.',
+      'Ayush Suryawanshi is a chemical engineer (M.Tech Catalysis Technology, IIT Madras) whose work spans catalyst synthesis, electrochemical testing, DFT and kinetic modelling, and process design.',
     active: 'home',
     body,
     bodyClass: 'home',
@@ -342,7 +343,7 @@ function home() {
       personLd,
       { '@type': 'WebSite', '@id': liveUrl('#website'), url: liveUrl(), name: person.name, inLanguage: 'en', publisher: { '@id': liveUrl('#person') } },
       {
-        '@type': 'ProfilePage', '@id': liveUrl('#profile'), url: liveUrl(), name: 'Ayush Suryawanshi – Chemical Engineer, Electrocatalysis | IIT Madras',
+        '@type': 'ProfilePage', '@id': liveUrl('#profile'), url: liveUrl(), name: 'Ayush Suryawanshi – Chemical Engineer | Catalysis, Electrochemistry, Process Design',
         dateModified: person.updatedISO, isPartOf: { '@id': liveUrl('#website') }, mainEntity: { '@id': liveUrl('#person') },
       },
     ],
@@ -394,7 +395,7 @@ function projectPage(p, i) {
   const prev = projects[i - 1];
   const next = projects[i + 1];
   const heroFig = p.hero
-    ? `<div class="wrap">${fig(p.hero[0], p.hero[1], p.hero[2], { cls: 'proj-hero', sizes: '(min-width: 1200px) 1160px, 100vw' })}</div>`
+    ? `<div class="wrap">${fig(p.hero[0], p.hero[1], p.hero[2], { cls: `proj-hero${p.heroFit === 'natural' ? ' natural' : ''}`, sizes: p.heroFit === 'natural' ? '(min-width: 900px) 760px, 100vw' : '(min-width: 1200px) 1160px, 100vw' })}</div>`
     : '';
   const body = `
 <article class="project">
@@ -455,8 +456,8 @@ function about() {
   <div class="wrap about-head">
     <div>
       <p class="eyebrow">About</p>
-      <h1>Chemical engineer, catalysis-trained, heading for hydrogen</h1>
-      <p class="page-lede">I started in core chemical engineering in Indore, specialised in catalysis at IIT Madras, did my synthesis work in Trondheim, and now work on effluent treatment at LOXIM Industries. Along the way I learned to run the whole loop: make the catalyst, build the electrode, test it honestly, and think about the process around it.</p>
+      <h1>Chemical engineer, from the lab bench to the plant</h1>
+      <p class="page-lede">I started in core chemical engineering in Indore, specialised in catalysis at IIT Madras, did my synthesis work in Trondheim, and now work on effluent treatment at LOXIM Industries. Along the way I learned to run the whole loop: make the catalyst, build the electrode, test it honestly, model what the data can’t show, and think about the process around it.</p>
     </div>
     <figure class="about-photo">${img('portrait-of-ayush-suryawanshi.jpg', 'Portrait of Ayush Suryawanshi', { sizes: '(min-width: 900px) 300px, 60vw', eager: true })}</figure>
   </div>
@@ -467,18 +468,44 @@ function about() {
     <ol class="timeline">
       ${timeline
         .map(
-          (t) => `<li data-reveal${t.photo ? ' class="has-photo"' : ''}>
+          (t) => `<li data-reveal${t.id ? ` id="${t.id}"` : ''}${t.photo ? ' class="has-photo"' : t.blocks ? ' class="wide"' : ''}>
         <div class="tl-text">
           <span class="when">${t.when}</span>
           <h3>${t.title}</h3>
           <p class="where">${t.where}</p>
           <p>${t.text}</p>
+          ${t.blocks ? `<dl class="tl-blocks">${t.blocks.map(([k, v, link]) => `<div class="tl-block${k === 'Role' ? ' role' : ''}"><dt>${k}</dt><dd>${v}${link ? ` <a href="${url(link)}">Read more</a>` : ''}</dd></div>`).join('')}</dl>` : ''}
         </div>
         ${t.photo ? fig(t.photo[0], t.photo[1], t.photo[2], { cls: 'tl-photo', sizes: '(min-width: 900px) 360px, 100vw' }) : ''}
       </li>`,
         )
         .join('')}
     </ol>
+  </div>
+</section>
+<section class="section" id="credentials" aria-labelledby="cred-h">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="cred-h" class="section-title">Selected credentials</h2>
+      <p class="section-lede">A few certificates behind the story above. Select one to see it at full size.</p>
+    </div>
+    <ul class="creds">
+      ${credentials
+        .map(
+          (c) => `<li class="cred" data-reveal>
+        <figure>
+          <div class="cred-thumb"><img src="${url(`images/certificates/${c.slug}-640.jpg`)}" alt="${esc(c.alt)}" loading="lazy" decoding="async" data-zoom="${url(`images/certificates/${c.slug}-1600.jpg`)}"></div>
+          <figcaption>
+            <h3>${c.title}</h3>
+            <p class="cred-meta">${c.issuer} · <time>${c.when}</time></p>
+            <p class="cred-note">${c.note}${c.link ? ` <a href="${url(c.link[0])}">${c.link[1]}</a>` : ''}</p>
+          </figcaption>
+        </figure>
+      </li>`,
+        )
+        .join('')}
+    </ul>
+    <p class="note">Also on record: GATE 2024 Chemical Engineering, All India Rank 864 of 13,937 candidates, and a UTFORSK mobility scholarship from NTNU for August–December 2025. Identification numbers and QR codes on the certificates are hidden.</p>
   </div>
 </section>
 <section class="section" aria-labelledby="gallery-h">
@@ -525,7 +552,7 @@ function cv() {
       ${projects.map((p) => row(`<a href="${projectUrl(p.slug)}">${p.title}</a>`, p.where, p.when, `<p>${p.glance[2][1]}</p>`)).join('')}
     </section>
     <section aria-labelledby="cv-skills"><h2 id="cv-skills">Technical skills</h2>
-      <dl class="skills">${skills.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}<div><dt>Relevant coursework</dt><dd>${coursework}</dd></div><div><dt>Languages</dt><dd>English, Hindi</dd></div></dl>
+      <dl class="skills">${skills.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}<div><dt>Relevant coursework</dt><dd>${coursework}</dd></div><div><dt>Languages</dt><dd>English (IELTS Academic 7.0, CEFR C1, July 2026), Hindi</dd></div></dl>
     </section>
     <section aria-labelledby="cv-rec"><h2 id="cv-rec">Conferences, awards and scholarships</h2>
       ${recognition.map((r) => row(r.title, r.where, r.when)).join('')}
@@ -536,7 +563,7 @@ function cv() {
   return page({
     path: 'cv/',
     title: 'CV – Ayush Suryawanshi',
-    description: 'CV of Ayush Suryawanshi: M.Tech Catalysis Technology (IIT Madras, CGPA 8.5/10), NTNU research semester, electrochemical testing, catalyst synthesis and process engineering.',
+    description: 'CV of Ayush Suryawanshi: M.Tech Catalysis Technology (IIT Madras, CGPA 8.51/10), NTNU research semester, electrochemical testing, catalyst synthesis and process engineering.',
     active: 'cv',
     body,
     jsonld: [
@@ -600,7 +627,7 @@ out(
   'llms.txt',
   `# ${person.name}
 
-> ${person.name} is an Indian chemical engineer working across electrocatalyst synthesis, electrode preparation, electrochemical testing and process engineering. Ayush holds an M.Tech in Catalysis Technology from IIT Madras (2026, CGPA 8.5/10), spent a research semester at NTNU, Norway (2025), and is currently a Management Trainee at LOXIM Industries Ltd., Ahmedabad. Ayush wants to work on electrodes and cells for green hydrogen, AEM electrolysers and fuel cells, and is open to PhD positions in electrocatalysis.
+> ${person.name} is an Indian chemical engineer working across electrocatalyst synthesis, electrode preparation, electrochemical testing and process engineering. Ayush holds an M.Tech in Catalysis Technology from IIT Madras (2026, CGPA 8.51/10), spent a research semester at NTNU, Norway (2025), and is currently a Management Trainee at LOXIM Industries Ltd., Ahmedabad, working on effluent treatment technology. The work spans catalyst synthesis, electrode preparation and three-electrode electrochemical testing, DFT and reaction-kinetics modelling, and process design. Research interests include electrochemical energy conversion such as AEM electrolysis, fuel cells and green hydrogen.
 
 Website: ${liveUrl()}
 LinkedIn: ${person.linkedin}

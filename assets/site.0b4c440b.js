@@ -113,9 +113,11 @@
       idx = (i + group.length) % group.length;
       const im = group[idx];
       big.src = im.dataset.zoom;
+      const full = $('.lb-full', box);
+      if (full) full.href = im.dataset.zoom;
       big.alt = im.alt;
       const fc = im.closest('figure')?.querySelector('figcaption');
-      cap.textContent = fc ? fc.textContent.trim() : '';
+      cap.textContent = fc ? fc.innerText.trim().replace(/\s*\n+\s*/g, ' · ') : '';
     };
     zoomables.forEach((im) => {
       im.tabIndex = 0;

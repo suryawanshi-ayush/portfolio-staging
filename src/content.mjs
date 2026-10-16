@@ -20,7 +20,7 @@ export const education = [
     title: 'M.Tech, Catalysis Technology',
     org: 'Department of Chemical Engineering, IIT Madras, Chennai',
     when: 'Jun 2024 – May 2026',
-    detail: 'CGPA 8.5/10. Degree received at the 63rd convocation, July 2026.',
+    detail: 'CGPA 8.51/10. Degree conferred at the 63rd convocation, 17 July 2026.',
   },
   {
     title: 'Semester exchange',
@@ -90,25 +90,25 @@ export const stages = [
   {
     n: '01',
     title: 'Catalyst synthesis',
-    text: 'Wet-chemical modification of commercial Pt/C: adsorption, borohydride reduction and annealing under argon, and reworking the route when it was unsafe to scale.',
+    text: 'Wet-chemical modification of commercial Pt/C: adsorption, borohydride reduction and annealing under argon, then reworking the route at NTNU when it proved unsafe to scale.',
     links: [['thesis-bi-pt-formic-acid', 'Bi-modified Pt/C series'], ['ntnu-synthesis-scale-up', 'Synthesis rework at NTNU']],
   },
   {
     n: '02',
-    title: 'Electrodes and inks',
-    text: 'Catalyst inks, ionomer loading and drop-cast electrodes on glassy carbon and carbon paper. A thinner Nafion film raised peak current 2.4–2.8×.',
-    links: [['thesis-bi-pt-formic-acid', 'Ink and Nafion study']],
+    title: 'Electrodes and electrochemistry',
+    text: 'Catalyst inks and drop-cast electrodes on glassy carbon and carbon paper, tested in a three-electrode cell: CV, ECSA, mass activity and one-hour holds, backed by FE-SEM, EDX, XRD and BET.',
+    links: [['thesis-bi-pt-formic-acid', 'Durability results']],
   },
   {
     n: '03',
-    title: 'Testing and analysis',
-    text: 'Three-electrode half-cell work on an Autolab potentiostat: CV, ECSA, mass activity and one-hour holds, backed by FE-SEM, EDX, XRD and BET. Plus DFT on a Pt<sub>13</sub> cluster.',
-    links: [['thesis-bi-pt-formic-acid', 'Durability results'], ['dft-orr-pt13', 'DFT of oxygen reduction']],
+    title: 'Modelling and simulation',
+    text: 'DFT of oxygen reduction intermediates on a Pt<sub>13</sub> cluster in Gaussian 16, and combustion and SNCR reaction kinetics modelled in Python with Cantera.',
+    links: [['dft-orr-pt13', 'DFT of oxygen reduction'], ['sncr-biomass-boiler', 'SNCR kinetic model']],
   },
   {
     n: '04',
     title: 'Process engineering',
-    text: 'Design and technology selection under real constraints: an SNCR retrofit for a biomass boiler at NTNU, and effluent treatment options at LOXIM Industries.',
+    text: 'Design and technology selection under real constraints: an SNCR retrofit for a biomass boiler with Norwegian industry partners, and effluent treatment options at LOXIM Industries.',
     links: [['sncr-biomass-boiler', 'SNCR retrofit design'], ['#now', 'Current work at LOXIM']],
   },
 ];
@@ -118,61 +118,93 @@ export const timeline = [
     when: 'Jul 2026 – present',
     title: 'Management Trainee, LOXIM Industries',
     where: 'Ahmedabad',
-    text: 'My first industry role: technology selection for sulphate removal from plant effluent, including electrocoagulation and electroflocculation as pretreatment, with vendor screening and sample trials.',
+    text: 'My first industry role: technology selection for sulphate removal from plant effluent, including electrocoagulation and electroflocculation as pretreatment, with vendor screening, sample trials and feasibility checks.',
   },
   {
     when: 'Jul 2026',
     title: 'M.Tech degree, 63rd convocation of IIT Madras',
     where: 'Chennai',
-    text: 'Thesis submitted in May 2026.',
+    text: 'Degree conferred on 17 July 2026, after submitting the thesis in May.',
     photo: ['ayush-receiving-his-degree-certificate-on-stage-with.jpg', 'Ayush receiving his degree certificate on stage from two faculty members', 'Receiving my M.Tech degree at the 63rd convocation of IIT Madras, July 2026.'],
   },
   {
     when: 'Aug – Dec 2025',
     title: 'Research semester at NTNU, Norway',
-    where: 'Trondheim, on a UTFORSK scholarship',
-    text: 'Synthesised the thesis catalysts in Prof. Edd Anders Blekkan’s group, reworked the route after an ignition on the filter, and joined a four-person SNCR design project for two Norwegian industry partners. Attended EuropaCat 2025 in Trondheim and presented our poster at Treforedlingsforum 2025 in Oslo.',
-    photo: ['ayush-sitting-on-a-snow-covered-bench-outside.jpg', 'Ayush sitting on a snow-covered bench outside NTNU buildings', 'Snow in Trondheim during the exchange semester.'],
+    where: 'Trondheim, on a UTFORSK mobility scholarship',
+    text: 'Synthesised the thesis catalysts in Prof. Edd Anders Blekkan’s group, reworked the route after an ignition on the filter, and joined a four-person SNCR process design project for two Norwegian industry partners. Attended EuropaCat 2025 in Trondheim and presented our poster at Treforedlingsforum 2025 in Oslo.',
+    photo: ['ayush-at-ntnu-main-building-trondheim.jpg', 'Ayush and a friend standing behind the large blue NTNU letters in front of the main university building in Trondheim', 'At NTNU’s main building in Trondheim during the exchange semester.'],
   },
   {
-    when: 'May 2025 – May 2026',
-    title: 'M.Tech thesis with Prof. Raghuram Chetty',
-    where: 'IIT Madras',
-    text: 'Bi-modified Pt/C catalysts and quinone mediation for formic acid fuel cells, from synthesis to durability testing.',
-  },
-  {
-    when: 'Jan – May 2025',
-    title: 'DFT project and GIAN course',
-    where: 'IIT Madras',
-    text: 'Oxygen reduction on a Pt<sub>13</sub> cluster in Gaussian 16, and a GIAN course on characterising heterogeneous catalysts (April – May).',
-  },
-  {
-    when: 'Jun 2024',
-    title: 'M.Tech in Catalysis Technology begins',
-    where: 'Department of Chemical Engineering, IIT Madras',
-    text: 'Adsorption, solids and surfaces, reactor theory, catalyst preparation and characterisation, and computational methods. Deputy Placement and Internship Coordinator from August 2024 to July 2025.',
+    id: 'mtech',
+    when: 'Jun 2024 – May 2026',
+    title: 'M.Tech, Catalysis Technology, IIT Madras',
+    where: 'Department of Chemical Engineering · CGPA 8.51/10',
+    text: 'Two years on how catalysts work and how to make and test them: adsorption and catalysis, solids and surfaces, reactor theory, thermodynamics and transport, a catalyst preparation and characterisation lab, and computational methods in catalysis.',
+    blocks: [
+      ['Thesis', 'Formic acid can power small fuel cells, but the platinum catalyst that oxidises it gets clogged by carbon monoxide from a side reaction, and the current fades within an hour. With Prof. Raghuram Chetty I tested two remedies: a sub-monolayer of bismuth on commercial Pt/C, which leaves fewer of the neighbouring platinum sites that CO needs to form, and a dissolved quinone (AQSA) that acts as a redox mediator. In three-electrode half-cell tests the catalyst with the least bismuth worked best, keeping 92.9% of its current over a one-hour hold against 58.5% for unmodified Pt/C.', 'projects/thesis-bi-pt-formic-acid/'],
+      ['Also', 'A DFT study of oxygen reduction on a 13-atom platinum cluster (Jan – May 2025) and a GIAN course on characterising heterogeneous catalysts (Apr – May 2025).', 'projects/dft-orr-pt13/'],
+      ['Role', 'Deputy Placement and Internship Coordinator, Placement and Internship Cell, IIT Madras (Aug 2024 – Jul 2025). Handled placements and internships for the 2023–25 and 2024–26 M.Tech batches; 75% of M.Tech chemical engineers were placed.'],
+    ],
   },
   {
     when: 'Feb 2024',
     title: 'GATE 2024, Chemical Engineering',
     where: 'All India Rank 864 of 13,937 candidates',
-    text: 'The rank that opened the door to IIT Madras.',
+    text: 'The national entrance exam that opened the door to the M.Tech at IIT Madras.',
   },
   {
     when: '2019 – 2023',
     title: 'B.Tech, Chemical Engineering',
     where: 'Indore Institute of Science and Technology (RGPV Bhopal)',
-    text: 'The core of chemical engineering: transport, reaction engineering, process control, equipment design and process safety. Presented a paper at SCHEMCON 2021 in Bhopal.',
+    text: 'The core of chemical engineering: transport, reaction engineering, process control, equipment design and process safety. CGPA 8.17/10, First Division with Honours. Presented a paper at SCHEMCON 2021 in Bhopal.',
+  },
+];
+
+// Certificates chosen because each one evidences a thread of the portfolio. Previews are
+// cropped JPEGs made by scripts/certificates.py; IDs and QR codes are painted out.
+export const credentials = [
+  {
+    slug: 'mtech-degree-iit-madras',
+    title: 'Master of Technology, Catalysis Technology',
+    issuer: 'IIT Madras',
+    when: '17 July 2026',
+    note: 'Degree certificate.',
+    alt: 'IIT Madras degree certificate conferring the degree of Master of Technology in Catalysis Technology on Ayush Suryawanshi, dated 17 July 2026',
+  },
+  {
+    slug: 'treforedlingsforum-2025-poster',
+    title: 'Poster: SNCR technology for reduction of NOx emissions in a bio-boiler',
+    issuer: 'Treforedlingsforum 2025 (PTF), Oslo',
+    when: '18–19 November 2025',
+    note: 'Certificate for presenting the SNCR design study.',
+    link: ['projects/sncr-biomass-boiler/', 'The SNCR project'],
+    alt: 'Certificate of participation from Treforedlingsforum 2025 in Oslo for presenting research titled SNCR-technology for reduction of NOx emissions in a bio-boiler',
+  },
+  {
+    slug: 'gian-heterogeneous-catalysts-2025',
+    title: 'Characterization of Heterogeneous Catalysts: Bulk, Surface, In-Situ and Operando Methods',
+    issuer: 'GIAN course, Department of Chemical Engineering, IIT Madras',
+    when: '21 April – 4 May 2025',
+    note: 'Two-week course taught with Prof. Miguel A. Bañares (CSIC, Madrid).',
+    alt: 'GIAN certificate of participation for the course Characterization of Heterogeneous Catalysts: Bulk, Surface, In-Situ and Operando Methods, IIT Madras, 21 April to 4 May 2025',
+  },
+  {
+    slug: 'schemcon-2021-paper',
+    title: 'Paper presentation, SCHEMCON 2021',
+    issuer: 'MANIT and IISER Bhopal',
+    when: '22–23 October 2021',
+    note: '17th Annual Session of the Students Chemical Engineering Congress.',
+    alt: 'Certificate of presentation from SCHEMCON 2021, organised by MANIT and IISER Bhopal, for a paper presented on 22 to 23 October 2021',
   },
 ];
 
 export const gallery = [
-  ['ayush-in-front-of-the-europacat-2025-trondheim.jpg', 'Ayush standing in front of the EuropaCat 2025 Trondheim backdrop', 'At EuropaCat 2025, the European catalysis congress, in Trondheim.'],
-  ['ayush-reading-conference-posters.jpg', 'Ayush reading posters at a conference poster session', 'Reading the poster session at EuropaCat 2025.'],
+  ['ayush-in-front-of-the-europacat-2025-trondheim.jpg', 'Ayush standing in front of the EuropaCat 2025 Trondheim backdrop', 'At EuropaCat 2025, the European catalysis congress, in Trondheim.', '72% 50%'],
+  ['ayush-reading-conference-posters.jpg', 'Ayush reading posters at a conference poster session', 'Reading the poster session at EuropaCat 2025.', '50% 40%'],
   ['ayush-suryawanshi-group-selfie-of-a-research-group.jpg', 'Group selfie of a research group of about fifteen people', 'With my thesis supervisor’s research group at IIT Madras.'],
   ['ayush-presenting-slides-to-a-classroom.jpg', 'Ayush presenting slides to a classroom', 'Presenting a course project at IIT Madras.'],
   ['ayush-suryawanshi-group-photo-of-m-tech-students-in-convocation.jpg', 'Group photo of M.Tech students in convocation stoles with faculty', 'My M.Tech Catalysis Technology batch with faculty on convocation day.'],
-  ['ayush-at-a-fume-hood-in-the-ntnu.jpg', 'Ayush working at a fume hood in the NTNU lab', 'At the fume hood in the NTNU lab during the catalyst synthesis.', '50% 12%'],
+  ['ayush-sitting-on-a-snow-covered-bench-outside.jpg', 'Ayush sitting on a snow-covered bench outside NTNU buildings', 'First snow in Trondheim during the exchange semester.'],
 ];
 
 /* ------------------------------------------------------------------ projects */
@@ -295,7 +327,7 @@ export const projects = [
     when: 'May 2025 – May 2026',
     where: 'IIT Madras, with synthesis at NTNU, Norway',
     card: 'half-cell-electrodes',
-    cardImg: ['ayush-suryawanshi-photo-7d467c05.jpg', 'Electrodes inside the glass half-cell'],
+    cardImg: ['ayush-suryawanshi-photo-7d467c05.jpg', 'Glassy carbon working electrode, platinum coil and reference electrode inside a glass half-cell'],
     stats: [
       ['92.9%', 'current kept after 1 h, best catalyst (half-cell)'],
       ['58.5%', 'commercial Pt/C, same test'],
@@ -316,7 +348,7 @@ export const projects = [
       ['Key result', 'Bi(1.25)-Pt/C, with the least bismuth, kept 92.9% of its current over a one-hour hold, against 58.5% for commercial Pt/C.'],
       ['Limits', 'All results are from a three-electrode half-cell in acid. No membrane electrode assembly or full-cell test yet.'],
     ],
-    hero: ['ayush-suryawanshi-photo-7d467c05.jpg', 'Close-up of electrodes in a glass cell: a coiled platinum wire, a reference electrode and a dark carbon paper strip', 'Inside the half-cell: a coiled platinum wire as the counter electrode, the reference electrode, and a catalyst-coated carbon paper working electrode.'],
+    hero: ['ayush-suryawanshi-photo-7d467c05.jpg', 'Close-up of a glass three-electrode cell: a coiled platinum wire, an Ag/AgCl reference electrode and a catalyst-coated glassy carbon working electrode', 'Inside the half-cell: a coiled platinum wire as the counter electrode, an Ag/AgCl reference electrode, and the catalyst-coated glassy carbon working electrode used for the voltammetry.'],
     sections: () => [
       ['question', 'The question', `
 <p>Formic acid is an attractive fuel for small fuel cells: it is liquid, easy to store, and crosses a Nafion membrane far less than methanol does. Platinum oxidises it well at first, but a side reaction leaves carbon monoxide stuck to the surface. As the platinum fills up, the current drops within the first hour.</p>
@@ -331,10 +363,10 @@ ${mechanism()}`],
   <li><h3>Ran durability holds</h3><p>Each catalyst was held at 0.55 V vs RHE for 3600 s, with and without 1 mM AQSA.</p></li>
 </ol>
 <details class="more"><summary>Synthesis route and test setup</summary>
-${fig('ayush-suryawanshi-six-step-schematic-of-the-catalyst-synthesis.jpg', 'Six-step schematic of the catalyst synthesis', 'The synthesis route for the Bi(X)-Pt/C series: bismuth adsorbed onto Pt/C under nitrogen, filtered, reduced with borohydride, filtered again and annealed under argon.', { source: 'Thesis, Figure 3.1', sizes: '(min-width: 1100px) 720px, 100vw' })}
+${fig('ayush-suryawanshi-six-step-schematic-of-the-catalyst-synthesis.jpg', 'Six-step schematic of the catalyst synthesis', 'How each catalyst was made, step by step: bismuth adsorbed onto commercial Pt/C under nitrogen, filtered, reduced with borohydride, filtered again and annealed under argon. The same route was used at every bismuth level, so differences in performance come from the bismuth, not the method.', { sizes: '(min-width: 1100px) 720px, 100vw' })}
 <div class="fig-row">
-${fig('ayush-suryawanshi-glass-cell-with-glassy-carbon-electrode-and-potentiostat.jpg', 'Glass cell with a glassy carbon electrode and potentiostat leads', 'Glassy carbon electrode in the cell for cyclic voltammetry.', { cls: 'tall', sizes: '(min-width: 720px) 340px, 50vw' })}
-${fig('ayush-suryawanshi-glass-cell-with-a-carbon-paper-electrode-and.jpg', 'Glass cell with a carbon paper electrode and a coiled counter electrode', 'Carbon paper electrode set up for the one-hour holds.', { cls: 'tall', sizes: '(min-width: 720px) 340px, 50vw' })}
+${fig('ayush-suryawanshi-glass-cell-with-glassy-carbon-electrode-and-potentiostat.jpg', 'Sealed glass cell with a glassy carbon electrode, connected to the potentiostat leads', 'The cell ready for cyclic voltammetry: glassy carbon working electrode, platinum counter and Ag/AgCl reference, each clipped to the potentiostat.', { cls: 'tall', sizes: '(min-width: 720px) 340px, 50vw' })}
+${fig('ayush-suryawanshi-glass-cell-with-a-carbon-paper-electrode-and.jpg', 'Glass cell with formic acid electrolyte, a glassy carbon working electrode and a coiled platinum counter electrode', 'The same three-electrode cell filled with formic acid electrolyte for a voltammetry run.', { cls: 'tall', sizes: '(min-width: 720px) 340px, 50vw' })}
 </div>
 </details>`],
       ['results', 'What I found', `
@@ -354,8 +386,8 @@ ${fig('ayush-suryawanshi-glass-cell-with-a-carbon-paper-electrode-and.jpg', 'Gla
 <p class="note">Crystallite sizes from the Pt(111) reflection with the Scherrer equation. The best catalyst had a BET surface area of about 122 m²/g.</p>
 <details class="more"><summary>Electron micrographs and EDX maps</summary>
 <div class="fig-row">
-${fig('ayush-suryawanshi-grid-of-five-fe-sem-micrographs-of-the.jpg', 'Grid of five FE-SEM micrographs of the catalyst series', 'FE-SEM of the five catalysts at comparable magnification.', { source: 'Thesis, Figure 4.1', sizes: '(min-width: 720px) 340px, 100vw' })}
-${fig('ayush-suryawanshi-edx-maps-for-carbon-platinum-bismuth-and-oxygen.jpg', 'EDX maps for carbon, platinum, bismuth and oxygen', 'EDX maps of Bi(2.5)-Pt/C: bismuth is spread evenly rather than gathered in patches.', { source: 'Thesis, Figure 4.2', sizes: '(min-width: 720px) 340px, 100vw' })}
+${fig('ayush-suryawanshi-grid-of-five-fe-sem-micrographs-of-the.jpg', 'Grid of five FE-SEM micrographs of the catalyst series', 'Electron micrographs of the five catalysts at similar magnification. The low-bismuth samples look like plain Pt/C; bright bismuth-rich clusters only appear at the highest loadings.', { sizes: '(min-width: 720px) 340px, 100vw' })}
+${fig('ayush-suryawanshi-edx-maps-for-carbon-platinum-bismuth-and-oxygen.jpg', 'EDX maps for carbon, platinum, bismuth and oxygen', 'Element maps of Bi(2.5)-Pt/C: bismuth is spread evenly across the sample rather than gathered in patches, which is what a thin surface decoration should look like.', { sizes: '(min-width: 720px) 340px, 100vw' })}
 </div>
 </details>
 
@@ -365,11 +397,11 @@ ${fig('ayush-suryawanshi-edx-maps-for-carbon-platinum-bismuth-and-oxygen.jpg', '
 <h3>Which catalyst lasted</h3>
 ${durabilityChart()}
 <p>The catalyst with the least bismuth lasted longest in both electrolytes. Adding 1 mM AQSA lowered the retention of every catalyst in this test, though with AQSA present Bi(1.25)-Pt/C gave the highest mass activity, 496.7 mA per mg of Pt.</p>
-<p>One result surprised me. Bi(5)-Pt/C had the most impressive voltammogram, 851.7 mA per mg of Pt, but most of that peak came from oxidising CO that had already formed. It was recovering from poisoning rather than avoiding it, and kept only 52.8% of its current.</p>
+<p>One result surprised me. Bi(5)-Pt/C had the most impressive voltammogram, 851.7 mA per mg of Pt, but most of that peak came from oxidising CO that had already formed. It was recovering from poisoning rather than avoiding it, and kept only 52.8% of its current. On the activity that comes from the direct pathway, before any CO is burned off, Bi(1.25)-Pt/C led at 494.9 mA per mg of Pt, 5.5 times commercial Pt/C.</p>
 <details class="more"><summary>The measured curves behind these numbers</summary>
 <div class="fig-row">
-${fig('ayush-suryawanshi-cyclic-voltammograms-of-three-catalysts-in-formic-acid.jpg', 'Cyclic voltammograms of three catalysts in formic acid', 'Cyclic voltammograms of Pt/C, Bi(1.25)-Pt/C and Bi(10)-Pt/C in 0.5 M formic acid at 50 mV/s.', { source: 'Thesis, Figure 4.10', sizes: '(min-width: 720px) 340px, 100vw' })}
-${fig('ayush-suryawanshi-current-retention-curves-over-one-hour-for-five.jpg', 'Current retention curves over one hour for five catalysts', 'Measured retention over 3600 s at 0.55 V vs RHE, the source of the chart above.', { source: 'Thesis, Figure 4.14', sizes: '(min-width: 720px) 340px, 100vw' })}
+${fig('ayush-suryawanshi-cyclic-voltammograms-of-three-catalysts-in-formic-acid.jpg', 'Cyclic voltammograms of three catalysts in formic acid', 'Cyclic voltammograms of Pt/C, Bi(1.25)-Pt/C and Bi(10)-Pt/C in 0.5 M formic acid at 50 mV/s. A large peak late in the forward scan is CO being burned off, so peak height alone can flatter a catalyst.', { sizes: '(min-width: 720px) 340px, 100vw' })}
+${fig('ayush-suryawanshi-current-retention-curves-over-one-hour-for-five.jpg', 'Current retention curves over one hour for five catalysts', 'The full one-hour current traces at 0.55 V vs RHE behind the chart above. The flatter the curve, the less the catalyst is being poisoned.', { sizes: '(min-width: 720px) 340px, 100vw' })}
 </div>
 </details>`],
       ['limits', 'What it doesn’t show yet', `
@@ -422,8 +454,8 @@ ${fig('ayush-at-a-fume-hood-in-the-ntnu.jpg', 'Ayush working at a fume hood in t
 </div>`],
       ['results', 'What the material looked like', `
 <p>SEM of the later batches showed densely packed nanoclusters with a rough, raspberry-like surface and metal particles spread evenly over the carbon support, without the irregular features of the first batch.</p>
-${fig('ayush-suryawanshi-sem-micrograph-of-agglomerated-catalyst-nanoclusters.jpg', 'SEM micrograph of agglomerated catalyst nanoclusters', 'The catalyst at 25,000×: agglomerated nanoclusters with a rough surface.', { source: 'UTFORSK technical report, Figure 2', sizes: '(min-width: 1100px) 720px, 100vw' })}
-${fig('ayush-suryawanshi-two-high-magnification-sem-micrographs.jpg', 'Two high-magnification SEM micrographs', 'Batch 3 at 450,000× and 250,000×. The bright specks are metal particles on the carbon.', { source: 'UTFORSK technical report, Figure 3', sizes: '(min-width: 1100px) 720px, 100vw' })}`],
+${fig('ayush-suryawanshi-sem-micrograph-of-agglomerated-catalyst-nanoclusters.jpg', 'SEM micrograph of agglomerated catalyst nanoclusters', 'A later batch at 25,000×: nanoclusters with a rough, raspberry-like surface and none of the sheet-like contamination seen in the first batch.', { sizes: '(min-width: 1100px) 720px, 100vw' })}
+${fig('ayush-suryawanshi-two-high-magnification-sem-micrographs.jpg', 'Two high-magnification SEM micrographs', 'Batch 3 at 450,000× and 250,000×. The bright specks are metal particles spread evenly over the carbon support, the sign of a usable catalyst.', { sizes: '(min-width: 1100px) 720px, 100vw' })}`],
       ['learned', 'What I took from it', `
 <p>Procedures that work at milligram scale can behave differently when scaled, and safety problems often show up in the handling steps rather than the reaction itself. The thesis catalyst series was made with the fully aqueous route.</p>`],
     ],
@@ -470,8 +502,8 @@ ${fig('ayush-suryawanshi-two-high-magnification-sem-micrographs.jpg', 'Two high-
       ['results', 'What I found', `
 ${dftChart()}
 <p>All four steps were downhill, which fits the known activity of platinum for this reaction and supports using small clusters for mechanistic work.</p>
-<details class="more"><summary>The figure from my report, with the optimised structures</summary>
-${fig('ayush-suryawanshi-photo-4972ceff.jpg', 'Plot of step energies with the optimised structure drawn at each point', 'The step energies plotted against the reaction coordinate in my report, with each optimised structure. The line only guides the eye: no transition states were located.', { source: 'Project report', sizes: '(min-width: 1100px) 720px, 100vw' })}
+<details class="more"><summary>See the optimised structures</summary>
+${fig('ayush-suryawanshi-photo-4972ceff.jpg', 'Plot of step energies with the optimised structure drawn at each point', 'The same four step energies drawn along the reaction pathway, with the optimised structure of each intermediate. The line only guides the eye: no transition states were calculated.', { sizes: '(min-width: 1100px) 720px, 100vw' })}
 </details>`],
       ['limits', 'Limits', `
 <p>These are electronic energies only, without zero-point, thermal or entropy corrections, and no transition states were located. They show which intermediates are stable, not how fast each step goes.</p>`],
@@ -487,7 +519,7 @@ ${fig('ayush-suryawanshi-photo-4972ceff.jpg', 'Plot of step energies with the op
       'SNCR retrofit design for NOx reduction in a biomass boiler, a four-person NTNU process design project with Billerud Viken and Vardar Varme, modelled in Python with Cantera.',
     when: 'Aug – Nov 2025',
     where: 'NTNU, Trondheim',
-    cardImg: ['ayush-suryawanshi-photo-5ee7ac61.jpg', 'Three students standing beside their SNCR poster'],
+    cardImg: ['ayush-suryawanshi-photo-5ee7ac61.jpg', 'Ayush and two teammates beside their SNCR poster', '50% 8%'],
     stats: [
       ['~60%', 'modelled NOx reduction'],
       ['300', 'mg/Nm³ limit to stay under'],
@@ -507,7 +539,8 @@ ${fig('ayush-suryawanshi-photo-4972ceff.jpg', 'Plot of step energies with the op
       ['Key result', 'About 60% reduction, bringing NOx to roughly 95–120 mg/Nm³ in the model.'],
       ['Limits', 'A design study built on incomplete plant data, not a plant trial.'],
     ],
-    hero: ['ayush-suryawanshi-photo-5ee7ac61.jpg', 'Three students standing beside the SNCR poster', 'With my teammates beside our poster at Treforedlingsforum 2025 in Oslo.'],
+    hero: ['ayush-suryawanshi-photo-5ee7ac61.jpg', 'Ayush and two teammates standing beside their SNCR poster at a conference', 'With two of my teammates beside our poster at Treforedlingsforum 2025 in Oslo.'],
+    heroFit: 'natural',
     sections: () => [
       ['question', 'The question', `
 <p>An existing biomass boiler, run for district heating by Vardar Varme, is to be upgraded to 30–35 MW to supply steam to Billerud Viken’s planned bleached chemi-thermomechanical pulp (BCTMP) mill. Burning biomass produces NOx, and the plant has to stay under 300 mg/Nm³. Our team of four looked at whether a selective non-catalytic reduction (SNCR) retrofit could get it there.</p>`],
@@ -521,10 +554,11 @@ ${fig('ayush-suryawanshi-photo-4972ceff.jpg', 'Plot of step energies with the op
       ['results', 'What we found', `
 <p>A realistic reduction of about 60% brings emissions to roughly 95–120 mg/Nm³, well under the limit. Because both performance and ammonia slip depend strongly on temperature, the study recommends injecting towards the upper end of the temperature window. Reagent use dominates the running cost.</p>
 <div class="fig-row">
-${fig('ayush-suryawanshi-plot-of-nox-and-ammonia-slip-against-sncr.jpg', 'Plot of NOx and ammonia slip against SNCR temperature', 'Modelled NOx with and without SNCR across injection temperatures. The red dashed line is the 300 mg/Nm³ limit; the shaded band is the usual SNCR window (baseline case).', { source: 'Team report, Figure 4.6', sizes: '(min-width: 720px) 340px, 100vw' })}
-${fig('ayush-suryawanshi-plot-of-no-reduction-and-ammonia-slip-against.jpg', 'Plot of NO reduction and ammonia slip against the normalised stoichiometric ratio', 'More ammonia removes more NO, but the unreacted ammonia slipping through rises steeply.', { source: 'Team report, Figure 4.3', sizes: '(min-width: 720px) 340px, 100vw' })}
+${fig('ayush-suryawanshi-plot-of-nox-and-ammonia-slip-against-sncr.jpg', 'Plot of NOx and ammonia slip against SNCR temperature', 'Modelled NOx with and without SNCR across injection temperatures. The dashed line is the 300 mg/Nm³ limit and the shaded band is the usual SNCR window: inject too cold and ammonia slips through, too hot and it burns to NOx itself.', { sizes: '(min-width: 720px) 340px, 100vw' })}
+${fig('ayush-suryawanshi-plot-of-no-reduction-and-ammonia-slip-against.jpg', 'Plot of NO reduction and ammonia slip against the normalised stoichiometric ratio', 'More ammonia removes more NO, but past a point the unreacted ammonia slipping through rises steeply. The design dose sits where reduction is high and slip is still low.', { sizes: '(min-width: 720px) 340px, 100vw' })}
 </div>
-<p>I presented the work as a poster at Treforedlingsforum 2025 in Oslo in November 2025.</p>`],
+<p>I presented the work as a poster at Treforedlingsforum 2025 in Oslo on 18–19 November 2025.</p>
+${fig('sncr-poster-treforedlingsforum-2025.jpg', 'Conference poster titled SNCR Technology for Reduction of NOx Emissions in a Bio-Boiler, with sections on motivation, modelling, reagent use and economics', 'The poster we presented in Oslo. It condenses the study into one page: why the boiler needs NOx control, how we modelled it, how much ammonia it takes and what it costs. Select it to read it at full size.', { cls: 'poster', sizes: '(min-width: 900px) 420px, 90vw' })}`],
       ['learned', 'What I took from it', `
 <p>This was my first design project for an industry client. It taught me to work from incomplete plant data, state assumptions clearly, and give a recommendation a client can act on.</p>`],
     ],

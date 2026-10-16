@@ -7,6 +7,15 @@
    554
   ]
  },
+ "ayush-at-ntnu-main-building-trondheim.jpg": {
+  "name": "ayush-at-ntnu-main-building-trondheim",
+  "w": 1600,
+  "h": 1200,
+  "widths": [
+   640,
+   1280
+  ]
+ },
  "ayush-in-front-of-the-europacat-2025-trondheim.jpg": {
   "name": "ayush-in-front-of-the-europacat-2025-trondheim",
   "w": 1400,
@@ -217,6 +226,16 @@
   "widths": [
    640,
    800
+  ]
+ },
+ "sncr-poster-treforedlingsforum-2025.jpg": {
+  "name": "sncr-poster-treforedlingsforum-2025",
+  "w": 1800,
+  "h": 2547,
+  "widths": [
+   640,
+   1280,
+   1800
   ]
  }
 }
