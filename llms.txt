@@ -1,0 +1,37 @@
+# Ayush Suryawanshi
+
+> Ayush Suryawanshi is an Indian chemical engineer working on electrocatalysts, electrodes and electrochemical testing. Ayush holds an M.Tech in Catalysis Technology from IIT Madras (2026), spent a research semester at NTNU, Norway (2025), and is currently a Management Trainee at LOXIM Industries Ltd., Ahmedabad. Ayush wants to work on electrodes and cells for green hydrogen, electrolysers (including AEM electrolysis) and fuel cells, and is open to PhD positions in electrocatalysis.
+
+Official website: https://suryawanshi-ayush.github.io/
+LinkedIn: https://www.linkedin.com/in/ayush-suryawanshi
+Email: ayush.suryawanshi0803@gmail.com
+CV (PDF): https://suryawanshi-ayush.github.io/Ayush_CV.pdf
+
+## Education
+
+- M.Tech, Catalysis Technology, Department of Chemical Engineering, Indian Institute of Technology Madras (IIT Madras), 2024–2026. CGPA 8.51/10. Degree received at the 63rd convocation, July 2026.
+- Semester exchange, Department of Chemical Engineering, Norwegian University of Science and Technology (NTNU), Trondheim, Norway, August–December 2025, on a UTFORSK scholarship.
+- B.Tech, Chemical Engineering, Indore Institute of Science and Technology (affiliated to RGPV Bhopal), 2019–2023. CGPA 8.17/10, First Division with Honours.
+- GATE 2024, Chemical Engineering: All India Rank 864 out of 13,937 candidates.
+
+## Experience
+
+- Management Trainee, LOXIM Industries Ltd., Ahmedabad (July 2026 – present): technology selection for sulphate removal from plant effluent, including electrocoagulation and electroflocculation; vendor screening, sample trials and feasibility checks.
+- Deputy Placement and Internship Coordinator, IIT Madras (August 2024 – July 2025).
+
+## Research and projects
+
+- Keeping platinum clean in formic acid fuel cells (M.Tech thesis, IIT Madras and NTNU, 2025–2026, supervisor Prof. Raghuram Chetty): made four Bi-modified Pt/C catalysts and tested them with a quinone (AQSA) mediator for formic acid oxidation. A thinner Nafion film in the catalyst ink gave 2.4–2.8× higher peak current; the best catalyst kept 92.9% of its current after one hour, against 58.5% for commercial Pt/C.
+- Making the catalyst synthesis safe to scale (NTNU, 2025): three synthesis batches of Bi-modified Pt/C; leftover borohydride ignited during filtration, and an aqueous route with less reductant removed the ignition risk.
+- Oxygen reduction on a 13-atom platinum cluster (IIT Madras, 2025): DFT study in Gaussian 16 of the four-electron oxygen reduction pathway on a Pt13 cluster.
+- Cutting NOx from a biomass boiler (NTNU, 2025, team of four): SNCR retrofit modelled in Python with Cantera, about 60% NOx reduction; poster at Treforedlingsforum 2025, Oslo.
+
+## Skills
+
+Electrochemistry (Autolab potentiostat, three-electrode cells, CV, LSV, EIS, chronoamperometry, ECSA, durability testing); catalyst synthesis, catalyst inks, ionomer loading and drop-cast electrodes; characterisation (SEM-EDX, XRD, BET, XPS, TGA, FTIR, UV-Vis, HPLC, GC-MS); computation (Python with Cantera, Gaussian 16, OriginPro); process engineering and process safety.
+
+## Talks and conferences
+
+- Poster, Treforedlingsforum 2025, Oslo, Norway (November 2025)
+- Attended EuropaCat 2025, Trondheim, Norway
+- Paper presentation, SCHEMCON 2021, MANIT and IISER Bhopal (October 2021)
