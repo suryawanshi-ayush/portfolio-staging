@@ -25,7 +25,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Serif:wght@400;500&display=swap">
-<link rel="stylesheet" href="/portfolio-staging/assets/site.d3fcf0df.css">
+<link rel="stylesheet" href="/portfolio-staging/assets/site.5a3c5640.css">
 <script src="/portfolio-staging/assets/site.0b4c440b.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://suryawanshi-ayush.github.io/"},{"@type":"ListItem","position":2,"name":"Projects","item":"https://suryawanshi-ayush.github.io/projects/"},{"@type":"ListItem","position":3,"name":"Keeping platinum clean in formic acid fuel cells","item":"https://suryawanshi-ayush.github.io/projects/thesis-bi-pt-formic-acid/"}]},{"@type":"CreativeWork","name":"Keeping platinum clean in formic acid fuel cells","headline":"Keeping platinum clean in formic acid fuel cells","description":"M.Tech thesis by Ayush Suryawanshi at IIT Madras: Bi-modified Pt/C catalysts and AQSA quinone mediation for formic acid oxidation, with synthesis, characterisation and half-cell durability testing.","url":"https://suryawanshi-ayush.github.io/projects/thesis-bi-pt-formic-acid/","author":{"@id":"https://suryawanshi-ayush.github.io/#person"},"inLanguage":"en","keywords":"Electrocatalysis, Formic acid oxidation, Potentiostat, FE-SEM / EDX / XRD"}]}</script>
 </head>
@@ -53,7 +53,7 @@
     <dl class="proj-meta">
       <div><dt>When</dt><dd>May 2025 – May 2026</dd></div>
       <div><dt>Where</dt><dd>IIT Madras, with synthesis at NTNU, Norway</dd></div>
-      <div><dt>Type</dt><dd>M.Tech thesis</dd></div><div><dt>Supervisor</dt><dd>Prof. Raghuram Chetty, IIT Madras</dd></div><div><dt>At NTNU</dt><dd>KinCat group; hosted and supervised by Prof. Edd Anders Blekkan</dd></div><div><dt>Methods</dt><dd>Wet-chemical synthesis, catalyst inks, CV, chronoamperometry, ECSA, FE-SEM, EDX, XRD, BET</dd></div><div><dt>Tools</dt><dd>Autolab potentiostat with NOVA, OriginPro</dd></div><div><dt>Full title</dt><dd>Feasibility Study and Performance Evaluation of Hybrid Quinone–Formic Acid Systems as Alternative Fuels for Proton Exchange Membrane Fuel Cells</dd></div>
+      <div><dt>Type</dt><dd>M.Tech thesis</dd></div><div><dt>Supervisor</dt><dd>Prof. Raghuram Chetty, IIT Madras</dd></div><div><dt>At NTNU</dt><dd>KinCat group; hosted and supervised by Prof. Edd Anders Blekkan</dd></div><div><dt>Methods</dt><dd>Wet-chemical synthesis, catalyst inks, CV, chronoamperometry, FE-SEM, EDX, XRD, BET</dd></div><div><dt>Tools</dt><dd>Autolab potentiostat with NOVA, OriginPro</dd></div><div><dt>Full title</dt><dd>Feasibility Study and Performance Evaluation of Hybrid Quinone–Formic Acid Systems as Alternative Fuels for Proton Exchange Membrane Fuel Cells</dd></div>
     </dl>
   </div>
 </header>
@@ -61,16 +61,17 @@
 <div class="wrap proj-layout">
   <aside class="toc" aria-label="On this page">
     <p class="eyebrow">On this page</p>
-    <ol><li><a href="#glance">At a glance</a></li><li><a href="#question">The question</a></li><li><a href="#approach">What I did</a></li><li><a href="#results">What I found</a></li><li><a href="#limits">What it doesn’t show yet</a></li><li><a href="#learned">What I took from it</a></li></ol>
+    <ol><li><a href="#glance">At a glance</a></li><li><a href="#problem">Problem and baseline</a></li><li><a href="#contribution">My contribution</a></li><li><a href="#methods">Methods and assumptions</a></li><li><a href="#results">Results</a></li><li><a href="#limits">Limitations</a></li><li><a href="#evidence">Supporting evidence</a></li></ol>
   </aside>
   <div class="prose">
     <section id="glance" class="glance" aria-labelledby="glance-h">
       <h2 id="glance-h" class="sr-only">At a glance</h2>
-      <dl><div><dt>Problem</dt><dd>Platinum oxidises formic acid well at first, but adsorbed CO builds up and the current falls within an hour.</dd></div><div><dt>What I did</dt><dd>Made four Bi-modified Pt/C catalysts, tuned the catalyst ink, and tested them with and without a quinone mediator (AQSA).</dd></div><div><dt>Key result</dt><dd>Bi(1.25)-Pt/C, with the least bismuth, kept 92.9% of its current over a one-hour hold, against 58.5% for commercial Pt/C.</dd></div><div><dt>Limits</dt><dd>All results are from a three-electrode half-cell in acid. No membrane electrode assembly or full-cell test yet.</dd></div></dl>
+      <dl><div><dt>Problem</dt><dd>Platinum oxidises formic acid well at first, but adsorbed CO builds up and the current falls within an hour.</dd></div><div><dt>My contribution</dt><dd>Made and characterised four Bi-modified Pt/C catalysts, tuned the catalyst ink, and tested them with and without a quinone mediator (AQSA) in a three-electrode half-cell.</dd></div><div><dt>Key result</dt><dd>Bi(1.25)-Pt/C, with the least bismuth, retained 92.9% of its current over a one-hour hold, against 58.5% for commercial Pt/C. The mediator did not improve retention.</dd></div><div><dt>Limits</dt><dd>Half-cell, acid, one hour. No replicate counts or error bars are reported, and there is no membrane electrode assembly or full-cell test yet.</dd></div></dl>
     </section>
-    <section id="question" aria-labelledby="question-h"><h2 id="question-h">The question</h2>
+    <section id="problem" aria-labelledby="problem-h"><h2 id="problem-h">Problem and baseline</h2>
 <p>Formic acid is an attractive fuel for small fuel cells: it is liquid, easy to store, and crosses a Nafion membrane far less than methanol does. Platinum oxidises it well at first, but a side reaction leaves carbon monoxide stuck to the surface. As the platinum fills up, the current drops within the first hour.</p>
-<p>I tested two fixes, and whether they help or hinder each other. The first was decorating commercial Pt/C with bismuth, which is known to block the CO-forming path. The second was adding a dissolved quinone, anthraquinone-2-sulfonic acid (AQSA), as a redox mediator in the electrolyte.</p>
+<p><strong>Baseline.</strong> Commercial 20 wt% Pt/C is the reference throughout. In the one-hour hold it retained 58.5% of its current, and in the standard voltammetry its peak mass activity was 505 mA per mg of Pt.</p>
+<p>I tested two ways of protecting the platinum, and whether they help or hinder each other: decorating the Pt/C with bismuth, which is known to block the CO-forming path, and adding a dissolved quinone, anthraquinone-2-sulfonic acid (AQSA), as a redox mediator in the electrolyte.</p>
 <figure class="mech" data-mech data-mode="pt">
   <div class="mech-controls">
     <div class="seg" role="group" aria-label="Catalyst surface">
@@ -99,51 +100,47 @@
   </div>
   <figcaption>Schematic, not to scale and not a simulation. Direct path: HCOOH → CO<sub>2</sub> + 2H<sup>+</sup> + 2e<sup>−</sup>. Indirect path: HCOOH → CO<sub>ads</sub> + H<sub>2</sub>O, which needs several neighbouring Pt atoms. Bismuth sitting on the surface breaks up those groups of sites.</figcaption>
 </figure></section>
-<section id="approach" aria-labelledby="approach-h"><h2 id="approach-h">What I did</h2>
+<section id="contribution" aria-labelledby="contribution-h"><h2 id="contribution-h">My contribution</h2>
+<p>This was my M.Tech thesis, supervised by Prof. Raghuram Chetty at IIT Madras, with the catalyst synthesis done in the KinCat group at NTNU. I made the four catalysts, formulated the inks and prepared the electrodes, ran the voltammetry and the one-hour holds on an Autolab potentiostat, and analysed the results, using FE-SEM, EDX, XRD and BET data to connect bismuth loading with morphology, lattice strain and activity.</p></section>
+<section id="methods" aria-labelledby="methods-h"><h2 id="methods-h">Methods and assumptions</h2>
 <ol class="steps">
-  <li><h3>Made four catalysts</h3><p>Commercial 20 wt% Pt/C was soaked for 48 hours in bismuth nitrate at 1.25, 2.5, 5 and 10 mM in dilute sulphuric acid under nitrogen, then reduced with sodium borohydride and annealed at 300 °C under argon.</p></li>
+  <li><h3>Made four catalysts</h3><p>Commercial 20 wt% Pt/C (60 mg) was soaked for 48 hours in bismuth nitrate at 1.25, 2.5, 5 and 10 mM in 20 mL of dilute sulphuric acid under nitrogen, then reduced with sodium borohydride and annealed at 300 °C for 2 h under argon.</p></li>
   <li><h3>Tracked where the bismuth went</h3><p>FE-SEM, EDX averaged over four spots per sample, powder XRD and, for the best catalyst, nitrogen physisorption (BET).</p></li>
-  <li><h3>Tuned the catalyst ink</h3><p>5 mg of catalyst in water and isopropanol, with either 5 µL or 20 µL of Nafion as binder.</p></li>
-  <li><h3>Built and tested electrodes</h3><p>For voltammetry and active-area measurements, 4 µL of ink was drop-cast on a polished glassy carbon disk (0.0707 cm²), the electrode in the photos. For the separate one-hour durability holds, the same ink was spread on 1 cm² carbon paper at the same loading, which gives a larger, more even area for long tests. Both were measured in a three-electrode cell with a platinum-coil counter and an Ag/AgCl reference on an Autolab potentiostat. AQSA was screened at 0, 1, 2 and 10 mM.</p></li>
+  <li><h3>Tuned the catalyst ink</h3><p>5 mg of catalyst in water and isopropanol, with 5 µL or 20 µL of 5 wt% Nafion as binder.</p></li>
+  <li><h3>Built and tested electrodes</h3><p>For voltammetry, 4 µL of ink was drop-cast on a polished glassy carbon disk (0.0707 cm²), the electrode in the photos. For the separate one-hour holds, the same ink was applied to 1 cm² carbon paper at the same loading, for a larger, more even area. Both were measured in a three-electrode cell with a platinum-coil counter and an Ag/AgCl reference. AQSA was screened at 0, 1, 2 and 10 mM.</p></li>
   <li><h3>Ran durability holds</h3><p>Each catalyst, on carbon paper, was held at 0.55 V vs RHE for 3600 s, with and without 1 mM AQSA.</p></li>
 </ol>
-<details class="more"><summary>Synthesis route and test setup</summary>
-<figure class="fig "><img src="/portfolio-staging/images/w/six-step-schematic-of-the-catalyst-synthesis-640.webp" srcset="/portfolio-staging/images/w/six-step-schematic-of-the-catalyst-synthesis-640.webp 640w, /portfolio-staging/images/w/six-step-schematic-of-the-catalyst-synthesis-1280.webp 1280w" sizes="(min-width: 1100px) 720px, 100vw" width="1910" height="906" alt="Six-step schematic of the catalyst synthesis" loading="lazy" decoding="async" data-zoom="/portfolio-staging/images/w/six-step-schematic-of-the-catalyst-synthesis-1280.webp"><figcaption>How each catalyst was made, step by step: bismuth adsorbed onto commercial Pt/C under nitrogen, filtered, reduced with borohydride, filtered again and annealed under argon. The same route was used at every bismuth level, so differences in performance come from the bismuth, not the method.</figcaption></figure>
-<div class="fig-row">
-<figure class="fig tall"><img src="/portfolio-staging/images/w/glass-cell-with-glassy-carbon-electrode-and-potentiostat-554.webp" width="554" height="1200" alt="Sealed glass cell with a glassy carbon electrode, connected to the potentiostat leads" loading="lazy" decoding="async" data-zoom="/portfolio-staging/images/w/glass-cell-with-glassy-carbon-electrode-and-potentiostat-554.webp"><figcaption>The cell ready for cyclic voltammetry: glassy carbon working electrode, platinum counter and Ag/AgCl reference, each clipped to the potentiostat.</figcaption></figure>
-<figure class="fig tall"><img src="/portfolio-staging/images/w/glass-cell-with-a-carbon-paper-electrode-and-554.webp" width="554" height="1200" alt="Glass cell with formic acid electrolyte, a glassy carbon working electrode and a coiled platinum counter electrode" loading="lazy" decoding="async" data-zoom="/portfolio-staging/images/w/glass-cell-with-a-carbon-paper-electrode-and-554.webp"><figcaption>The same three-electrode cell filled with formic acid electrolyte for a voltammetry run.</figcaption></figure>
-</div>
-</details></section>
-<section id="results" aria-labelledby="results-h"><h2 id="results-h">What I found</h2>
+<dl class="defs"><div><dt>Electrolyte</dt><dd>0.5 M formic acid in 0.5 M H<sub>2</sub>SO<sub>4</sub>, nitrogen-purged, room temperature (22 ± 2 °C)</dd></div><div><dt>Retention</dt><dd>Current at 3600 s divided by current at 61 s. The first 60 s are discarded as the charging transient.</dd></div><div><dt>Mass activity</dt><dd>Peak current divided by the platinum mass on the electrode, taken from each catalyst’s EDX platinum fraction.</dd></div><div><dt>Current density</dt><dd>Per geometric area: 0.0707 cm² for the glassy carbon disk, 1 cm² for carbon paper.</dd></div><div><dt>Potentials</dt><dd>Measured against Ag/AgCl and converted to the RHE scale.</dd></div></dl></section>
+<section id="results" aria-labelledby="results-h"><h2 id="results-h">Results</h2>
 <h3>Where the bismuth went</h3>
 <p>At the two lowest loadings there were no separate bismuth crystals in SEM or XRD: bismuth sat on the platinum as a thin decoration. At 10 mM, bright Bi-rich clusters appeared and covered much of the platinum.</p>
-<div class="table-wrap"><table>
-  <caption>Composition from EDX (four-spot average) and Pt crystallite size from XRD</caption>
+<div class="table-wrap cols-4" role="region" aria-labelledby="tbl-1" tabindex="0"><table>
+  <caption id="tbl-1">Composition from EDX (four-spot average) and Pt crystallite size from XRD</caption>
   <thead><tr><th scope="col">Catalyst</th><th scope="col">Bi (wt%)</th><th scope="col">Bi : Pt ratio</th><th scope="col">Pt crystallite (nm)</th></tr></thead>
-  <tbody>
-    <tr><th scope="row">Commercial Pt/C</th><td>0</td><td>0</td><td>2.51</td></tr>
-    <tr class="hl"><th scope="row">Bi(1.25)-Pt/C</th><td>0.60</td><td>0.034</td><td>3.52</td></tr>
-    <tr><th scope="row">Bi(2.5)-Pt/C</th><td>1.08</td><td>0.132</td><td>3.53</td></tr>
-    <tr><th scope="row">Bi(5)-Pt/C</th><td>9.35</td><td>0.706</td><td>2.68</td></tr>
-    <tr><th scope="row">Bi(10)-Pt/C</th><td>20.49</td><td>2.200</td><td>3.44</td></tr>
-  </tbody>
-</table></div>
-<p class="note">Crystallite sizes from the Pt(111) reflection with the Scherrer equation. The best catalyst had a BET surface area of about 122 m²/g.</p>
-<details class="more"><summary>Electron micrographs and EDX maps</summary>
-<div class="fig-row">
-<figure class="fig "><img src="/portfolio-staging/images/w/grid-of-five-fe-sem-micrographs-of-the-640.webp" srcset="/portfolio-staging/images/w/grid-of-five-fe-sem-micrographs-of-the-640.webp 640w, /portfolio-staging/images/w/grid-of-five-fe-sem-micrographs-of-the-1280.webp 1280w" sizes="(min-width: 720px) 340px, 100vw" width="1733" height="2005" alt="Grid of five FE-SEM micrographs of the catalyst series" loading="lazy" decoding="async" data-zoom="/portfolio-staging/images/w/grid-of-five-fe-sem-micrographs-of-the-1280.webp"><figcaption>Electron micrographs of the five catalysts at similar magnification. The low-bismuth samples look like plain Pt/C; bright bismuth-rich clusters only appear at the highest loadings.</figcaption></figure>
-<figure class="fig "><img src="/portfolio-staging/images/w/edx-maps-for-carbon-platinum-bismuth-and-oxygen-640.webp" srcset="/portfolio-staging/images/w/edx-maps-for-carbon-platinum-bismuth-and-oxygen-640.webp 640w, /portfolio-staging/images/w/edx-maps-for-carbon-platinum-bismuth-and-oxygen-1280.webp 1280w" sizes="(min-width: 720px) 340px, 100vw" width="1890" height="1417" alt="EDX maps for carbon, platinum, bismuth and oxygen" loading="lazy" decoding="async" data-zoom="/portfolio-staging/images/w/edx-maps-for-carbon-platinum-bismuth-and-oxygen-1280.webp"><figcaption>Element maps of Bi(2.5)-Pt/C: bismuth is spread evenly across the sample rather than gathered in patches, which is what a thin surface decoration should look like.</figcaption></figure>
-</div>
-</details>
+  <tbody><tr><th scope="row">Commercial Pt/C</th><td>0</td><td>0</td><td>2.51</td></tr><tr class="hl"><th scope="row">Bi(1.25)-Pt/C</th><td>0.60</td><td>0.034</td><td>3.52</td></tr><tr><th scope="row">Bi(2.5)-Pt/C</th><td>1.08</td><td>0.132</td><td>3.53</td></tr><tr><th scope="row">Bi(5)-Pt/C</th><td>9.35</td><td>0.706</td><td>2.68</td></tr><tr><th scope="row">Bi(10)-Pt/C</th><td>20.49</td><td>2.200</td><td>3.44</td></tr></tbody>
+</table></div><p class="note">Crystallite sizes from the Pt(111) reflection with the Scherrer equation. The BET surface area of Bi(1.25)-Pt/C was 122.2 ± 1.1 m²/g.</p>
 
 <h3>Less Nafion, more current</h3>
-<p>On the glassy carbon electrode, the thinner Nafion film (5 µL per 5 mg of catalyst) gave 2.4–2.8× higher peak current than the thicker one (20 µL), even though the thicker film showed slightly more active area on plain Pt/C. The active-area measurement only needs protons to reach the platinum, but formic acid has to diffuse through the film, so a thick ionomer layer wins one test and loses the other.</p>
+<p>On the glassy carbon electrode, the thinner Nafion film gave higher peak current than the thicker one, even though the thicker film showed slightly more active area on plain Pt/C. The active-area measurement only needs protons to reach the platinum, but formic acid has to diffuse through the film, so a thick ionomer layer wins one test and loses the other. The effect was found on Pt/C and then reproduced on Bi(2.5)-Pt/C.</p>
+<div class="table-wrap cols-4" role="region" aria-labelledby="tbl-2" tabindex="0"><table>
+  <caption id="tbl-2">Peak current density with thick and thin Nafion films (mA/cm², formic acid, glassy carbon)</caption>
+  <thead><tr><th scope="col">Catalyst</th><th scope="col">20 µL Nafion</th><th scope="col">5 µL Nafion</th><th scope="col">Ratio</th></tr></thead>
+  <tbody><tr><th scope="row">Commercial Pt/C</th><td>20.4</td><td>56.6</td><td>2.8×</td></tr><tr><th scope="row">Bi(2.5)-Pt/C</th><td>15.8</td><td>39.0</td><td>2.5×</td></tr></tbody>
+</table></div><p class="note">Ratios from the tabulated peak currents. The thesis summarises the effect as 2.4–2.8×. The 5 µL ink was used for all later comparisons.</p>
+
+<h3>Activity across the series</h3>
+<div class="table-wrap cols-4" role="region" aria-labelledby="tbl-3" tabindex="0"><table>
+  <caption id="tbl-3">Peak mass activity on the glassy carbon electrode (mA per mg of Pt, 50 mV/s, 5 µL Nafion)</caption>
+  <thead><tr><th scope="col">Catalyst</th><th scope="col">Formic acid only</th><th scope="col">With 1 mM AQSA</th><th scope="col">Change with AQSA</th></tr></thead>
+  <tbody><tr><th scope="row">Commercial Pt/C</th><td>505</td><td>238</td><td>−53%</td></tr><tr class="hl"><th scope="row">Bi(1.25)-Pt/C</th><td>597</td><td>497</td><td>−17%</td></tr><tr><th scope="row">Bi(2.5)-Pt/C</th><td>500</td><td>not reported</td><td>—</td></tr><tr><th scope="row">Bi(5)-Pt/C</th><td>852</td><td>474</td><td>−44%</td></tr><tr><th scope="row">Bi(10)-Pt/C</th><td>401</td><td>293</td><td>−27%</td></tr></tbody>
+</table></div>
+<p>Bi(5)-Pt/C had the most impressive voltammogram, 852 mA per mg of Pt, but most of that peak came from oxidising CO that had already formed. It was recovering from poisoning rather than avoiding it, and it kept only 52.8% of its current in the one-hour hold. On the direct pathway, before any CO is burned off, Bi(1.25)-Pt/C reached 48.2 mA/cm², about 4.8 times commercial Pt/C (10.1 mA/cm²).</p>
 
 <h3>Which catalyst lasted</h3>
 <figure class="chart" data-chart="durability" aria-labelledby="dur-title">
   <div class="chart-head">
-    <p class="chart-title" id="dur-title">Current kept after one hour at 0.55 V vs RHE</p>
-    <p class="chart-sub">Separate durability experiment on 1 cm² carbon paper electrodes (not the glassy carbon disk used for voltammetry), in a half-cell with 0.5 M HCOOH in 0.5 M H<sub>2</sub>SO<sub>4</sub>. Current at 3600 s as a share of the current at 61 s, after the first-minute charging transient.</p>
+    <p class="chart-title" id="dur-title">Current retained after one hour at 0.55 V vs RHE</p>
+    <p class="chart-sub">Separate durability experiment on 1 cm² carbon paper electrodes (not the glassy carbon disk used for voltammetry), in a half-cell with 0.5 M HCOOH in 0.5 M H<sub>2</sub>SO<sub>4</sub>. Current at 3600 s as a share of the current at 61 s, after the first-minute charging transient. Bars show retention, not output: the absolute currents are in the results table. Repeat counts and error bars are not reported in the thesis.</p>
     <div class="seg" role="group" aria-label="Series shown">
       <button type="button" aria-pressed="true" data-show="both">Both</button>
       <button type="button" aria-pressed="false" data-show="fa">Formic acid only</button>
@@ -188,21 +185,48 @@
     <table><thead><tr><th scope="col">Catalyst</th><th scope="col">Formic acid only</th><th scope="col">With 1 mM AQSA</th></tr></thead><tbody><tr><th scope="row">Bi(1.25)-Pt/C</th><td>92.89%</td><td>70.38%</td></tr><tr><th scope="row">Bi(2.5)-Pt/C</th><td>67.35%</td><td>49.13%</td></tr><tr><th scope="row">Commercial Pt/C</th><td>58.53%</td><td>55.60%</td></tr><tr><th scope="row">Bi(5)-Pt/C</th><td>52.76%</td><td>35.48%</td></tr><tr><th scope="row">Bi(10)-Pt/C</th><td>39.27%</td><td>38.28%</td></tr></tbody></table>
   </details>
 </figure>
-<p>The catalyst with the least bismuth lasted longest in both electrolytes. Adding 1 mM AQSA lowered the retention of every catalyst in this test, though with AQSA present Bi(1.25)-Pt/C gave the highest mass activity, 496.7 mA per mg of Pt.</p>
-<p>One result surprised me. Bi(5)-Pt/C had the most impressive voltammogram, 851.7 mA per mg of Pt, but most of that peak came from oxidising CO that had already formed. It was recovering from poisoning rather than avoiding it, and kept only 52.8% of its current. On the activity that comes from the direct pathway, before any CO is burned off, Bi(1.25)-Pt/C led at 494.9 mA per mg of Pt, 5.5 times commercial Pt/C.</p>
+<div class="table-wrap cols-5" role="region" aria-labelledby="tbl-4" tabindex="0"><table>
+  <caption id="tbl-4">One-hour hold at 0.55 V vs RHE on carbon paper</caption>
+  <thead><tr><th scope="col">Catalyst</th><th scope="col">Retention, formic acid</th><th scope="col">Retention, 1 mM AQSA</th><th scope="col">Current at 1 h, formic acid (mA/cm²)</th><th scope="col">Current at 1 h, 1 mM AQSA (mA/cm²)</th></tr></thead>
+  <tbody><tr><th scope="row">Commercial Pt/C</th><td>58.5%</td><td>55.6%</td><td>9.31</td><td>7.94</td></tr><tr class="hl"><th scope="row">Bi(1.25)-Pt/C</th><td>92.9%</td><td>70.4%</td><td>9.66</td><td>8.01</td></tr><tr><th scope="row">Bi(2.5)-Pt/C</th><td>67.4%</td><td>49.1%</td><td>10.40</td><td>8.81</td></tr><tr><th scope="row">Bi(5)-Pt/C</th><td>52.8%</td><td>35.5%</td><td>12.34</td><td>7.36</td></tr><tr><th scope="row">Bi(10)-Pt/C</th><td>39.3%</td><td>38.3%</td><td>7.30</td><td>6.48</td></tr></tbody>
+</table></div>
+<ul class="tight">
+  <li><strong>The least bismuth worked best for stability.</strong> Bi(1.25)-Pt/C retained the most current in both electrolytes and had the highest peak mass activity with AQSA (497 mA per mg of Pt).</li>
+  <li><strong>Retention is not output.</strong> After an hour in formic acid, Bi(5)-Pt/C still delivered the highest current (12.3 mA/cm²), because it started from a much higher level and decayed more. Bi(1.25)-Pt/C’s advantage is that it decayed far less: its current at one hour (9.7 mA/cm²) is only slightly above that of commercial Pt/C (9.3).</li>
+  <li><strong>The mediator did not help in these tests.</strong> At 1 mM, AQSA lowered peak mass activity on every catalyst compared and lowered one-hour retention on all five. In an earlier screen on Pt/C with the thicker ink, 1 mM raised the peak slightly (219 vs 188 mA per mg of Pt) and 2 and 10 mM suppressed it. On Bi(5)-Pt/C, 1 mM was again the least suppressive concentration tested, though it still cut the peak by 44%.</li>
+</ul></section>
+<section id="limits" aria-labelledby="limits-h"><h2 id="limits-h">Limitations</h2>
+<ul class="tight">
+  <li><strong>Half-cell, acid, one hour.</strong> Everything was measured in a three-electrode half-cell at room temperature. The numbers rank catalysts against each other; they are not fuel-cell performance. Practical fuel cells run for hundreds to thousands of hours, and the thesis names a membrane electrode assembly with Bi(1.25)-Pt/C, in situ spectroscopy, and longer degradation tests as the next steps.</li>
+  <li><strong>Repeatability is not reported.</strong> The thesis gives no replicate counts, standard deviations or error bars for the voltammetry or the durability holds, so differences should be read as indicative rankings, not statistically tested results. The only spreads reported are the four-spot EDX average and a ±1.05 m²/g fit uncertainty on the BET area of one catalyst. Two trends were reproduced on a second catalyst (the Nafion effect on Bi(2.5)-Pt/C and the AQSA trend on Bi(5)-Pt/C), which is a check on the trend, not a replicate.</li>
+  <li><strong>Coarse bismuth grid.</strong> Four loadings from 1.25 to 10 mM were tested, and the best was the lowest. The true optimum may sit between or below them.</li>
+  <li><strong>Mechanism is inferred.</strong> Third-body blocking of CO-forming sites is the explanation that fits the data; it was not observed directly. The schematic above is illustrative.</li>
+</ul>
+<p class="takeaway"><strong>What I took from it.</strong> A good-looking voltammogram is not the same as a durable catalyst, and retention is not the same as output. I now check durability before ranking anything, and I think about what each measurement can and cannot see.</p></section>
+<section id="evidence" aria-labelledby="evidence-h"><h2 id="evidence-h">Supporting evidence</h2>
+<p>The tables above summarise results from my M.Tech thesis, written for IIT Madras. The thesis itself and the raw voltammetry and chronoamperometry files are not published here; questions about the methods or data are welcome by email.</p>
+<details class="more"><summary>Synthesis route and test setup</summary>
+<figure class="fig "><img src="/portfolio-staging/images/w/six-step-schematic-of-the-catalyst-synthesis-640.webp" srcset="/portfolio-staging/images/w/six-step-schematic-of-the-catalyst-synthesis-640.webp 640w, /portfolio-staging/images/w/six-step-schematic-of-the-catalyst-synthesis-1280.webp 1280w" sizes="(min-width: 1100px) 720px, 100vw" width="1910" height="906" alt="Six-step schematic of the catalyst synthesis" loading="lazy" decoding="async" data-zoom="/portfolio-staging/images/w/six-step-schematic-of-the-catalyst-synthesis-1280.webp"><figcaption>How each catalyst was made, step by step: bismuth adsorbed onto commercial Pt/C under nitrogen, filtered, reduced with borohydride, filtered again and annealed under argon. The same route was used at every bismuth level, so differences in performance come from the bismuth, not the method.</figcaption></figure>
+<div class="fig-row">
+<figure class="fig tall"><img src="/portfolio-staging/images/w/glass-cell-with-glassy-carbon-electrode-and-potentiostat-554.webp" width="554" height="1200" alt="Sealed glass cell with a glassy carbon electrode, connected to the potentiostat leads" loading="lazy" decoding="async" data-zoom="/portfolio-staging/images/w/glass-cell-with-glassy-carbon-electrode-and-potentiostat-554.webp"><figcaption>The cell ready for cyclic voltammetry: glassy carbon working electrode, platinum counter and Ag/AgCl reference, each clipped to the potentiostat.</figcaption></figure>
+<figure class="fig tall"><img src="/portfolio-staging/images/w/glass-cell-with-a-carbon-paper-electrode-and-554.webp" width="554" height="1200" alt="Glass cell with formic acid electrolyte, a glassy carbon working electrode and a coiled platinum counter electrode" loading="lazy" decoding="async" data-zoom="/portfolio-staging/images/w/glass-cell-with-a-carbon-paper-electrode-and-554.webp"><figcaption>The same three-electrode cell filled with formic acid electrolyte for a voltammetry run.</figcaption></figure>
+</div>
+</details>
+<details class="more"><summary>Electron micrographs and EDX maps</summary>
+<div class="fig-row">
+<figure class="fig "><img src="/portfolio-staging/images/w/grid-of-five-fe-sem-micrographs-of-the-640.webp" srcset="/portfolio-staging/images/w/grid-of-five-fe-sem-micrographs-of-the-640.webp 640w, /portfolio-staging/images/w/grid-of-five-fe-sem-micrographs-of-the-1280.webp 1280w" sizes="(min-width: 720px) 340px, 100vw" width="1733" height="2005" alt="Grid of five FE-SEM micrographs of the catalyst series" loading="lazy" decoding="async" data-zoom="/portfolio-staging/images/w/grid-of-five-fe-sem-micrographs-of-the-1280.webp"><figcaption>Electron micrographs of the five catalysts at similar magnification. The low-bismuth samples look like plain Pt/C; bright bismuth-rich clusters only appear at the highest loadings.</figcaption></figure>
+<figure class="fig "><img src="/portfolio-staging/images/w/edx-maps-for-carbon-platinum-bismuth-and-oxygen-640.webp" srcset="/portfolio-staging/images/w/edx-maps-for-carbon-platinum-bismuth-and-oxygen-640.webp 640w, /portfolio-staging/images/w/edx-maps-for-carbon-platinum-bismuth-and-oxygen-1280.webp 1280w" sizes="(min-width: 720px) 340px, 100vw" width="1890" height="1417" alt="EDX maps for carbon, platinum, bismuth and oxygen" loading="lazy" decoding="async" data-zoom="/portfolio-staging/images/w/edx-maps-for-carbon-platinum-bismuth-and-oxygen-1280.webp"><figcaption>Element maps of Bi(2.5)-Pt/C: bismuth is spread evenly across the sample rather than gathered in patches, which is what a thin surface decoration should look like.</figcaption></figure>
+</div>
+</details>
 <details class="more"><summary>The measured curves behind these numbers</summary>
 <div class="fig-row">
 <figure class="fig "><img src="/portfolio-staging/images/w/cyclic-voltammograms-of-three-catalysts-in-formic-acid-640.webp" srcset="/portfolio-staging/images/w/cyclic-voltammograms-of-three-catalysts-in-formic-acid-640.webp 640w, /portfolio-staging/images/w/cyclic-voltammograms-of-three-catalysts-in-formic-acid-1280.webp 1280w" sizes="(min-width: 720px) 340px, 100vw" width="1890" height="1341" alt="Cyclic voltammograms of three catalysts in formic acid" loading="lazy" decoding="async" data-zoom="/portfolio-staging/images/w/cyclic-voltammograms-of-three-catalysts-in-formic-acid-1280.webp"><figcaption>Cyclic voltammograms of Pt/C, Bi(1.25)-Pt/C and Bi(10)-Pt/C on the glassy carbon electrode in 0.5 M formic acid at 50 mV/s. A large peak late in the forward scan is CO being burned off, so peak height alone can flatter a catalyst.</figcaption></figure>
 <figure class="fig "><img src="/portfolio-staging/images/w/current-retention-curves-over-one-hour-for-five-640.webp" srcset="/portfolio-staging/images/w/current-retention-curves-over-one-hour-for-five-640.webp 640w, /portfolio-staging/images/w/current-retention-curves-over-one-hour-for-five-1280.webp 1280w" sizes="(min-width: 720px) 340px, 100vw" width="1890" height="1340" alt="Current retention curves over one hour for five catalysts" loading="lazy" decoding="async" data-zoom="/portfolio-staging/images/w/current-retention-curves-over-one-hour-for-five-1280.webp"><figcaption>The full one-hour current traces on carbon paper at 0.55 V vs RHE, behind the chart above. The flatter the curve, the less the catalyst is being poisoned.</figcaption></figure>
 </div>
 </details></section>
-<section id="limits" aria-labelledby="limits-h"><h2 id="limits-h">What it doesn’t show yet</h2>
-<p>Everything was measured in a three-electrode half-cell in acid, so these numbers rank catalysts against each other; they are not fuel-cell performance. The next steps written into the thesis are building a membrane electrode assembly with Bi(1.25)-Pt/C and testing it in a single cell, and using in situ spectroscopy to watch the bismuth layer while it works.</p></section>
-<section id="learned" aria-labelledby="learned-h"><h2 id="learned-h">What I took from it</h2>
-<p>A good-looking voltammogram is not the same as a durable catalyst, and an active-area number is not the same as usable activity. I now check durability before ranking anything, and I think about what each measurement can and cannot see.</p></section>
     <nav class="pager" aria-label="More projects">
       <span></span>
-      <a class="next" href="/portfolio-staging/projects/ntnu-synthesis-scale-up/"><span class="eyebrow">Next</span>Making the catalyst synthesis safe to scale</a>
+      <a class="next" href="/portfolio-staging/projects/ntnu-synthesis-scale-up/"><span class="eyebrow">Next</span>Reworking a catalyst synthesis after an ignition on the filter</a>
     </nav>
   </div>
 </div>

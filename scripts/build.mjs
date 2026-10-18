@@ -5,7 +5,7 @@ import { createHash } from 'node:crypto';
 import { dirname } from 'node:path';
 import { config, url, liveUrl, esc, strip, img, fig } from '../src/lib.mjs';
 import {
-  person, education, experience, skills, coursework, recognition, stages, timeline, gallery, projects, kinds, mechanism, credentials,
+  person, education, experience, skillEvidence, coursework, recognition, stages, timeline, gallery, projects, kinds, mechanism, credentials, loximBridge,
 } from '../src/content.mjs';
 
 const ROOT = new URL('../', import.meta.url).pathname;
@@ -214,23 +214,27 @@ function home() {
   const body = `
 <section class="hero">
   <div class="wrap hero-grid">
-    <div class="hero-text">
-      <p class="eyebrow" data-reveal>Chemical engineer · Catalysis · Electrochemistry · Process design</p>
+    <div class="hero-id">
+      <p class="eyebrow" data-reveal>Chemical engineer<span class="eb-long"> · Catalysis · Electrochemistry · Process design</span></p>
       <h1 class="hero-title" data-reveal>Ayush Suryawanshi</h1>
-      <p class="hero-lede" data-reveal>My work runs from the lab bench to the plant: making catalysts, building and testing electrodes, modelling reactions on a computer, and weighing process options against cost and safety, while being clear about what each result can and can’t show. It started with fuel-cell catalysts and now includes industrial effluent treatment.</p>
+    </div>
+    <figure class="hero-photo" data-reveal>
+      ${img('portrait-of-ayush-suryawanshi.jpg', 'Portrait of Ayush Suryawanshi', { eager: true, sizes: '(min-width: 900px) 380px, 110px' })}
+    </figure>
+    <div class="hero-body">
+      <p class="hero-lede" data-reveal>M.Tech in Catalysis Technology from IIT Madras. Hands-on electrocatalyst and electrode work, DFT and kinetic modelling, and process design. Now evaluating effluent-treatment technology at LOXIM Industries.</p>
+      <p class="hero-focus" data-reveal><span class="k">Interests</span>Electrocatalysis, fuel cells, AEM electrolysis, green hydrogen, and how electrodes hold up over time in working devices.</p>
       <div class="hero-cta" data-reveal>
         <a class="btn btn-primary" href="${url('projects/')}">Explore my work ${ARROW}</a>
         <a class="btn btn-ghost" href="${url('cv/')}">View CV</a>
       </div>
-      <ul class="facts" data-reveal>
+      <ul class="facts" data-reveal aria-label="At a glance">
         <li><span class="k">Now</span>Management Trainee, LOXIM Industries</li>
         <li><span class="k">M.Tech</span>Catalysis Technology, IIT Madras, 2026</li>
-        <li><span class="k">Abroad</span>Research semester, KinCat group, NTNU, Norway, 2025</li>
+        <li><span class="k">Abroad</span>KinCat group, NTNU, 2025</li>
       </ul>
+      <p class="hero-long" data-reveal>My work runs from the lab bench to the plant: making catalysts, building and testing electrodes, modelling reactions on a computer, and weighing process options against cost and safety, while being clear about what each result can and can’t show. It started with fuel-cell catalysts and now includes industrial effluent treatment.</p>
     </div>
-    <figure class="hero-photo" data-reveal>
-      ${img('portrait-of-ayush-suryawanshi.jpg', 'Portrait of Ayush Suryawanshi', { eager: true, sizes: '(min-width: 900px) 380px, 70vw' })}
-    </figure>
   </div>
   <svg class="wave" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M0 92 C 120 92 190 90 260 84 C 330 78 380 40 420 22 C 450 10 470 30 486 58 C 500 82 520 88 560 86 C 640 82 700 80 760 74 C 820 68 850 56 880 50 C 910 44 940 60 980 72 C 1040 88 1110 92 1200 92"/></svg>
 </section>
@@ -262,12 +266,12 @@ function home() {
     <div class="feature-text" data-reveal>
       <p class="eyebrow">Featured · M.Tech thesis, 2025–26</p>
       <h2 id="thesis-h">${thesis.title}</h2>
-      <p>Platinum oxidises formic acid well until carbon monoxide blocks its surface. I modified commercial Pt/C with bismuth, added a quinone mediator, and tested which combination held its current longest.</p>
+      <p>Platinum oxidises formic acid well until carbon monoxide blocks its surface. I modified commercial Pt/C with bismuth and tested a quinone mediator. A very thin bismuth layer helped most; the mediator did not improve peak activity or one-hour retention in these tests.</p>
       <dl class="big-stats">
-        <div><dt>current kept after a one-hour hold at 0.55 V vs RHE by Bi(1.25)-Pt/C, the catalyst with the least bismuth</dt><dd>92.9%</dd></div>
+        <div><dt>current retained after a one-hour hold at 0.55 V vs RHE by Bi(1.25)-Pt/C, the catalyst with the least bismuth</dt><dd>92.9%</dd></div>
         <div><dt>commercial Pt/C in the same test</dt><dd>58.5%</dd></div>
       </dl>
-      <p class="note">Three-electrode half-cell results in acid. They rank catalysts against each other; full-cell testing is the next step.</p>
+      <p class="note">Retention compares each catalyst with its own current after the first minute, so it measures decay, not output. These are three-electrode half-cell results in acid, with no replicate counts reported. They rank catalysts against each other; full-cell testing is the next step.</p>
       <a class="btn btn-primary" href="${projectUrl(thesis.slug)}">Problem, methods, results and limits ${ARROW}</a>
     </div>
     <div class="feature-visual" data-reveal>${mechanism({ compact: true })}</div>
@@ -299,18 +303,30 @@ function home() {
 </section>
 
 <section class="section" id="now" aria-labelledby="now-h">
-  <div class="wrap now-grid">
-    <div class="now-card" data-reveal>
-      <p class="eyebrow">Now</p>
-      <h2 id="now-h">Effluent treatment at LOXIM Industries</h2>
-      <p>Since July 2026 I’ve been a Management Trainee in Ahmedabad, leading technology selection for sulphate removal from plant effluent. I evaluated electrocoagulation and electroflocculation as pretreatment and run screening, sample trials and feasibility checks with more than ten vendors.</p>
-      <p class="note">The options shortlisted so far point to a projected 50–60% lower operating cost, from INR 2.5/L to about INR 1.0–1.2/L. The selection is still in progress.</p>
+  <div class="wrap">
+    <div class="now-grid">
+      <div class="now-card" data-reveal>
+        <p class="eyebrow">Now</p>
+        <h2 id="now-h">Effluent treatment at LOXIM Industries</h2>
+        <p>Since July 2026 I’ve been a Management Trainee in Ahmedabad, leading technology selection for sulphate removal from plant effluent. I evaluated electrocoagulation and electroflocculation as pretreatment and run screening, sample trials and feasibility checks with more than ten vendors.</p>
+        <p class="note">The options shortlisted so far point to a projected 50–60% lower operating cost, from INR 2.5/L to about INR 1.0–1.2/L. This is a projection, and the selection is still in progress.</p>
+      </div>
+      <div class="now-card next" data-reveal>
+        <p class="eyebrow">Research interests</p>
+        <h2>From half-cells to working devices</h2>
+        <p>The questions I keep coming back to sit where electrochemistry meets process engineering: how a catalyst that looks good in a half-cell behaves in a membrane electrode assembly or a full electrolyser, how it ages over hundreds of hours, and what it takes to run it at plant scale. Electrocatalysis, fuel cells, AEM electrolysis and green hydrogen are where those questions are most alive.</p>
+        <p class="note">These are interests, not work I have done yet; my device-level experience so far is in three-electrode half-cells.</p>
+      </div>
     </div>
-    <div class="now-card next" data-reveal>
-      <p class="eyebrow">What interests me</p>
-      <h2>From half-cells to working devices</h2>
-      <p>The questions I keep coming back to sit where electrochemistry meets process engineering: how a catalyst that looks good in a half-cell behaves in a membrane electrode assembly or a full electrolyser, how it ages over hundreds of hours, and what it takes to run it at plant scale. AEM electrolysis, fuel cells and green hydrogen are where those questions are most alive.</p>
-      <p class="note">These are interests, not work I have done yet; my device-level experience so far is in three-electrode half-cells.</p>
+    <div class="bridge" data-reveal>
+      <h3 class="bridge-title">How the industrial work builds on the lab and design work</h3>
+      <ul class="bridge-list">
+        ${loximBridge
+          .map(
+            (b) => `<li><h4>${b.title}</h4><p>${b.text}</p>${b.link ? `<a href="${projectUrl(b.link[0])}">${b.link[1]} ${ARROW}</a>` : ''}</li>`,
+          )
+          .join('')}
+      </ul>
     </div>
   </div>
 </section>
@@ -334,7 +350,7 @@ function home() {
     path: '',
     title: 'Ayush Suryawanshi – Chemical Engineer | Catalysis, Electrochemistry, Process Design',
     description:
-      'Ayush Suryawanshi is a chemical engineer (M.Tech Catalysis Technology, IIT Madras) whose work spans catalyst synthesis, electrochemical testing, DFT and kinetic modelling, and process design.',
+      'Ayush Suryawanshi is a chemical engineer (M.Tech Catalysis Technology, IIT Madras) with hands-on electrocatalyst and electrode work, DFT and kinetic modelling, and process design. Interests: electrocatalysis, fuel cells, AEM electrolysis and green hydrogen.',
     active: 'home',
     body,
     bodyClass: 'home',
@@ -371,14 +387,14 @@ function projectsIndex() {
     </div>
     <div class="cards cards-2">${projects.map((p) => projectCard(p, { headingLevel: 2 })).join('')}</div>
     <div class="aside-row">
-      <aside class="earlier" data-reveal>
+      <div class="earlier" data-reveal>
         <h2>Current industrial work</h2>
         <p>At LOXIM Industries in Ahmedabad I’m leading technology selection for sulphate removal from plant effluent, including electrocoagulation and electroflocculation as pretreatment, with vendor screening, sample trials and feasibility checks. It is ongoing, so it is summarised <a href="${url('#now')}">on the home page</a> rather than written up as a project.</p>
-      </aside>
-      <aside class="earlier" data-reveal>
+      </div>
+      <div class="earlier" data-reveal>
         <h2>Earlier work</h2>
         <p>As a B.Tech student I presented a paper at SCHEMCON 2021, organised by MANIT and IISER Bhopal.</p>
-      </aside>
+      </div>
     </div>
   </div>
 </section>`;
@@ -576,10 +592,19 @@ function cv() {
       ${experience.map((e) => row(e.title, e.org, e.when, `<ul>${e.points.map((x) => `<li>${x}</li>`).join('')}</ul>`)).join('')}
     </section>
     <section aria-labelledby="cv-res"><h2 id="cv-res">Research and projects</h2>
-      ${projects.map((p) => row(`<a href="${projectUrl(p.slug)}">${p.title}</a>`, p.where, p.when, `<p>${p.glance[2][1]}</p>`)).join('')}
+      ${projects.map((p) => row(`<a href="${projectUrl(p.slug)}">${p.title}</a>`, p.where, p.when, `<p><strong>Contribution.</strong> ${p.glance[1][1]}</p><p><strong>Result.</strong> ${p.glance[2][1]}</p>`)).join('')}
     </section>
-    <section aria-labelledby="cv-skills"><h2 id="cv-skills">Technical skills</h2>
-      <dl class="skills">${skills.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}<div><dt>Relevant coursework</dt><dd>${coursework}</dd></div><div><dt>Languages</dt><dd>English (IELTS Academic 7.0, CEFR C1, July 2026), Hindi</dd></div></dl>
+    <section aria-labelledby="cv-skills"><h2 id="cv-skills">Skills, and where each one comes from</h2>
+      <p class="skills-intro">Skills are sorted by how I came by them, so a method learned in a course is not presented as project experience. Skills used in a project link to it.</p>
+      ${skillEvidence
+        .map(
+          (g) => `<div class="skill-group"><h3>${g.title}</h3><p class="note">${g.note}</p>
+      <dl class="skills">${g.rows
+        .map(([k, v, links]) => `<div><dt>${k}</dt><dd>${v}${links.length ? `<span class="skill-links">${links.map(([slug, label]) => `<a href="${slug.startsWith('#') ? url() + slug : projectUrl(slug)}">${label}</a>`).join('')}</span>` : ''}</dd></div>`)
+        .join('')}</dl></div>`,
+        )
+        .join('')}
+      <dl class="skills"><div><dt>Languages</dt><dd>English (IELTS Academic 7.0, CEFR C1, July 2026), Hindi</dd></div></dl>
     </section>
     <section aria-labelledby="cv-rec"><h2 id="cv-rec">Conferences, awards and scholarships</h2>
       ${recognition.map((r) => row(r.title, r.where, r.when)).join('')}
@@ -671,7 +696,7 @@ ${experience.map((e) => `- ${e.title}, ${e.org} (${e.when}): ${e.points.join(' '
 ${projects.map((p) => `- ${strip(p.title)} (${p.when}, ${strip(p.where)}): ${p.glance.map(([k, v]) => `${k}: ${strip(v)}`).join(' ')} Details: ${liveUrl(`projects/${p.slug}/`)}`).join('\n')}
 
 ## Skills
-${skills.map(([k, v]) => `- ${k}: ${v}`).join('\n')}
+${skillEvidence.map((g) => `### ${g.title}\n${g.rows.map(([k, v]) => `- ${k}: ${strip(v)}`).join('\n')}`).join('\n\n')}
 
 ## Conferences, awards and scholarships
 ${recognition.map((r) => `- ${r.title}, ${r.where} (${r.when})`).join('\n')}
