@@ -268,7 +268,7 @@ function home() {
       <h2 id="thesis-h">${thesis.title}</h2>
       <p>Platinum oxidises formic acid well until carbon monoxide blocks its surface. I modified commercial Pt/C with bismuth and tested a quinone mediator. A very thin bismuth layer helped most; the mediator did not improve peak activity or one-hour retention in these tests.</p>
       <dl class="big-stats">
-        <div><dt>current retained after a one-hour hold at 0.55 V vs RHE by Bi(1.25)-Pt/C, the catalyst with the least bismuth</dt><dd>92.9%</dd></div>
+        <div><dt>current retained after a one-hour hold by Bi(1.25)-Pt/C, the catalyst with the least bismuth</dt><dd>92.9%</dd></div>
         <div><dt>commercial Pt/C in the same test</dt><dd>58.5%</dd></div>
       </dl>
       <p class="note">Retention compares each catalyst with its own current after the first minute, so it measures decay, not output. These are three-electrode half-cell results in acid, with no replicate counts reported. They rank catalysts against each other; full-cell testing is the next step.</p>
@@ -309,7 +309,7 @@ function home() {
         <p class="eyebrow">Now</p>
         <h2 id="now-h">Effluent treatment at LOXIM Industries</h2>
         <p>Since July 2026 I’ve been a Management Trainee in Ahmedabad, leading technology selection for sulphate removal from plant effluent. I evaluated electrocoagulation and electroflocculation as pretreatment and run screening, sample trials and feasibility checks with more than ten vendors.</p>
-        <p class="note">The options shortlisted so far point to a projected 50–60% lower operating cost, from INR 2.5/L to about INR 1.0–1.2/L. This is a projection, and the selection is still in progress.</p>
+        <p class="note">Shortlisted options are being compared on projected operating cost. The selection is still in progress, so no outcome is claimed here.</p>
       </div>
       <div class="now-card next" data-reveal>
         <p class="eyebrow">Research interests</p>
@@ -535,25 +535,20 @@ function about() {
   <div class="wrap">
     <div class="section-head">
       <h2 id="cred-h" class="section-title">Selected credentials</h2>
-      <p class="section-lede">Supporting documents for the degree and the talks and courses above. Select one to see it at full size.</p>
+      <p class="section-lede">The degree and the talks and courses above. Certificates are available on request; they are not shown here because they carry signatures, seals and identification numbers.</p>
     </div>
-    <ul class="creds">
+    <ul class="creds creds-text">
       ${credentials
         .map(
           (c) => `<li class="cred" data-reveal>
-        <figure>
-          <div class="cred-thumb"><img src="${url(`images/certificates/${c.slug}-640.jpg`)}" alt="${esc(c.alt)}" loading="lazy" decoding="async" data-zoom="${url(`images/certificates/${c.slug}-1600.jpg`)}"></div>
-          <figcaption>
-            <h3>${c.title}</h3>
-            <p class="cred-meta">${c.issuer} · <time>${c.when}</time></p>
-            <p class="cred-note">${c.note}${c.link ? ` <a href="${url(c.link[0])}">${c.link[1]}</a>` : ''}</p>
-          </figcaption>
-        </figure>
+        <h3>${c.title}</h3>
+        <p class="cred-meta">${c.issuer} · <time>${c.when}</time></p>
+        <p class="cred-note">${c.note}${c.link ? ` <a href="${url(c.link[0])}">${c.link[1]}</a>` : ''}</p>
       </li>`,
         )
         .join('')}
     </ul>
-    <p class="note">Also on record: GATE 2024 Chemical Engineering, All India Rank 864 of 13,937 candidates, and a UTFORSK mobility scholarship from NTNU for August–December 2025. Identification numbers and QR codes on the certificates are hidden.</p>
+    <p class="note">Also on record: GATE 2024 Chemical Engineering, All India Rank 864 of 13,937 candidates, and a UTFORSK mobility scholarship from NTNU for August–December 2025.</p>
   </div>
 </section>
 `;

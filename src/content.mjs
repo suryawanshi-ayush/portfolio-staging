@@ -1,5 +1,5 @@
 // All facts on the site live here, so a date or number only ever needs changing once.
-// Sources: Ayush_CV.pdf (October 2026), the thesis, UTFORSK and SNCR report figures already
+// Sources: the original CV (October 2026, kept outside this repo), the thesis, UTFORSK and SNCR report figures already
 // published on the site, and the photos in images/.
 import { fig, img } from './lib.mjs';
 
@@ -8,7 +8,7 @@ export const person = {
   email: 'ayush.suryawanshi0803@gmail.com',
   linkedin: 'https://www.linkedin.com/in/ayush-suryawanshi',
   github: 'https://github.com/suryawanshi-ayush',
-  cv: 'Ayush_CV_revised.pdf',  // revised summary; Ayush_CV.pdf is the preserved original
+  cv: 'Ayush_CV_revised.pdf',  // revised summary; the original is kept outside this repo
   role: 'Chemical engineer',
   location: 'Ahmedabad, India',
   updated: 'October 2026',
@@ -48,7 +48,7 @@ export const experience = [
     org: 'LOXIM Industries Ltd., Ahmedabad',
     when: 'Jul 2026 – present',
     points: [
-      'Leading technology selection for sulphate removal from plant effluent. Options shortlisted so far point to a projected 50–60% lower operating cost, from INR 2.5/L to about INR 1.0–1.2/L.',
+      'Leading technology selection for sulphate removal from plant effluent. Comparing shortlisted options on projected operating cost; the selection is still in progress.', // REVIEW(disclosure): employer cost figures removed pending LOXIM clearance
       'Evaluated electrocoagulation and electroflocculation as pretreatment options.',
       'Running screening, sample trials and feasibility checks with more than ten technology vendors.',
       'Trained on HPLC, GC-MS, FTIR and UV-Vis; completed plant safety induction and HSE training.',
@@ -59,6 +59,7 @@ export const experience = [
     org: 'Placement and Internship Cell, IIT Madras',
     when: 'Aug 2024 – Jul 2025',
     points: [
+      // REVIEW(disclosure): the 75% placement figure is institutional data; confirm it is published.
       'Handled placements and internships for the 2023–25 and 2024–26 M.Tech batches; 75% of M.Tech chemical engineers were placed.',
     ],
   },
@@ -165,7 +166,7 @@ export const loximBridge = [
   },
   {
     title: 'Process economics',
-    text: 'Comparing options on operating cost. Shortlisted options point to a projected 50–60% lower cost, from INR 2.5/L to about INR 1.0–1.2/L. This is a projection and the selection is still in progress. The SNCR study also costed capital and running costs.',
+    text: 'Comparing options on projected operating cost, with the selection still in progress. The SNCR study also costed capital and running costs.',
     link: ['sncr-biomass-boiler', 'SNCR economics'],
   },
   {
@@ -222,15 +223,15 @@ export const timeline = [
   },
 ];
 
-// Certificates chosen because each one evidences a thread of the portfolio. Previews are
-// cropped JPEGs made by scripts/certificates.py; IDs and QR codes are painted out.
+// Certificates chosen because each one evidences a thread of the portfolio. Listed as text only:
+// the images carry signatures, seals and IDs, so they are not published.
 export const credentials = [
   {
     slug: 'mtech-degree-iit-madras',
     title: 'Master of Technology, Catalysis Technology',
     issuer: 'IIT Madras',
     when: '17 July 2026',
-    note: 'Degree certificate.',
+    note: 'Degree conferred at the 63rd convocation.',
     alt: 'IIT Madras degree certificate conferring the degree of Master of Technology in Catalysis Technology on Ayush Suryawanshi, dated 17 July 2026',
   },
   {
@@ -238,7 +239,7 @@ export const credentials = [
     title: 'Poster: SNCR technology for reduction of NOx emissions in a bio-boiler',
     issuer: 'Treforedlingsforum 2025 (PTF), Oslo',
     when: '18–19 November 2025',
-    note: 'Certificate for presenting the SNCR design study.',
+    note: 'Presented the SNCR design study.',
     link: ['projects/sncr-biomass-boiler/', 'The SNCR project'],
     alt: 'Certificate of participation from Treforedlingsforum 2025 in Oslo for presenting research titled SNCR-technology for reduction of NOx emissions in a bio-boiler',
   },
@@ -260,6 +261,8 @@ export const credentials = [
   },
 ];
 
+// REVIEW(disclosure): photos of other people (research group, batch, teammates, friends) need
+// their consent for a public site.
 export const gallery = [
   // [file, alt, caption, focal point, wide]
   ['ayush-in-front-of-the-europacat-2025-trondheim.jpg', 'Ayush standing in front of the EuropaCat 2025 Trondheim backdrop', 'At EuropaCat 2025, the European catalysis congress, in Trondheim.', '72% 50%'],
@@ -274,7 +277,8 @@ export const gallery = [
 /* ------------------------------------------------------------------ projects */
 
 const durability = [
-  // catalyst, retention with formic acid only, with 1 mM AQSA (current at 3600 s as % of current at 61 s)
+  // catalyst, retention with formic acid only, with AQSA (current at 3600 s as % of current at 61 s)
+  // REVIEW(disclosure): unpublished thesis figures; kept as the page's one summary result, needs supervisor clearance.
   ['Bi(1.25)-Pt/C', 92.89, 70.38],
   ['Bi(2.5)-Pt/C', 67.35, 49.13],
   ['Commercial Pt/C', 58.53, 55.6],
@@ -289,31 +293,25 @@ function durabilityChart() {
       <span class="bars-label">${name}</span>
       <span class="bars-pair">
         <span class="bar s1" style="--v:${fa}" data-series="fa"><span class="bar-val">${fa.toFixed(1)}%</span><span class="sr-only">, formic acid only</span></span>
-        <span class="bar s2" style="--v:${aq}" data-series="aq"><span class="bar-val">${aq.toFixed(1)}%</span><span class="sr-only">, with 1 mM AQSA</span></span>
+        <span class="bar s2" style="--v:${aq}" data-series="aq"><span class="bar-val">${aq.toFixed(1)}%</span><span class="sr-only">, with AQSA</span></span>
       </span>
     </div>`,
     )
     .join('');
-  const table = durability
-    .map(([n, fa, aq]) => `<tr><th scope="row">${n}</th><td>${fa.toFixed(2)}%</td><td>${aq.toFixed(2)}%</td></tr>`)
-    .join('');
   return `<figure class="chart" data-chart="durability" aria-labelledby="dur-title">
   <div class="chart-head">
-    <p class="chart-title" id="dur-title">Current retained after one hour at 0.55 V vs RHE</p>
-    <p class="chart-sub">Separate durability experiment on 1 cm² carbon paper electrodes (not the glassy carbon disk used for voltammetry), in a half-cell with 0.5 M HCOOH in 0.5 M H<sub>2</sub>SO<sub>4</sub>. Current at 3600 s as a share of the current at 61 s, after the first-minute charging transient. Bars show retention, not output: the absolute currents are in the results table. Repeat counts and error bars are not reported in the thesis.</p>
+    <p class="chart-title" id="dur-title">Current retained after a one-hour hold</p>
+    <p class="chart-sub">Separate durability experiment on carbon paper electrodes (not the glassy carbon disk used for voltammetry), in a half-cell with formic acid in dilute sulphuric acid. Current at the end of the hour as a share of the current just after the first-minute charging transient. Bars show retention, not output. Repeat counts and error bars are not reported in the thesis.</p>
     <div class="seg" role="group" aria-label="Series shown">
       <button type="button" aria-pressed="true" data-show="both">Both</button>
       <button type="button" aria-pressed="false" data-show="fa">Formic acid only</button>
-      <button type="button" aria-pressed="false" data-show="aq">With 1 mM AQSA</button>
+      <button type="button" aria-pressed="false" data-show="aq">With AQSA</button>
     </div>
-    <ul class="legend" aria-hidden="true"><li><i class="sw s1"></i>Formic acid only</li><li><i class="sw s2"></i>With 1 mM AQSA</li></ul>
+    <ul class="legend" aria-hidden="true"><li><i class="sw s1"></i>Formic acid only</li><li><i class="sw s2"></i>With AQSA</li></ul>
   </div>
   <div class="bars" role="list">${rows}
     <div class="bars-axis" aria-hidden="true"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>
   </div>
-  <details class="table-toggle"><summary>Show the numbers as a table</summary>
-    <table><thead><tr><th scope="col">Catalyst</th><th scope="col">Formic acid only</th><th scope="col">With 1 mM AQSA</th></tr></thead><tbody>${table}</tbody></table>
-  </details>
 </figure>`;
 }
 
@@ -398,6 +396,9 @@ const defs = (rows) => `<dl class="defs">${rows.map(([k, v]) => `<div><dt>${k}</
 export const projects = [
   /* ------------------------------------------------------------------ thesis */
   {
+    // REVIEW(disclosure): retention figures (92.9%, 58.5%, the chart), the 2.5-2.8x Nafion effect, the
+    // AQSA negative result, the mechanism and the thesis title are unpublished; ask Prof. Chetty before
+    // going live. The headline 92.9%/58.5% is already on the live site.
     slug: 'thesis-bi-pt-formic-acid',
     kind: ['lab'],
     kindLabel: 'Experimental research · M.Tech thesis',
@@ -433,115 +434,59 @@ export const projects = [
     sections: () => [
       ['problem', 'Problem and baseline', `
 <p>Formic acid is an attractive fuel for small fuel cells: it is liquid, easy to store, and crosses a Nafion membrane far less than methanol does. Platinum oxidises it well at first, but a side reaction leaves carbon monoxide stuck to the surface. As the platinum fills up, the current drops within the first hour.</p>
-<p><strong>Baseline.</strong> Commercial 20 wt% Pt/C is the reference throughout. In the one-hour hold it retained 58.5% of its current, and in the standard voltammetry its peak mass activity was 505 mA per mg of Pt.</p>
+<p><strong>Baseline.</strong> Commercial Pt/C is the reference throughout. In the one-hour hold it retained 58.5% of its current.</p>
 <p>I tested two ways of protecting the platinum, and whether they help or hinder each other: decorating the Pt/C with bismuth, which is known to block the CO-forming path, and adding a dissolved quinone, anthraquinone-2-sulfonic acid (AQSA), as a redox mediator in the electrolyte.</p>
 ${mechanism()}`],
       ['contribution', 'My contribution', `
-<p>This was my M.Tech thesis, supervised by Prof. Raghuram Chetty at IIT Madras, with the catalyst synthesis done in the KinCat group at NTNU. I made the four catalysts, formulated the inks and prepared the electrodes, ran the voltammetry and the one-hour holds on an Autolab potentiostat, and analysed the results, using FE-SEM, EDX, XRD and BET data to connect bismuth loading with morphology, lattice strain and activity.</p>`],
+<p>This was my M.Tech thesis, supervised by Prof. Raghuram Chetty at IIT Madras, with the catalyst synthesis done in the KinCat group at NTNU. I made the four catalysts, formulated the inks and prepared the electrodes, ran the voltammetry and the one-hour holds on an Autolab potentiostat, and analysed the results, using FE-SEM, EDX, XRD and BET data to connect bismuth loading with morphology and activity.</p>`],
+      // REVIEW(disclosure): exact recipe quantities, ink volumes, the AQSA concentration screen, EDX
+      // compositions, crystallite sizes, the BET value, full activity tables and raw-data figures were
+      // removed pending supervisor clearance (unpublished thesis). See the disclosure review.
       ['methods', 'Methods and assumptions', `
 <ol class="steps">
-  <li><h3>Made four catalysts</h3><p>Commercial 20 wt% Pt/C (60 mg) was soaked for 48 hours in bismuth nitrate at 1.25, 2.5, 5 and 10 mM in 20 mL of dilute sulphuric acid under nitrogen, then reduced with sodium borohydride and annealed at 300 °C for 2 h under argon.</p></li>
-  <li><h3>Tracked where the bismuth went</h3><p>FE-SEM, EDX averaged over four spots per sample, powder XRD and, for the best catalyst, nitrogen physisorption (BET).</p></li>
-  <li><h3>Tuned the catalyst ink</h3><p>5 mg of catalyst in water and isopropanol, with 5 µL or 20 µL of 5 wt% Nafion as binder.</p></li>
-  <li><h3>Built and tested electrodes</h3><p>For voltammetry, 4 µL of ink was drop-cast on a polished glassy carbon disk (0.0707 cm²), the electrode in the photos. For the separate one-hour holds, the same ink was applied to 1 cm² carbon paper at the same loading, for a larger, more even area. Both were measured in a three-electrode cell with a platinum-coil counter and an Ag/AgCl reference. AQSA was screened at 0, 1, 2 and 10 mM.</p></li>
-  <li><h3>Ran durability holds</h3><p>Each catalyst, on carbon paper, was held at 0.55 V vs RHE for 3600 s, with and without 1 mM AQSA.</p></li>
+  <li><h3>Made a series of catalysts</h3><p>Commercial Pt/C was modified with bismuth at four loadings by a wet-chemical route: adsorption from solution under an inert atmosphere, chemical reduction and a thermal treatment.</p></li>
+  <li><h3>Tracked where the bismuth went</h3><p>FE-SEM with EDX, powder XRD and, for the best catalyst, nitrogen physisorption (BET).</p></li>
+  <li><h3>Tuned the catalyst ink</h3><p>Compared two Nafion binder contents in a water and isopropanol ink, and kept the thinner film for the later comparisons.</p></li>
+  <li><h3>Built and tested electrodes</h3><p>Drop-cast electrodes on a glassy carbon disk for voltammetry, the electrode in the photos, and on carbon paper for the separate one-hour holds, in a three-electrode cell with a platinum counter and an Ag/AgCl reference. The quinone mediator was screened at several concentrations.</p></li>
+  <li><h3>Ran durability holds</h3><p>Each catalyst, on carbon paper, was held at a fixed potential for one hour, with and without the mediator.</p></li>
 </ol>
 ${defs([
-  ['Electrolyte', '0.5 M formic acid in 0.5 M H<sub>2</sub>SO<sub>4</sub>, nitrogen-purged, room temperature (22 ± 2 °C)'],
-  ['Retention', 'Current at 3600 s divided by current at 61 s. The first 60 s are discarded as the charging transient.'],
-  ['Mass activity', 'Peak current divided by the platinum mass on the electrode, taken from each catalyst’s EDX platinum fraction.'],
-  ['Current density', 'Per geometric area: 0.0707 cm² for the glassy carbon disk, 1 cm² for carbon paper.'],
-  ['Potentials', 'Measured against Ag/AgCl and converted to the RHE scale.'],
+  ['Electrolyte', 'Formic acid in dilute sulphuric acid, nitrogen-purged, room temperature'],
+  ['Retention', 'Current at the end of the hour as a share of the current just after the first-minute charging transient.'],
+  ['Mass activity', 'Peak current per mass of platinum on the electrode.'],
+  ['Potentials', 'Measured against Ag/AgCl and reported on the RHE scale.'],
 ])}`],
       ['results', 'Results', `
 <h3>Where the bismuth went</h3>
-<p>At the two lowest loadings there were no separate bismuth crystals in SEM or XRD: bismuth sat on the platinum as a thin decoration. At 10 mM, bright Bi-rich clusters appeared and covered much of the platinum.</p>
-${table(
-  'Composition from EDX (four-spot average) and Pt crystallite size from XRD',
-  ['Catalyst', 'Bi (wt%)', 'Bi : Pt ratio', 'Pt crystallite (nm)'],
-  [
-    ['Commercial Pt/C', '0', '0', '2.51'],
-    ['Bi(1.25)-Pt/C', '0.60', '0.034', '3.52'],
-    ['Bi(2.5)-Pt/C', '1.08', '0.132', '3.53'],
-    ['Bi(5)-Pt/C', '9.35', '0.706', '2.68'],
-    ['Bi(10)-Pt/C', '20.49', '2.200', '3.44'],
-  ],
-  { hl: [1], note: 'Crystallite sizes from the Pt(111) reflection with the Scherrer equation. The BET surface area of Bi(1.25)-Pt/C was 122.2 ± 1.1 m²/g.' },
-)}
+<p>At the two lowest loadings there were no separate bismuth crystals in SEM or XRD: bismuth sat on the platinum as a thin decoration. At the highest loading, bright Bi-rich clusters appeared and covered much of the platinum.</p>
 
 <h3>Less Nafion, more current</h3>
-<p>On the glassy carbon electrode, the thinner Nafion film gave higher peak current than the thicker one, even though the thicker film showed slightly more active area on plain Pt/C. The active-area measurement only needs protons to reach the platinum, but formic acid has to diffuse through the film, so a thick ionomer layer wins one test and loses the other. The effect was found on Pt/C and then reproduced on Bi(2.5)-Pt/C.</p>
-${table(
-  'Peak current density with thick and thin Nafion films (mA/cm², formic acid, glassy carbon)',
-  ['Catalyst', '20 µL Nafion', '5 µL Nafion', 'Ratio'],
-  [
-    ['Commercial Pt/C', '20.4', '56.6', '2.8×'],
-    ['Bi(2.5)-Pt/C', '15.8', '39.0', '2.5×'],
-  ],
-  { note: 'Ratios from the tabulated peak currents. The thesis summarises the effect as 2.4–2.8×. The 5 µL ink was used for all later comparisons.' },
-)}
+<p>On the glassy carbon electrode, the thinner Nafion film gave roughly 2.5–2.8 times the peak current of the thicker one, even though the thicker film showed slightly more active area on plain Pt/C. The active-area measurement only needs protons to reach the platinum, but formic acid has to diffuse through the film, so a thick ionomer layer wins one test and loses the other. The effect was found on Pt/C and then seen again on a Bi-modified catalyst.</p>
 
-<h3>Activity across the series</h3>
-${table(
-  'Peak mass activity on the glassy carbon electrode (mA per mg of Pt, 50 mV/s, 5 µL Nafion)',
-  ['Catalyst', 'Formic acid only', 'With 1 mM AQSA', 'Change with AQSA'],
-  [
-    ['Commercial Pt/C', '505', '238', '−53%'],
-    ['Bi(1.25)-Pt/C', '597', '497', '−17%'],
-    ['Bi(2.5)-Pt/C', '500', 'not reported', '—'],
-    ['Bi(5)-Pt/C', '852', '474', '−44%'],
-    ['Bi(10)-Pt/C', '401', '293', '−27%'],
-  ],
-  { hl: [1] },
-)}
-<p>Bi(5)-Pt/C had the most impressive voltammogram, 852 mA per mg of Pt, but most of that peak came from oxidising CO that had already formed. It was recovering from poisoning rather than avoiding it, and it kept only 52.8% of its current in the one-hour hold. On the direct pathway, before any CO is burned off, Bi(1.25)-Pt/C reached 48.2 mA/cm², about 4.8 times commercial Pt/C (10.1 mA/cm²).</p>
+<h3>Activity is not durability</h3>
+<p>A mid-range bismuth loading gave the most impressive voltammogram, but most of its peak came from oxidising CO that had already formed: it was recovering from poisoning rather than avoiding it, and it decayed fastest of the modified catalysts in the one-hour hold. The lowest-bismuth catalyst gave a much higher current on the direct pathway, before any CO is burned off, than commercial Pt/C.</p>
 
 <h3>Which catalyst lasted</h3>
 ${durabilityChart()}
-${table(
-  'One-hour hold at 0.55 V vs RHE on carbon paper',
-  ['Catalyst', 'Retention, formic acid', 'Retention, 1 mM AQSA', 'Current at 1 h, formic acid (mA/cm²)', 'Current at 1 h, 1 mM AQSA (mA/cm²)'],
-  [
-    ['Commercial Pt/C', '58.5%', '55.6%', '9.31', '7.94'],
-    ['Bi(1.25)-Pt/C', '92.9%', '70.4%', '9.66', '8.01'],
-    ['Bi(2.5)-Pt/C', '67.4%', '49.1%', '10.40', '8.81'],
-    ['Bi(5)-Pt/C', '52.8%', '35.5%', '12.34', '7.36'],
-    ['Bi(10)-Pt/C', '39.3%', '38.3%', '7.30', '6.48'],
-  ],
-  { hl: [1] },
-)}
 <ul class="tight">
-  <li><strong>The least bismuth worked best for stability.</strong> Bi(1.25)-Pt/C retained the most current in both electrolytes and had the highest peak mass activity with AQSA (497 mA per mg of Pt).</li>
-  <li><strong>Retention is not output.</strong> After an hour in formic acid, Bi(5)-Pt/C still delivered the highest current (12.3 mA/cm²), because it started from a much higher level and decayed more. Bi(1.25)-Pt/C’s advantage is that it decayed far less: its current at one hour (9.7 mA/cm²) is only slightly above that of commercial Pt/C (9.3).</li>
-  <li><strong>The mediator did not help in these tests.</strong> At 1 mM, AQSA lowered peak mass activity on every catalyst compared and lowered one-hour retention on all five. In an earlier screen on Pt/C with the thicker ink, 1 mM raised the peak slightly (219 vs 188 mA per mg of Pt) and 2 and 10 mM suppressed it. On Bi(5)-Pt/C, 1 mM was again the least suppressive concentration tested, though it still cut the peak by 44%.</li>
+  <li><strong>The least bismuth worked best for stability.</strong> Bi(1.25)-Pt/C, the lowest loading, retained the most current in both electrolytes.</li>
+  <li><strong>Retention is not output.</strong> Retention measures decay, not current. After an hour, a higher-loading catalyst still delivered more current because it started much higher; the lowest-bismuth catalyst’s advantage is that it decayed far less, ending only slightly above commercial Pt/C.</li>
+  <li><strong>The mediator did not help in these tests.</strong> At the concentration used for the comparison, AQSA lowered peak activity and one-hour retention on the catalysts compared.</li>
 </ul>`],
       ['limits', 'Limitations', `
 <ul class="tight">
   <li><strong>Half-cell, acid, one hour.</strong> Everything was measured in a three-electrode half-cell at room temperature. The numbers rank catalysts against each other; they are not fuel-cell performance. Practical fuel cells run for hundreds to thousands of hours, and the thesis names a membrane electrode assembly with Bi(1.25)-Pt/C, in situ spectroscopy, and longer degradation tests as the next steps.</li>
-  <li><strong>Repeatability is not reported.</strong> The thesis gives no replicate counts, standard deviations or error bars for the voltammetry or the durability holds, so differences should be read as indicative rankings, not statistically tested results. The only spreads reported are the four-spot EDX average and a ±1.05 m²/g fit uncertainty on the BET area of one catalyst. Two trends were reproduced on a second catalyst (the Nafion effect on Bi(2.5)-Pt/C and the AQSA trend on Bi(5)-Pt/C), which is a check on the trend, not a replicate.</li>
-  <li><strong>Coarse bismuth grid.</strong> Four loadings from 1.25 to 10 mM were tested, and the best was the lowest. The true optimum may sit between or below them.</li>
+  <li><strong>Repeatability is not reported.</strong> The thesis gives no replicate counts, standard deviations or error bars for the voltammetry or the durability holds, so differences should be read as indicative rankings, not statistically tested results. Two trends were seen again on a second catalyst, which is a check on the trend, not a replicate.</li>
+  <li><strong>Coarse bismuth grid.</strong> Four bismuth loadings were tested, and the best was the lowest. The true optimum may sit between or below them.</li>
   <li><strong>Mechanism is inferred.</strong> Third-body blocking of CO-forming sites is the explanation that fits the data; it was not observed directly. The schematic above is illustrative.</li>
 </ul>
 <p class="takeaway"><strong>What I took from it.</strong> A good-looking voltammogram is not the same as a durable catalyst, and retention is not the same as output. I now check durability before ranking anything, and I think about what each measurement can and cannot see.</p>`],
       ['evidence', 'Supporting evidence', `
-<p>The tables above summarise results from my M.Tech thesis, written for IIT Madras. The thesis itself and the raw voltammetry and chronoamperometry files are not published here; questions about the methods or data are welcome by email.</p>
-<details class="more"><summary>Synthesis route and test setup</summary>
-${fig('ayush-suryawanshi-six-step-schematic-of-the-catalyst-synthesis.jpg', 'Six-step schematic of the catalyst synthesis', 'How each catalyst was made, step by step: bismuth adsorbed onto commercial Pt/C under nitrogen, filtered, reduced with borohydride, filtered again and annealed under argon. The same route was used at every bismuth level, so differences in performance come from the bismuth, not the method.', { sizes: '(min-width: 1100px) 720px, 100vw' })}
+<p>This page summarises results from my M.Tech thesis, written for IIT Madras. The thesis, its figures and the raw voltammetry and chronoamperometry files are not published here; questions about the work are welcome by email.</p>
+<details class="more"><summary>The test setup</summary>
 <div class="fig-row">
 ${fig('ayush-suryawanshi-glass-cell-with-glassy-carbon-electrode-and-potentiostat.jpg', 'Sealed glass cell with a glassy carbon electrode, connected to the potentiostat leads', 'The cell ready for cyclic voltammetry: glassy carbon working electrode, platinum counter and Ag/AgCl reference, each clipped to the potentiostat.', { cls: 'tall', sizes: '(min-width: 720px) 340px, 50vw' })}
 ${fig('ayush-suryawanshi-glass-cell-with-a-carbon-paper-electrode-and.jpg', 'Glass cell with formic acid electrolyte, a glassy carbon working electrode and a coiled platinum counter electrode', 'The same three-electrode cell filled with formic acid electrolyte for a voltammetry run.', { cls: 'tall', sizes: '(min-width: 720px) 340px, 50vw' })}
-</div>
-</details>
-<details class="more"><summary>Electron micrographs and EDX maps</summary>
-<div class="fig-row">
-${fig('ayush-suryawanshi-grid-of-five-fe-sem-micrographs-of-the.jpg', 'Grid of five FE-SEM micrographs of the catalyst series', 'Electron micrographs of the five catalysts at similar magnification. The low-bismuth samples look like plain Pt/C; bright bismuth-rich clusters only appear at the highest loadings.', { sizes: '(min-width: 720px) 340px, 100vw' })}
-${fig('ayush-suryawanshi-edx-maps-for-carbon-platinum-bismuth-and-oxygen.jpg', 'EDX maps for carbon, platinum, bismuth and oxygen', 'Element maps of Bi(2.5)-Pt/C: bismuth is spread evenly across the sample rather than gathered in patches, which is what a thin surface decoration should look like.', { sizes: '(min-width: 720px) 340px, 100vw' })}
-</div>
-</details>
-<details class="more"><summary>The measured curves behind these numbers</summary>
-<div class="fig-row">
-${fig('ayush-suryawanshi-cyclic-voltammograms-of-three-catalysts-in-formic-acid.jpg', 'Cyclic voltammograms of three catalysts in formic acid', 'Cyclic voltammograms of Pt/C, Bi(1.25)-Pt/C and Bi(10)-Pt/C on the glassy carbon electrode in 0.5 M formic acid at 50 mV/s. A large peak late in the forward scan is CO being burned off, so peak height alone can flatter a catalyst.', { sizes: '(min-width: 720px) 340px, 100vw' })}
-${fig('ayush-suryawanshi-current-retention-curves-over-one-hour-for-five.jpg', 'Current retention curves over one hour for five catalysts', 'The full one-hour current traces on carbon paper at 0.55 V vs RHE, behind the chart above. The flatter the curve, the less the catalyst is being poisoned.', { sizes: '(min-width: 720px) 340px, 100vw' })}
 </div>
 </details>`],
     ],
@@ -549,6 +494,8 @@ ${fig('ayush-suryawanshi-current-retention-curves-over-one-hour-for-five.jpg', '
 
   /* -------------------------------------------------------------- NTNU synthesis */
   {
+    // REVIEW(disclosure): ignition incident in a host lab, route changes, the 220 mg figure, SEM images
+    // and the KinCat group name need Prof. Blekkan's agreement (source: unpublished UTFORSK report).
     slug: 'ntnu-synthesis-scale-up',
     kind: ['lab'],
     kindLabel: 'Experimental research · KinCat group, NTNU',
@@ -622,6 +569,8 @@ ${fig('ayush-suryawanshi-two-high-magnification-sem-micrographs.jpg', 'Two high-
 
   /* ------------------------------------------------------------------------ DFT */
   {
+    // REVIEW(disclosure): own course project; step energies, method and route line are low risk but
+    // unpublished. Confirm with the course instructor if in doubt.
     slug: 'dft-orr-pt13',
     kind: ['computation'],
     kindLabel: 'Modelling and simulation · Course project',
@@ -707,7 +656,7 @@ ${fig('ayush-suryawanshi-photo-4972ceff.jpg', 'Plot of the four tabulated step e
     title: 'Designing an SNCR retrofit for a biomass boiler',
     short: 'A four-person design study: can selective non-catalytic reduction bring a biomass boiler under its NOx limit, and at what cost?',
     description:
-      'SNCR retrofit design study for NOx reduction in a biomass boiler by a four-person NTNU team including Ayush Suryawanshi, for Billerud Viken and Vardar Varme, with Cantera combustion and kinetic models and a cost estimate.',
+      'SNCR retrofit design study for NOx reduction in a biomass boiler by a four-person NTNU team including Ayush Suryawanshi, for Norwegian industry partners, with Cantera combustion and kinetic models and a cost estimate.',
     when: 'Aug – Nov 2025',
     where: 'NTNU, Trondheim',
     cardImg: ['ayush-suryawanshi-photo-5ee7ac61.jpg', 'Ayush and two teammates beside their SNCR poster', '50% 8%'],
@@ -720,6 +669,8 @@ ${fig('ayush-suryawanshi-photo-4972ceff.jpg', 'Plot of the four tabulated step e
       ['Type', 'Process design project (TKP4170)'],
       ['Team', 'Four students'],
       ['Supervisor', 'Prof. Øyvind Weiby Gregersen'],
+      // REVIEW(disclosure): partner names appear on the publicly presented poster; confirm the partners are
+      // happy to be named on a personal site.
       ['Industry partners', 'Billerud Viken; boiler operated by Vardar Varme AS'],
       ['Tools', 'Python, Cantera, Excel'],
       ['Presented at', 'Treforedlingsforum 2025, Oslo'],
@@ -727,15 +678,15 @@ ${fig('ayush-suryawanshi-photo-4972ceff.jpg', 'Plot of the four tabulated step e
     glance: [
       ['Problem', 'An upgraded biomass boiler must stay under 300 mg/Nm³ NOx, and uncontrolled NOx was modelled at 280–330 mg/Nm³. Could an SNCR retrofit close the gap, and at what cost?'],
       ['My contribution', 'Member of a four-person team and presenter of the poster in Oslo. The report does not itemise who did what, so the method and results below are the team’s work.'],
-      ['Key result', 'With a conservative design reduction of about 60% (the ideal model gave above 90%), modelled NOx falls to roughly 100–125 mg/Nm³, under the limit. Estimated capital cost is about 432 kUSD and running cost about 42 kUSD a year: not profitable at current NOx tax, but justified as a compliance cost.'],
-      ['Limits', 'Idealised model (perfect mixing, fixed temperature profile), one plant test from 2007 for comparison, and a design study rather than a plant trial. On-site measurement was recommended.'],
+      ['Key result', 'With a conservative design reduction of about 60% (the ideal model gave above 90%), modelled NOx falls to roughly 100–125 mg/Nm³, under the limit. Capital and running costs were estimated: not profitable at current NOx tax, but justified as a compliance cost.'],
+      ['Limits', 'Idealised model (perfect mixing, fixed temperature profile), very limited plant data for comparison, and a design study rather than a plant trial. On-site measurement was recommended.'],
     ],
     hero: ['ayush-suryawanshi-photo-5ee7ac61.jpg', 'Ayush and two teammates standing beside their SNCR poster at a conference', 'With two of my teammates beside our poster at Treforedlingsforum 2025 in Oslo.'],
     heroFit: 'natural',
     sections: () => [
       ['problem', 'Problem and baseline', `
-<p>A boiler run for district heating by Vardar Varme is to be upgraded from 8–20 MW at 40 bar to 30–35 MW at 80 bar, to supply steam to Billerud Viken’s planned bleached chemi-thermomechanical pulp (BCTMP) mill. Burning biomass produces NOx, and the plant has to stay under the Norwegian limit of 300 mg/Nm³ (dry, 11% O<sub>2</sub>). The team asked whether a selective non-catalytic reduction (SNCR) retrofit, injecting ammonia into the hot flue gas, could get it there.</p>
-<p><strong>Baseline.</strong> The models gave uncontrolled NOx of 333 mg/Nm³ for the baseline feed and 287 mg/Nm³ for the lower feed case. A plant test in 2007 on a similar fuel blend, at higher flows, measured 231 mg/Nm³, so the modelled baseline is higher than the one measurement available.</p>`],
+<p>A biomass boiler at a Norwegian industrial site is to be upgraded to supply process steam to a pulp production line. Burning biomass produces NOx, and the plant has to stay under the Norwegian limit of 300 mg/Nm³ (dry, 11% O<sub>2</sub>). The team asked whether a selective non-catalytic reduction (SNCR) retrofit, injecting ammonia into the hot flue gas, could get it there.</p>
+<p><strong>Baseline.</strong> The models gave uncontrolled NOx of 333 mg/Nm³ for the baseline feed and 287 mg/Nm³ for the lower feed case. The only plant measurement available for comparison was older and lower than the modelled baseline.</p>`],
       ['contribution', 'My contribution', `
 <p>I was one of four authors of the design report and presented the work as a poster at Treforedlingsforum 2025 in Oslo, 18–19 November. The report does not divide the work between authors, so I describe the study as the team’s and do not claim individual parts of the modelling or cost estimate here.</p>`],
       ['methods', 'Methods and assumptions', `
@@ -746,15 +697,11 @@ ${fig('ayush-suryawanshi-photo-4972ceff.jpg', 'Plot of the four tabulated step e
   <li><h3>Designed and costed the system</h3><p>Ammonia was chosen as the reagent for performance and cost. The team laid out storage, mixing and injection, sized the main equipment, set out safety measures and estimated capital and running costs.</p></li>
 </ol>
 ${table(
-  'Documented design assumptions and operating points',
+  'Design assumptions and operating points',
   ['Item', 'Value used'],
   [
-    ['Boiler duty after upgrade', '30–35 MW at 80 bar (from 8–20 MW at 40 bar)'],
-    ['Fuel feed', 'Recycled wood, spruce bark, sludge and biogas; two feed cases (baseline and lower)'],
-    ['Combustion air', 'About 11% excess air; secondary air not in use'],
-    ['Post-combustion zone volume', 'About 122 m³'],
-    ['Flame temperature estimate', 'About 1250 °C'],
-    ['Residence time', '0.6–2.0 s; 1.3 s used in later calculations'],
+    // REVIEW(disclosure): boiler duty, fuel blend, excess air, furnace volume and residence time came from
+    // the client's internal documentation and were removed pending clearance from the partners.
     ['SNCR temperature window', 'Reduction rises between 900 and 1000 °C and falls above it; injection recommended at the upper end, 1000–1100 °C'],
     ['Reagent and dose', '25 wt% ammonia solution; start at NSR 1.4 and tune from measurements; equipment sized at NSR 2.0'],
     ['Model simplifications', 'Perfect mixing, fixed temperature profile, steady state: an upper-bound estimate'],
@@ -775,7 +722,7 @@ ${table(
 )}
 <ul class="tight">
   <li><strong>Temperature matters most.</strong> Reduction is limited below about 850 °C, rises quickly between 900 and 1000 °C and falls at higher temperatures as ammonia oxidises. At the cooler end of the window the modelled ammonia slip exceeds 40 mg/Nm³, so the recommendation is to inject near the upper end.</li>
-  <li><strong>Reagent and cost.</strong> The baseline case needs about 5800 litres of 25 wt% ammonia solution a month at NSR 1.4, and reagent use dominates running cost. Estimated capital cost is about 432 kUSD and running cost about 42 kUSD a year. At current NOx tax rates the project is not profitable, but the report judges the investment justified as a compliance measure.</li>
+  <li><strong>Reagent and cost.</strong> The baseline case needs about 5800 litres of 25 wt% ammonia solution a month at NSR 1.4, and reagent use dominates running cost. Capital and running costs were estimated with standard cost correlations. At current NOx tax rates the project is not profitable, but the report judges the investment justified as a compliance measure.</li>
   <li><strong>Safety was part of the design.</strong> Ammonia is hazardous, so the design included a moat around the tank, ammonia sensors with alarms that switch off the pumps, emergency showers and enclosed mixing and distribution modules.</li>
   <li><strong>Recommendations.</strong> Measure temperature and uncontrolled NOx on site before tuning, and design for variations in load and fuel.</li>
 </ul>`],
@@ -783,14 +730,13 @@ ${table(
 <ul class="tight">
   <li><strong>Idealised models.</strong> Perfect mixing, a fixed temperature profile and steady state make the SNCR results an upper bound; real furnaces have imperfect mixing and temperature variation, and real ammonia slip is likely to be higher.</li>
   <li><strong>The 60% is an assumption.</strong> It is a conservative design value chosen from industrial experience, not a result the model produced.</li>
-  <li><strong>Thin plant data.</strong> The baseline came from models and a single 2007 plant test; the modelled uncontrolled NOx was higher than that test.</li>
+  <li><strong>Thin plant data.</strong> The baseline came from models, with only one older plant measurement for comparison, and the modelled uncontrolled NOx was higher than it.</li>
   <li><strong>High-level costs.</strong> The cost estimates are early-stage, and the report notes that some equipment costs are less accurate than the storage tank estimate.</li>
   <li><strong>A design study.</strong> Nothing here was tested on the boiler.</li>
 </ul>
 <p class="takeaway"><strong>What I took from it.</strong> This was my first design project for an industry client. It taught me to work from incomplete plant data, state assumptions clearly, and give a recommendation a client can act on, including an honest note that the economics only work as a compliance cost.</p>`],
       ['evidence', 'Supporting evidence', `
-<p>This page summarises the team’s TKP4170 design report for NTNU. The report, the model code and the model outputs are not published here; the poster and two model plots are below.</p>
-${fig('sncr-poster-treforedlingsforum-2025.jpg', 'Conference poster titled SNCR Technology for Reduction of NOx Emissions in a Bio-Boiler, with sections on motivation, modelling, reagent use and economics', 'The poster we presented in Oslo. It condenses the study into one page: why the boiler needs NOx control, how it was modelled, how much ammonia it takes and what it costs. Select it to read it at full size.', { cls: 'poster', sizes: '(min-width: 900px) 420px, 90vw' })}
+<p>This page summarises the team’s TKP4170 design report for NTNU. The report, the poster, the model code and the model outputs are not published here; two model plots are below.</p>
 <details class="more"><summary>Model plots</summary>
 <div class="fig-row">
 ${fig('ayush-suryawanshi-plot-of-nox-and-ammonia-slip-against-sncr.jpg', 'Plot of NOx and ammonia slip against SNCR temperature', 'Modelled NOx with and without SNCR across injection temperatures. The dashed line is the 300 mg/Nm³ limit and the shaded band is the usual SNCR window: inject too cold and ammonia slips through, too hot and it burns to NOx itself.', { sizes: '(min-width: 720px) 340px, 100vw' })}

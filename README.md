@@ -57,9 +57,9 @@ backgrounds: light `#2457C5` / `#C27C1A` on `#FFFFFF`, dark `#5F8BF0` / `#B77B26
 
 ## CV
 
-`Ayush_CV.pdf` is the original CV, kept unchanged. The site links to `Ayush_CV_revised.pdf`
-(it downloads as `Ayush_CV.pdf`). No editable CV source exists, so the revised copy is built
-from the original by `python3 scripts/cv_revise.py`: new summary, header without a phone number
+The original CV is not kept here: it has a phone number and job-application metadata. The site
+links to `Ayush_CV_revised.pdf` (it downloads as `Ayush_CV.pdf`). No editable CV source exists, so
+the revised copy is built from the original by `python3 scripts/cv_revise.py /path/to/Ayush_CV.pdf`: new summary, header without a phone number
 and with the website address, KinCat group, British/Indian English spellings, Languages and
 EuropaCat lines, and neutral PDF metadata. Every other line keeps its text and position.
 

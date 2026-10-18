@@ -15,12 +15,15 @@ made on the PDF itself, keeping the original fonts, sizes, colours and positions
 Every line that is not edited keeps its exact text; lines below an insertion move down by
 exactly one line pitch. Usage: python3 scripts/cv_revise.py  (needs PyMuPDF, Liberation fonts)
 """
+import sys
 from pathlib import Path
 
 import pymupdf
 
 ROOT = Path(__file__).resolve().parent.parent
-SRC, OUT = ROOT / "Ayush_CV.pdf", ROOT / "Ayush_CV_revised.pdf"
+# The original CV carries a phone number and job-application metadata, so it is not kept in this
+# public repository. Pass its path: python3 scripts/cv_revise.py /path/to/Ayush_CV.pdf
+SRC, OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "Ayush_CV.pdf", ROOT / "Ayush_CV_revised.pdf"
 FONTDIR = "/usr/share/fonts/truetype/liberation/"
 FONTS = {  # PDF font name -> (alias used when inserting, font file or base-14 name)
     "LiberationSerif": ("LSR", FONTDIR + "LiberationSerif-Regular.ttf"),

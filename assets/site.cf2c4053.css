@@ -868,3 +868,5 @@ dl.defs dd { color: var(--ink-2); }
 .skill-links { display: block; margin-top: 0.35rem; font-size: 0.88rem; }
 .skill-links a { display: inline-block; margin-right: 0.9rem; }
 .cv-row p strong { font-weight: 600; color: var(--ink); }
+.creds-text .cred { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); padding: 1rem 1.1rem 1.2rem; }
+.creds-text .cred h3 { font-size: 1rem; margin: 0 0 0.3rem; }
