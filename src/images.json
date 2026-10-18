@@ -211,5 +211,25 @@
    1280,
    2000
   ]
+ },
+ "thesis-figure-xrd-high-bi.jpg": {
+  "name": "thesis-figure-xrd-high-bi",
+  "w": 2909,
+  "h": 2032,
+  "widths": [
+   640,
+   1280,
+   2000
+  ]
+ },
+ "thesis-figure-xrd-low-bi.jpg": {
+  "name": "thesis-figure-xrd-low-bi",
+  "w": 2909,
+  "h": 2032,
+  "widths": [
+   640,
+   1280,
+   2000
+  ]
  }
 }

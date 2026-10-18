@@ -417,6 +417,10 @@ function projectsIndex() {
 /* ---------- project pages ---------- */
 function projectPage(p, i) {
   const sections = p.sections();
+  // A project can override its page heading, subtitle and hero facts without changing how it is
+  // listed elsewhere, put a lead result under the subtitle, and drop the glance box.
+  const heading = p.pageTitle || p.title;
+  const glance = p.showGlance !== false;
   const prev = projects[i - 1];
   const next = projects[i + 1];
   const heroFig = p.hero
@@ -426,14 +430,16 @@ function projectPage(p, i) {
 <article class="project">
 <header class="page-head proj-head">
   <div class="wrap">
-    <nav class="crumbs" aria-label="Breadcrumb"><a href="${url('projects/')}">Projects</a><span aria-hidden="true">/</span><span aria-current="page">${p.title}</span></nav>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="${url('projects/')}">Projects</a><span aria-hidden="true">/</span><span aria-current="page">${heading}</span></nav>
     <p class="eyebrow">${p.kindLabel}</p>
-    <h1>${p.title}</h1>
-    <p class="page-lede">${p.short}</p>
+    <h1>${heading}</h1>
+    <p class="page-lede">${p.pageShort || p.short}</p>${p.lead ? `\n    ${p.lead}` : ''}
     <dl class="proj-meta">
-      <div><dt>When</dt><dd>${p.when}</dd></div>
+      ${p.heroMeta
+        ? p.heroMeta.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('\n      ')
+        : `<div><dt>When</dt><dd>${p.when}</dd></div>
       <div><dt>Where</dt><dd>${p.where}</dd></div>
-      ${p.meta.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}
+      ${p.meta.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}`}
     </dl>
   </div>
 </header>
@@ -441,13 +447,13 @@ ${heroFig}
 <div class="wrap proj-layout">
   <aside class="toc" aria-label="On this page">
     <p class="eyebrow">On this page</p>
-    <ol>${['At a glance', ...sections.map((s) => s[1])].map((t, j) => `<li><a href="#${j === 0 ? 'glance' : sections[j - 1][0]}">${t}</a></li>`).join('')}</ol>
+    <ol>${[...(glance ? [['glance', 'At a glance']] : []), ...sections].map(([id, t]) => `<li><a href="#${id}">${t}</a></li>`).join('')}</ol>
   </aside>
-  <div class="prose">
+  <div class="prose">${glance ? `
     <section id="glance" class="glance" aria-labelledby="glance-h">
       <h2 id="glance-h" class="sr-only">At a glance</h2>
       <dl>${p.glance.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>
-    </section>
+    </section>` : ''}
     ${sections.map(([id, title, html]) => `<section id="${id}" aria-labelledby="${id}-h"><h2 id="${id}-h">${title}</h2>${html}</section>`).join('\n')}
     <nav class="pager" aria-label="More projects">
       ${prev ? `<a class="prev" href="${projectUrl(prev.slug)}"><span class="eyebrow">Previous</span>${prev.title}</a>` : '<span></span>'}
@@ -456,7 +462,7 @@ ${heroFig}
   </div>
 </div>
 </article>`;
-  const title = `${strip(p.title)} – Ayush Suryawanshi`;
+  const title = `${strip(heading)} – Ayush Suryawanshi`;
   return page({
     path: `projects/${p.slug}/`,
     title,
@@ -466,9 +472,9 @@ ${heroFig}
     image: p.hero ? `images/${p.hero[0]}` : undefined,
     extraHead: p.style ? `<style>${p.style}</style>\n` : '',
     jsonld: [
-      crumbs([['Home', ''], ['Projects', 'projects/'], [strip(p.title), `projects/${p.slug}/`]]),
+      crumbs([['Home', ''], ['Projects', 'projects/'], [strip(heading), `projects/${p.slug}/`]]),
       {
-        '@type': 'CreativeWork', name: strip(p.title), headline: strip(p.title), description: p.description, url: liveUrl(`projects/${p.slug}/`),
+        '@type': 'CreativeWork', name: strip(heading), headline: strip(heading), description: p.description, url: liveUrl(`projects/${p.slug}/`),
         author: { '@id': liveUrl('#person') }, inLanguage: 'en', keywords: p.tags.join(', '),
       },
     ],
