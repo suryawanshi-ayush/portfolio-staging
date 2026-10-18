@@ -276,45 +276,6 @@ export const gallery = [
 
 /* ------------------------------------------------------------------ projects */
 
-const durability = [
-  // catalyst, retention with formic acid only, with AQSA (current at 3600 s as % of current at 61 s)
-  // REVIEW(disclosure): unpublished thesis figures; kept as the page's one summary result, needs supervisor clearance.
-  ['Bi(1.25)-Pt/C', 92.89, 70.38],
-  ['Bi(2.5)-Pt/C', 67.35, 49.13],
-  ['Commercial Pt/C', 58.53, 55.6],
-  ['Bi(5)-Pt/C', 52.76, 35.48],
-  ['Bi(10)-Pt/C', 39.27, 38.28],
-];
-
-function durabilityChart() {
-  const rows = durability
-    .map(
-      ([name, fa, aq]) => `<div class="bars-row" role="listitem">
-      <span class="bars-label">${name}</span>
-      <span class="bars-pair">
-        <span class="bar s1" style="--v:${fa}" data-series="fa"><span class="bar-val">${fa.toFixed(1)}%</span><span class="sr-only">, formic acid only</span></span>
-        <span class="bar s2" style="--v:${aq}" data-series="aq"><span class="bar-val">${aq.toFixed(1)}%</span><span class="sr-only">, with AQSA</span></span>
-      </span>
-    </div>`,
-    )
-    .join('');
-  return `<figure class="chart" data-chart="durability" aria-labelledby="dur-title">
-  <div class="chart-head">
-    <p class="chart-title" id="dur-title">Current retained after a one-hour hold</p>
-    <p class="chart-sub">Separate durability experiment on carbon paper electrodes (not the glassy carbon disk used for voltammetry), in a half-cell with formic acid in dilute sulphuric acid. Current at the end of the hour as a share of the current just after the first-minute charging transient. Bars show retention, not output. Repeat counts and error bars are not reported in the thesis.</p>
-    <div class="seg" role="group" aria-label="Series shown">
-      <button type="button" aria-pressed="true" data-show="both">Both</button>
-      <button type="button" aria-pressed="false" data-show="fa">Formic acid only</button>
-      <button type="button" aria-pressed="false" data-show="aq">With AQSA</button>
-    </div>
-    <ul class="legend" aria-hidden="true"><li><i class="sw s1"></i>Formic acid only</li><li><i class="sw s2"></i>With AQSA</li></ul>
-  </div>
-  <div class="bars" role="list">${rows}
-    <div class="bars-axis" aria-hidden="true"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>
-  </div>
-</figure>`;
-}
-
 const dftSteps = [
   ['O<sub>2</sub>* → OOH*', 'OOH* forms', -2.84],
   ['OOH* → O* + H<sub>2</sub>O', 'O* and water form', -2.05],
@@ -344,7 +305,7 @@ function dftChart() {
 }
 
 // The animated explainer of why bismuth helps. Schematic only; the JS in site.js runs it.
-export function mechanism({ compact = false } = {}) {
+export function mechanism({ compact = false, conceptual = false } = {}) {
   const pt = Array.from({ length: 11 }, (_, i) => `<circle class="pt" cx="${60 + i * 52}" cy="214" r="21"/>`).join('');
   const bi = [2, 5, 8].map((i) => `<circle class="bi" cx="${60 + i * 52 + 26}" cy="186" r="15"/>`).join('');
   return `<figure class="mech${compact ? ' compact' : ''}" data-mech data-mode="pt">
@@ -373,7 +334,7 @@ export function mechanism({ compact = false } = {}) {
     <div class="meter" aria-hidden="true"><span data-meter></span></div>
     <p class="mech-note" aria-live="polite" data-note>On plain platinum, part of the formic acid takes the indirect path and leaves CO stuck to the surface. Each blocked site stops contributing current.</p>
   </div>
-  <figcaption>Schematic, not to scale and not a simulation. Direct path: HCOOH → CO<sub>2</sub> + 2H<sup>+</sup> + 2e<sup>−</sup>. Indirect path: HCOOH → CO<sub>ads</sub> + H<sub>2</sub>O, which needs several neighbouring Pt atoms. Bismuth sitting on the surface breaks up those groups of sites.</figcaption>
+  <figcaption>${conceptual ? '<strong>Conceptual illustration, not experimental data.</strong> ' : ''}Schematic, not to scale and not a simulation. Direct path: HCOOH → CO<sub>2</sub> + 2H<sup>+</sup> + 2e<sup>−</sup>. Indirect path: HCOOH → CO<sub>ads</sub> + H<sub>2</sub>O, which needs several neighbouring Pt atoms. Bismuth sitting on the surface breaks up those groups of sites.</figcaption>
 </figure>`;
 }
 
@@ -392,6 +353,12 @@ const table = (caption, head, rows, { hl = [], note = '' } = {}) => {
 };
 
 const defs = (rows) => `<dl class="defs">${rows.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>`;
+
+// A readable key for a thesis line figure: colours sampled from the figure, values rounded from the
+// thesis tables. The figure itself is unchanged; this repeats its legend at a legible size.
+const curveKey = (label, rows) => `<ul class="curve-key" aria-label="${label}">${rows
+  .map(([name, colour, value]) => `<li><i style="background:${colour}" aria-hidden="true"></i><span>${name}</span><b>${value}</b></li>`)
+  .join('')}</ul><p class="fig-hint">Tap or click a figure to enlarge it.</p>`;
 
 export const projects = [
   /* ------------------------------------------------------------------ thesis */
@@ -431,62 +398,72 @@ export const projects = [
       ['Limits', 'Half-cell, acid, one hour. No replicate counts or error bars are reported, and there is no membrane electrode assembly or full-cell test yet.'],
     ],
     hero: ['ayush-suryawanshi-photo-7d467c05.jpg', 'Close-up of a glass three-electrode cell: a coiled platinum wire, an Ag/AgCl reference electrode and a catalyst-coated glassy carbon working electrode', 'Inside the half-cell: a coiled platinum wire as the counter electrode, an Ag/AgCl reference electrode, and the catalyst-coated glassy carbon working electrode used for the voltammetry.'],
+    // Styles for the figure keys on this page only, so the shared stylesheet (and every other page) is unchanged.
+    style: `.curve-key { list-style: none; padding: 0; margin: 0.2rem 0 0.4rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(11.5rem, 1fr)); gap: 0.25rem 1.2rem; font-size: 0.9rem; } .curve-key li { display: flex; align-items: center; gap: 0.5rem; padding: 0.15rem 0; } .curve-key i { width: 18px; height: 3px; border-radius: 2px; flex: none; } .curve-key b { margin-left: auto; font: 500 0.85rem var(--mono); color: var(--ink); } .curve-key span { color: var(--ink-2); } .fig-hint { font-size: 0.8rem; color: var(--muted); margin: 0 0 1rem; } .fig .src { opacity: 1; } @media (hover: hover) and (min-width: 900px) { .fig-hint { display: none; } } `,
+    // REVIEW(disclosure): the retention figures, the retention values quoted below, the Nafion effect and
+    // the AQSA negative result are unpublished thesis results; confirm with Prof. Chetty before going live.
+    // Recipe, ink formulation, operating conditions, compositions, crystallite sizes, BET and the full
+    // activity tables stay off the page. The XRD figure is held back (legend and text disagree).
     sections: () => [
-      ['problem', 'Problem and baseline', `
-<p>Formic acid is an attractive fuel for small fuel cells: it is liquid, easy to store, and crosses a Nafion membrane far less than methanol does. Platinum oxidises it well at first, but a side reaction leaves carbon monoxide stuck to the surface. As the platinum fills up, the current drops within the first hour.</p>
-<p><strong>Baseline.</strong> Commercial Pt/C is the reference throughout. In the one-hour hold it retained 58.5% of its current.</p>
-<p>I tested two ways of protecting the platinum, and whether they help or hinder each other: decorating the Pt/C with bismuth, which is known to block the CO-forming path, and adding a dissolved quinone, anthraquinone-2-sulfonic acid (AQSA), as a redox mediator in the electrolyte.</p>
-${mechanism()}`],
-      ['contribution', 'My contribution', `
-<p>This was my M.Tech thesis, supervised by Prof. Raghuram Chetty at IIT Madras, with the catalyst synthesis done in the KinCat group at NTNU. I made the four catalysts, formulated the inks and prepared the electrodes, ran the voltammetry and the one-hour holds on an Autolab potentiostat, and analysed the results, using FE-SEM, EDX, XRD and BET data to connect bismuth loading with morphology and activity.</p>`],
-      // REVIEW(disclosure): exact recipe quantities, ink volumes, the AQSA concentration screen, EDX
-      // compositions, crystallite sizes, the BET value, full activity tables and raw-data figures were
-      // removed pending supervisor clearance (unpublished thesis). See the disclosure review.
-      ['methods', 'Methods and assumptions', `
-<ol class="steps">
-  <li><h3>Made a series of catalysts</h3><p>Commercial Pt/C was modified with bismuth at four loadings by a wet-chemical route: adsorption from solution under an inert atmosphere, chemical reduction and a thermal treatment.</p></li>
-  <li><h3>Tracked where the bismuth went</h3><p>FE-SEM with EDX, powder XRD and, for the best catalyst, nitrogen physisorption (BET).</p></li>
-  <li><h3>Tuned the catalyst ink</h3><p>Compared two Nafion binder contents in a water and isopropanol ink, and kept the thinner film for the later comparisons.</p></li>
-  <li><h3>Built and tested electrodes</h3><p>Drop-cast electrodes on a glassy carbon disk for voltammetry, the electrode in the photos, and on carbon paper for the separate one-hour holds, in a three-electrode cell with a platinum counter and an Ag/AgCl reference. The quinone mediator was screened at several concentrations.</p></li>
-  <li><h3>Ran durability holds</h3><p>Each catalyst, on carbon paper, was held at a fixed potential for one hour, with and without the mediator.</p></li>
-</ol>
-${defs([
-  ['Electrolyte', 'Formic acid in dilute sulphuric acid, nitrogen-purged, room temperature'],
-  ['Retention', 'Current at the end of the hour as a share of the current just after the first-minute charging transient.'],
-  ['Mass activity', 'Peak current per mass of platinum on the electrode.'],
-  ['Potentials', 'Measured against Ag/AgCl and reported on the RHE scale.'],
-])}`],
-      ['results', 'Results', `
-<h3>Where the bismuth went</h3>
-<p>At the two lowest loadings there were no separate bismuth crystals in SEM or XRD: bismuth sat on the platinum as a thin decoration. At the highest loading, bright Bi-rich clusters appeared and covered much of the platinum.</p>
-
-<h3>Less Nafion, more current</h3>
-<p>On the glassy carbon electrode, the thinner Nafion film gave roughly 2.5–2.8 times the peak current of the thicker one, even though the thicker film showed slightly more active area on plain Pt/C. The active-area measurement only needs protons to reach the platinum, but formic acid has to diffuse through the film, so a thick ionomer layer wins one test and loses the other. The effect was found on Pt/C and then seen again on a Bi-modified catalyst.</p>
-
-<h3>Activity is not durability</h3>
-<p>A mid-range bismuth loading gave the most impressive voltammogram, but most of its peak came from oxidising CO that had already formed: it was recovering from poisoning rather than avoiding it, and it decayed fastest of the modified catalysts in the one-hour hold. The lowest-bismuth catalyst gave a much higher current on the direct pathway, before any CO is burned off, than commercial Pt/C.</p>
-
-<h3>Which catalyst lasted</h3>
-${durabilityChart()}
+      ['question', 'The question', `
+<p>Formic acid is an attractive fuel for small fuel cells: it is a liquid, easy to store, and crosses the membrane far less than methanol does. Platinum oxidises it well at first, but a side reaction leaves carbon monoxide (CO) stuck to the surface, and the current falls within the first hour.</p>
+<p>The thesis asked two things: can a small amount of <strong>bismuth</strong> on commercial Pt/C stop the CO from forming, and does a dissolved quinone <strong>mediator</strong> (anthraquinone-2-sulfonic acid, AQSA) help further? The reference throughout was the same commercial Pt/C, unmodified.</p>`],
+      ['approach', 'My contribution and approach', `
+<p>This was my M.Tech thesis at IIT Madras, supervised by Prof. Raghuram Chetty, with the catalyst synthesis carried out during my research stay at NTNU. I did the experimental work and the analysis:</p>
 <ul class="tight">
-  <li><strong>The least bismuth worked best for stability.</strong> Bi(1.25)-Pt/C, the lowest loading, retained the most current in both electrolytes.</li>
-  <li><strong>Retention is not output.</strong> Retention measures decay, not current. After an hour, a higher-loading catalyst still delivered more current because it started much higher; the lowest-bismuth catalyst’s advantage is that it decayed far less, ending only slightly above commercial Pt/C.</li>
-  <li><strong>The mediator did not help in these tests.</strong> At the concentration used for the comparison, AQSA lowered peak activity and one-hour retention on the catalysts compared.</li>
-</ul>`],
-      ['limits', 'Limitations', `
-<ul class="tight">
-  <li><strong>Half-cell, acid, one hour.</strong> Everything was measured in a three-electrode half-cell at room temperature. The numbers rank catalysts against each other; they are not fuel-cell performance. Practical fuel cells run for hundreds to thousands of hours, and the thesis names a membrane electrode assembly with Bi(1.25)-Pt/C, in situ spectroscopy, and longer degradation tests as the next steps.</li>
-  <li><strong>Repeatability is not reported.</strong> The thesis gives no replicate counts, standard deviations or error bars for the voltammetry or the durability holds, so differences should be read as indicative rankings, not statistically tested results. Two trends were seen again on a second catalyst, which is a check on the trend, not a replicate.</li>
-  <li><strong>Coarse bismuth grid.</strong> Four bismuth loadings were tested, and the best was the lowest. The true optimum may sit between or below them.</li>
-  <li><strong>Mechanism is inferred.</strong> Third-body blocking of CO-forming sites is the explanation that fits the data; it was not observed directly. The schematic above is illustrative.</li>
+  <li><strong>Made a series of catalysts</strong>: commercial Pt/C modified with bismuth at four loadings by a wet-chemical route.</li>
+  <li><strong>Checked where the bismuth went</strong> with electron microscopy and element mapping (FE-SEM, EDX), X-ray diffraction and, for the best catalyst, surface-area measurement.</li>
+  <li><strong>Built and tested electrodes</strong> in a three-electrode half-cell on an Autolab potentiostat: cyclic voltammetry for activity, and one-hour constant-potential holds for durability, with and without the mediator.</li>
+  <li><strong>Tuned the catalyst ink</strong>, comparing two ionomer (Nafion) contents before the main comparisons.</li>
 </ul>
-<p class="takeaway"><strong>What I took from it.</strong> A good-looking voltammogram is not the same as a durable catalyst, and retention is not the same as output. I now check durability before ranking anything, and I think about what each measurement can and cannot see.</p>`],
-      ['evidence', 'Supporting evidence', `
-<p>This page summarises results from my M.Tech thesis, written for IIT Madras. The thesis, its figures and the raw voltammetry and chronoamperometry files are not published here; questions about the work are welcome by email.</p>
+${mechanism({ conceptual: true })}`],
+      ['findings', 'Key findings', `
+<h3>1. The least bismuth lasted longest</h3>
+${fig('thesis-figure-retention-formic-acid.jpg', 'Line graph of current retention in percent against time in seconds over one hour for five catalysts. Bi(1.25)-Pt/C stays highest, rising briefly above 100% and ending at 92.9%. Bi(2.5)-Pt/C ends at 67.4%, commercial Pt/C at 58.5%, Bi(5)-Pt/C at 52.8% and Bi(10)-Pt/C at 39.3%.', '<strong>Figure 1.</strong> Current retention during a one-hour hold in formic acid, for commercial Pt/C and the four Bi-modified catalysts. Each curve is normalised to that catalyst’s own current just after the first minute, so it shows decay, not output. The end values are printed as in the thesis. The brief rise above 100% for Bi(1.25)-Pt/C is attributed in the thesis to bismuth rearranging on the surface; that is an interpretation, not a measurement. No replicate runs or error bars are reported.', { source: 'Source: M.Tech thesis, Figure 4.14', sizes: '(min-width: 1100px) 720px, 100vw' })}
+${curveKey('Retention after one hour, formic acid only', [
+  ['Bi(1.25)-Pt/C', '#f03837', '92.9%'],
+  ['Bi(2.5)-Pt/C', '#0b65db', '67.4%'],
+  ['Commercial Pt/C', '#6e6e6e', '58.5%'],
+  ['Bi(5)-Pt/C', '#2aa761', '52.8%'],
+  ['Bi(10)-Pt/C', '#ac6ddb', '39.3%'],
+])}
+<p>The catalyst with the least bismuth, Bi(1.25)-Pt/C, kept <strong>92.9%</strong> of its current over the hour, against <strong>58.5%</strong> for commercial Pt/C. More bismuth did not help: the highest loading was the least stable of all five (39.3%).</p>
+
+<h3>2. A strong voltammogram is not a durable catalyst</h3>
+<p>A mid-range loading, Bi(5)-Pt/C, gave the highest voltammetric peak of the series, but most of that peak came from burning off CO that had already formed: it was recovering from poisoning, not avoiding it. In the one-hour hold it kept only 52.8%, the second-lowest. Retention is not output either: because it started higher, Bi(5)-Pt/C still delivered the most current at the end of the hour, while Bi(1.25)-Pt/C ended only slightly above commercial Pt/C. Its advantage is that it decayed far less.</p>
+
+<h3>3. The mediator did not help in these tests</h3>
+<p>Adding AQSA lowered one-hour retention on all five catalysts; for the best catalyst it fell from 92.9% to 70.4%, and for commercial Pt/C from 58.5% to 55.6%. Bi(1.25)-Pt/C stayed the most durable with the mediator too.</p>
+<details class="more"><summary>See the one-hour hold with the mediator</summary>
+${fig('thesis-figure-retention-with-aqsa.jpg', 'Line graph of current retention against time over one hour with the AQSA mediator for five catalysts. Bi(1.25)-Pt/C ends highest at 70.4%, commercial Pt/C at 55.6%, Bi(2.5)-Pt/C at 49.1%, Bi(10)-Pt/C at 38.3% and Bi(5)-Pt/C at 35.5%.', '<strong>Figure 2.</strong> The same one-hour hold with the AQSA mediator added, normalised the same way as Figure 1. Every catalyst retains less than in Figure 1. No replicate runs or error bars are reported.', { source: 'Source: M.Tech thesis, Figure 4.16', sizes: '(min-width: 1100px) 680px, 100vw' })}
+${curveKey('Retention after one hour, with AQSA', [
+  ['Bi(1.25)-Pt/C', '#f03837', '70.4%'],
+  ['Commercial Pt/C', '#6e6e6e', '55.6%'],
+  ['Bi(2.5)-Pt/C', '#0b65db', '49.1%'],
+  ['Bi(10)-Pt/C', '#ac6ddb', '38.3%'],
+  ['Bi(5)-Pt/C', '#2aa761', '35.5%'],
+])}
+</details>
+
+<h3>4. Less ionomer, more current</h3>
+<p>A thinner Nafion film in the catalyst ink gave roughly 2.5–2.8 times the forward-scan peak current of a thicker one, on both commercial Pt/C and a Bi-modified catalyst. On plain Pt/C the thicker film even showed more active platinum area, yet less current: measuring active area only needs protons to reach the platinum, while formic acid has to diffuse through the film. The thinner ink was used for all later comparisons.</p>
+
+<h3>5. Where the bismuth sat</h3>
+<p>At the two lowest loadings, microscopy and X-ray diffraction showed no separate bismuth crystals, consistent with a thin decoration on the platinum. At the highest loading, bismuth-rich clusters appeared and covered much of the platinum, which is consistent with its poor stability.</p>`],
+      ['limits', 'What this does not show', `
+<ul class="tight">
+  <li><strong>Not fuel-cell performance.</strong> Everything was measured in a three-electrode half-cell in acid at room temperature, over one hour. The results rank catalysts against each other. Practical fuel cells run for hundreds to thousands of hours; a membrane electrode assembly and single-cell tests are the next step named in the thesis.</li>
+  <li><strong>No repeatability data.</strong> The thesis reports no replicate counts, standard deviations or error bars, so the differences are indicative rankings, not statistically tested ones.</li>
+  <li><strong>A coarse loading grid.</strong> Four bismuth loadings were tested and the best was the lowest, so the true optimum may lie lower still.</li>
+  <li><strong>The mechanism is inferred.</strong> Bismuth blocking the sites where CO forms is the explanation that fits the data; it was not observed directly, and the illustration above is conceptual.</li>
+</ul>
+<p class="takeaway"><strong>What I took from it.</strong> A good-looking voltammogram is not the same as a durable catalyst, and retention is not the same as output. I now check durability before ranking anything, and I ask what each measurement can and cannot see.</p>`],
+      ['evidence', 'Evidence and what is not published', `
+<p>The figures above are taken unchanged from my M.Tech thesis (IIT Madras, 2026), apart from trimming the page margins. The thesis itself, the synthesis and test procedures, compositions and raw data files are not published here; questions about the work are welcome by email.</p>
 <details class="more"><summary>The test setup</summary>
 <div class="fig-row">
-${fig('ayush-suryawanshi-glass-cell-with-glassy-carbon-electrode-and-potentiostat.jpg', 'Sealed glass cell with a glassy carbon electrode, connected to the potentiostat leads', 'The cell ready for cyclic voltammetry: glassy carbon working electrode, platinum counter and Ag/AgCl reference, each clipped to the potentiostat.', { cls: 'tall', sizes: '(min-width: 720px) 340px, 50vw' })}
-${fig('ayush-suryawanshi-glass-cell-with-a-carbon-paper-electrode-and.jpg', 'Glass cell with formic acid electrolyte, a glassy carbon working electrode and a coiled platinum counter electrode', 'The same three-electrode cell filled with formic acid electrolyte for a voltammetry run.', { cls: 'tall', sizes: '(min-width: 720px) 340px, 50vw' })}
+${fig('ayush-suryawanshi-glass-cell-with-glassy-carbon-electrode-and-potentiostat.jpg', 'Sealed glass cell with a glassy carbon electrode, connected to the potentiostat leads', 'The three-electrode cell connected to the potentiostat for cyclic voltammetry.', { cls: 'tall', sizes: '(min-width: 720px) 340px, 50vw' })}
+${fig('ayush-suryawanshi-glass-cell-with-a-carbon-paper-electrode-and.jpg', 'Glass cell with formic acid electrolyte, a glassy carbon working electrode and a coiled platinum counter electrode', 'The same cell filled with electrolyte for a voltammetry run.', { cls: 'tall', sizes: '(min-width: 720px) 340px, 50vw' })}
 </div>
 </details>`],
     ],

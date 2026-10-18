@@ -464,6 +464,7 @@ ${heroFig}
     active: 'work',
     body,
     image: p.hero ? `images/${p.hero[0]}` : undefined,
+    extraHead: p.style ? `<style>${p.style}</style>\n` : '',
     jsonld: [
       crumbs([['Home', ''], ['Projects', 'projects/'], [strip(p.title), `projects/${p.slug}/`]]),
       {

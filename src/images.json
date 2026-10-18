@@ -191,5 +191,25 @@
    640,
    1280
   ]
+ },
+ "thesis-figure-retention-formic-acid.jpg": {
+  "name": "thesis-figure-retention-formic-acid",
+  "w": 3092,
+  "h": 2115,
+  "widths": [
+   640,
+   1280,
+   2000
+  ]
+ },
+ "thesis-figure-retention-with-aqsa.jpg": {
+  "name": "thesis-figure-retention-with-aqsa",
+  "w": 3072,
+  "h": 2115,
+  "widths": [
+   640,
+   1280,
+   2000
+  ]
  }
 }
