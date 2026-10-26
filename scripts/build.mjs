@@ -207,6 +207,54 @@ function projectCard(p, { headingLevel = 3 } = {}) {
 </article>`;
 }
 
+/* ---------- intro video (home hero) ---------- */
+// Plays muted on arrival, with captions drawn by site.js so they stay readable on phones.
+// Without JavaScript the native controls and the caption track still work.
+const INTRO = { seconds: 94, label: '1:34', uploaded: '2026-10-26' };
+const ICON_PLAY = '<svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-play" d="M8 5.5v13l10.5-6.5z"/><path class="i-pause" d="M7 5h3.6v14H7zM13.4 5H17v14h-3.6z"/></svg>';
+const ICON_SOUND = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path class="i-on" d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/><path class="i-off" d="m15.5 9.5 5 5m0-5-5 5"/></svg>';
+const ICON_CC = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M10.5 10.3a2.3 2.3 0 1 0 0 3.4M17 10.3a2.3 2.3 0 1 0 0 3.4"/></svg>';
+const ICON_FS = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>';
+function introVideo() {
+  return `<figure class="intro-video" data-reveal aria-labelledby="iv-title">
+      <div class="iv-frame" data-state="idle">
+        <video class="iv-video" muted playsinline preload="metadata" controls width="1920" height="1080"
+          poster="${url('media/intro-poster.webp')}" aria-describedby="iv-desc">
+          <source src="${url('media/intro-720p.mp4')}" type="video/mp4" media="(max-width: 767px)">
+          <source src="${url('media/intro-1080p.mp4')}" type="video/mp4">
+          <track kind="captions" src="${url('media/intro.en.vtt')}" srclang="en" label="English" default>
+        </video>
+        <p class="iv-caption" aria-hidden="true"></p>
+        <button class="iv-sound" type="button" hidden><span class="iv-sound-ic">${ICON_SOUND}</span><span>Watch with sound</span></button>
+        <button class="iv-big" type="button" aria-label="Play the introduction" hidden>${ICON_PLAY}</button>
+        <div class="iv-bar" hidden>
+          <button class="iv-btn iv-toggle" type="button" aria-label="Pause">${ICON_PLAY}</button>
+          <input class="iv-seek" type="range" min="0" max="1000" value="0" step="1" aria-label="Seek">
+          <span class="iv-time" aria-hidden="true">0:00 / ${INTRO.label}</span>
+          <button class="iv-btn iv-cc" type="button" aria-label="Hide captions" aria-pressed="true">${ICON_CC}</button>
+          <button class="iv-btn iv-mute" type="button" aria-label="Turn sound on">${ICON_SOUND}</button>
+          <button class="iv-btn iv-fs" type="button" aria-label="Full screen">${ICON_FS}</button>
+        </div>
+      </div>
+      <figcaption class="iv-meta">
+        <span class="k" id="iv-title">Introduction · ${INTRO.label}</span>
+        <span id="iv-desc">Catalysts, electrochemistry and process engineering, and what I’m looking for next. Captions on; narrated with an AI voice.</span>
+      </figcaption>
+    </figure>`;
+}
+const introVideoLd = {
+  '@type': 'VideoObject',
+  '@id': liveUrl('#intro-video'),
+  name: 'Ayush Suryawanshi – a short introduction',
+  description: 'A 90-second introduction: catalyst synthesis, electrochemical testing, process design and effluent-treatment work, and the roles Ayush is looking for next.',
+  thumbnailUrl: liveUrl('media/intro-poster.jpg'),
+  contentUrl: liveUrl('media/intro-1080p.mp4'),
+  uploadDate: INTRO.uploaded,
+  duration: `PT1M${INTRO.seconds - 60}S`,
+  inLanguage: 'en',
+  creator: { '@id': liveUrl('#person') },
+};
+
 /* ---------- home ---------- */
 function home() {
   const thesis = projects[0];
@@ -214,26 +262,31 @@ function home() {
   const body = `
 <section class="hero">
   <div class="wrap hero-grid">
+    <figure class="hero-photo" data-reveal>
+      ${img('portrait-of-ayush-suryawanshi.jpg', 'Portrait of Ayush Suryawanshi', { eager: true, sizes: '(min-width: 768px) 120px, 96px' })}
+    </figure>
     <div class="hero-id">
       <p class="eyebrow" data-reveal>Chemical engineer<span class="eb-long"> · Catalysis · Electrochemistry · Process design</span></p>
       <h1 class="hero-title" data-reveal>Ayush Suryawanshi</h1>
     </div>
-    <figure class="hero-photo" data-reveal>
-      ${img('portrait-of-ayush-suryawanshi.jpg', 'Portrait of Ayush Suryawanshi', { eager: true, sizes: '(min-width: 900px) 380px, 110px' })}
-    </figure>
     <div class="hero-body">
       <p class="hero-lede" data-reveal>M.Tech in Catalysis Technology from IIT Madras. Hands-on electrocatalyst and electrode work, DFT and kinetic modelling, and process design. Now evaluating effluent-treatment technology at LOXIM Industries.</p>
-      <p class="hero-focus" data-reveal><span class="k">Interests</span>Electrocatalysis, fuel cells, AEM electrolysis, green hydrogen, and how electrodes hold up over time in working devices.</p>
       <div class="hero-cta" data-reveal>
         <a class="btn btn-primary" href="${url('projects/')}">Explore my work ${ARROW}</a>
         <a class="btn btn-ghost" href="${url('cv/')}">View CV</a>
       </div>
+    </div>
+    ${introVideo()}
+    <div class="hero-more">
       <ul class="facts" data-reveal aria-label="At a glance">
         <li><span class="k">Now</span>Management Trainee, LOXIM Industries</li>
         <li><span class="k">M.Tech</span>Catalysis Technology, IIT Madras, 2026</li>
         <li><span class="k">Abroad</span>KinCat group, NTNU, 2025</li>
       </ul>
-      <p class="hero-long" data-reveal>My work runs from the lab bench to the plant: making catalysts, building and testing electrodes, modelling reactions on a computer, and weighing process options against cost and safety, while being clear about what each result can and can’t show. It started with fuel-cell catalysts and now includes industrial effluent treatment.</p>
+      <div class="hero-more-text">
+        <p class="hero-focus" data-reveal><span class="k">Interests</span>Electrocatalysis, fuel cells, AEM electrolysis, green hydrogen, and how electrodes hold up over time in working devices.</p>
+        <p class="hero-long" data-reveal>My work runs from the lab bench to the plant: making catalysts, building and testing electrodes, modelling reactions on a computer, and weighing process options against cost and safety, while being clear about what each result can and can’t show. It started with fuel-cell catalysts and now includes industrial effluent treatment.</p>
+      </div>
     </div>
   </div>
   <svg class="wave" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M0 92 C 120 92 190 90 260 84 C 330 78 380 40 420 22 C 450 10 470 30 486 58 C 500 82 520 88 560 86 C 640 82 700 80 760 74 C 820 68 850 56 880 50 C 910 44 940 60 980 72 C 1040 88 1110 92 1200 92"/></svg>
@@ -362,6 +415,7 @@ function home() {
         '@type': 'ProfilePage', '@id': liveUrl('#profile'), url: liveUrl(), name: 'Ayush Suryawanshi – Chemical Engineer | Catalysis, Electrochemistry, Process Design',
         dateModified: person.updatedISO, isPartOf: { '@id': liveUrl('#website') }, mainEntity: { '@id': liveUrl('#person') },
       },
+      introVideoLd,
     ],
   });
 }
