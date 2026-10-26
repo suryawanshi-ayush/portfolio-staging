@@ -76,9 +76,15 @@ backgrounds: light `#2457C5` / `#C27C1A` on `#FFFFFF`, dark `#5F8BF0` / `#B77B26
 
 ## CV
 
-The original CV is not kept here: it has a phone number and job-application metadata. The site
-links to `Ayush_CV_revised.pdf` (it downloads as `Ayush_CV.pdf`). No editable CV source exists, so
-the revised copy is built from the original by `python3 scripts/cv_revise.py /path/to/Ayush_CV.pdf`: new summary, header without a phone number
-and with the website address, KinCat group, British/Indian English spellings, Languages and
-EuropaCat lines, and neutral PDF metadata. Every other line keeps its text and position.
+The site links to `Ayush_CV_revised.pdf` (it downloads as `Ayush_CV.pdf`). It is generated from the content in
+`scripts/cv_build.py` with ReportLab, in the style of the earlier CV (US Letter, Liberation Serif, spaced section
+headings over a rule):
 
+```
+python3 scripts/cv_build.py
+```
+
+The earlier copy was patched on top of the original PDF, which left parts of the text out of reading order for
+ATS parsers and text extraction; generating the whole document draws every line in reading order. Content follows
+the master resume of 23 Oct 2026 with the website's disclosure rules (no phone number, no LOXIM cost figures in
+rupees, no plant-specific SNCR figures). The build stops if an entry title wraps or a bullet runs past two lines.

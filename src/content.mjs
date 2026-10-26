@@ -67,8 +67,9 @@ export const experience = [
   },
 ];
 
+// Course lists as in the master resume (23 Oct 2026), checked against the transcripts there.
 export const coursework =
-  'Catalyst Preparation and Characterization Lab, Experimental Methods in Catalysis, Transport Phenomena, Process Safety and Hazards Management';
+  'M.Tech: Advanced Chemical Engineering Thermodynamics, Chemical Reactor Theory, Transport Phenomena, Experimental Methods in Catalysis, Catalyst Preparation and Characterization Lab, Computational Methods in Catalysis. B.Tech: Material and Energy Balance, Chemical Reaction Engineering, Heat and Mass Transfer, Process Equipment Design, Chemical Process Modeling and Simulation, Process Safety and Hazards Management, Process Plant Economics and Management';
 
 // The same skills as above, sorted by how I came by them. `used` skills appear in a project or a
 // job on this site and link to it; the rest are on the CV but not shown in any project here, and
@@ -83,7 +84,7 @@ export const skillEvidence = [
       ['Electrodes and catalysts', 'Wet-chemical catalyst modification, catalyst ink formulation and Nafion loading, drop-cast electrodes on glassy carbon and carbon paper', [['thesis-bi-pt-formic-acid', 'Thesis'], ['ntnu-synthesis-scale-up', 'NTNU synthesis']]],
       ['Characterisation', 'FE-SEM with EDX, powder XRD, BET: reading and interpreting the results', [['thesis-bi-pt-formic-acid', 'Thesis'], ['ntnu-synthesis-scale-up', 'NTNU synthesis']]],
       ['Computational chemistry', 'Gaussian 16 (DFT), Avogadro', [['dft-orr-pt13', 'Pt13 DFT']]],
-      ['Kinetic modelling and process design', 'Python with Cantera, Excel, mass and energy balances, capital and running-cost estimates (team project)', [['sncr-biomass-boiler', 'SNCR design']]],
+      ['Kinetic modelling and process design', 'Python with Cantera, Aspen HYSYS, Excel, mass and energy balances; capital and running-cost estimates (team project)', [['sncr-biomass-boiler', 'SNCR design']]],
       ['Data analysis', 'OriginPro', [['thesis-bi-pt-formic-acid', 'Thesis']]],
       ['Handling hazards in the lab', 'Acids, sodium borohydride, inert-gas (nitrogen and argon) work', [['thesis-bi-pt-formic-acid', 'Thesis'], ['ntnu-synthesis-scale-up', 'NTNU synthesis']]],
     ],
@@ -103,6 +104,7 @@ export const skillEvidence = [
     rows: [
       ['XPS', 'Analysed XPS data in M.Tech coursework', []],
       ['Courses', coursework, []],
+      ['Process simulation', 'CHEMCAD in B.Tech process simulation labs; DWSIM, self-taught and used in the LOXIM study', [['loxim-effluent-treatment-study', 'LOXIM study']]],
     ],
   },
   {
@@ -761,12 +763,12 @@ ${fig('ayush-suryawanshi-photo-4972ceff.jpg', 'Plot of the four tabulated step e
       // REVIEW(disclosure): partner names appear on the publicly presented poster; confirm the partners are
       // happy to be named on a personal site.
       ['Industry partners', 'Billerud Viken; boiler operated by Vardar Varme AS'],
-      ['Tools', 'Python, Cantera, Excel'],
+      ['Tools', 'Python, Cantera, Aspen HYSYS, Excel'],
       ['Presented at', 'Treforedlingsforum 2025, Oslo'],
     ],
     glance: [
       ['Problem', 'An upgraded biomass boiler must stay under the 300 mg/Nm³ NOx limit, and its modelled uncontrolled NOx sat around that limit. Could an SNCR retrofit give a safe margin, and at what cost?'],
-      ['My contribution', 'Member of a four-person team and presenter of the poster in Oslo. The report does not itemise who did what, so the method and results below are the team’s work.'],
+      ['My contribution', 'Carried out the literature survey, built the Python (Cantera) combustion and SNCR kinetic models, did the hand calculations for the design basis and contributed the Aspen HYSYS simulation. Presented the poster in Oslo.'],
       ['Key result', 'With a conservative design reduction of about 60% (the ideal model gave above 90%), modelled emissions fall well under the limit. Capital and running costs were estimated: not profitable at current NOx tax, but justified as a compliance cost.'],
       ['Limits', 'Idealised model (perfect mixing, fixed temperature profile), very limited plant data for comparison, and a design study rather than a plant trial. On-site measurement was recommended.'],
     ],
@@ -777,7 +779,14 @@ ${fig('ayush-suryawanshi-photo-4972ceff.jpg', 'Plot of the four tabulated step e
 <p>An existing biomass boiler at a Norwegian industrial site is to be upgraded to supply process steam to a planned pulp mill. Burning biomass produces NOx, and the plant has to stay under a limit of 300 mg/Nm³. The team asked whether a selective non-catalytic reduction (SNCR) retrofit, injecting ammonia into the hot flue gas, could keep it there with a safe margin.</p>
 <p><strong>Baseline.</strong> The combustion models put uncontrolled NOx around the limit for both fuel cases studied, which is the range where SNCR is known to work. Only one older plant measurement was available for comparison.</p>`],
       ['contribution', 'My contribution', `
-<p>I was one of four authors of the design report and presented the work as a poster at Treforedlingsforum 2025 in Oslo, 18–19 November. The report does not divide the work between authors, so I describe the study as the team’s and do not claim individual parts of the modelling or cost estimate here.</p>`],
+<p>I was one of four authors of the design report. My part:</p>
+<ul class="tight">
+  <li><strong>Literature survey</strong> on SNCR chemistry, reagents and operating windows.</li>
+  <li><strong>The Python (Cantera) models:</strong> equilibrium combustion and the one-dimensional plug-flow SNCR kinetics, mapping NO reduction and ammonia slip against injection temperature and ammonia dose.</li>
+  <li><strong>Hand calculations</strong> for the design basis, and the <strong>Aspen HYSYS</strong> process simulation.</li>
+  <li><strong>Presenting</strong> the work as a poster at Treforedlingsforum 2025 in Oslo, 18–19 November.</li>
+</ul>
+<p>Reagent selection, equipment sizing, safety measures and the cost estimates were the team’s joint work.</p>`],
       ['methods', 'Methods and assumptions', `
 <ol class="steps">
   <li><h3>Checked the starting point</h3><p>Spreadsheet calculations estimated the flame temperature and the time the flue gas spends in the post-combustion zone, to see whether the boiler suits SNCR.</p></li>

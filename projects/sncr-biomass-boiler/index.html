@@ -58,7 +58,7 @@
       <div><dt>Team</dt><dd>Four students</dd></div>
       <div><dt>Supervisor</dt><dd>Prof. Øyvind Weiby Gregersen</dd></div>
       <div><dt>Industry partners</dt><dd>Billerud Viken; boiler operated by Vardar Varme AS</dd></div>
-      <div><dt>Tools</dt><dd>Python, Cantera, Excel</dd></div>
+      <div><dt>Tools</dt><dd>Python, Cantera, Aspen HYSYS, Excel</dd></div>
       <div><dt>Presented at</dt><dd>Treforedlingsforum 2025, Oslo</dd></div>
     </dl>
   </div>
@@ -72,13 +72,20 @@
   <div class="prose">
     <section id="glance" class="glance" aria-labelledby="glance-h">
       <h2 id="glance-h">At a glance</h2>
-      <dl><div><dt>Problem</dt><dd>An upgraded biomass boiler must stay under the 300 mg/Nm³ NOx limit, and its modelled uncontrolled NOx sat around that limit. Could an SNCR retrofit give a safe margin, and at what cost?</dd></div><div><dt>My contribution</dt><dd>Member of a four-person team and presenter of the poster in Oslo. The report does not itemise who did what, so the method and results below are the team’s work.</dd></div><div><dt>Key result</dt><dd>With a conservative design reduction of about 60% (the ideal model gave above 90%), modelled emissions fall well under the limit. Capital and running costs were estimated: not profitable at current NOx tax, but justified as a compliance cost.</dd></div><div><dt>Limits</dt><dd>Idealised model (perfect mixing, fixed temperature profile), very limited plant data for comparison, and a design study rather than a plant trial. On-site measurement was recommended.</dd></div></dl>
+      <dl><div><dt>Problem</dt><dd>An upgraded biomass boiler must stay under the 300 mg/Nm³ NOx limit, and its modelled uncontrolled NOx sat around that limit. Could an SNCR retrofit give a safe margin, and at what cost?</dd></div><div><dt>My contribution</dt><dd>Carried out the literature survey, built the Python (Cantera) combustion and SNCR kinetic models, did the hand calculations for the design basis and contributed the Aspen HYSYS simulation. Presented the poster in Oslo.</dd></div><div><dt>Key result</dt><dd>With a conservative design reduction of about 60% (the ideal model gave above 90%), modelled emissions fall well under the limit. Capital and running costs were estimated: not profitable at current NOx tax, but justified as a compliance cost.</dd></div><div><dt>Limits</dt><dd>Idealised model (perfect mixing, fixed temperature profile), very limited plant data for comparison, and a design study rather than a plant trial. On-site measurement was recommended.</dd></div></dl>
     </section>
     <section id="problem" aria-labelledby="problem-h"><h2 id="problem-h">Problem and baseline</h2>
 <p>An existing biomass boiler at a Norwegian industrial site is to be upgraded to supply process steam to a planned pulp mill. Burning biomass produces NOx, and the plant has to stay under a limit of 300 mg/Nm³. The team asked whether a selective non-catalytic reduction (SNCR) retrofit, injecting ammonia into the hot flue gas, could keep it there with a safe margin.</p>
 <p><strong>Baseline.</strong> The combustion models put uncontrolled NOx around the limit for both fuel cases studied, which is the range where SNCR is known to work. Only one older plant measurement was available for comparison.</p></section>
 <section id="contribution" aria-labelledby="contribution-h"><h2 id="contribution-h">My contribution</h2>
-<p>I was one of four authors of the design report and presented the work as a poster at Treforedlingsforum 2025 in Oslo, 18–19 November. The report does not divide the work between authors, so I describe the study as the team’s and do not claim individual parts of the modelling or cost estimate here.</p></section>
+<p>I was one of four authors of the design report. My part:</p>
+<ul class="tight">
+  <li><strong>Literature survey</strong> on SNCR chemistry, reagents and operating windows.</li>
+  <li><strong>The Python (Cantera) models:</strong> equilibrium combustion and the one-dimensional plug-flow SNCR kinetics, mapping NO reduction and ammonia slip against injection temperature and ammonia dose.</li>
+  <li><strong>Hand calculations</strong> for the design basis, and the <strong>Aspen HYSYS</strong> process simulation.</li>
+  <li><strong>Presenting</strong> the work as a poster at Treforedlingsforum 2025 in Oslo, 18–19 November.</li>
+</ul>
+<p>Reagent selection, equipment sizing, safety measures and the cost estimates were the team’s joint work.</p></section>
 <section id="methods" aria-labelledby="methods-h"><h2 id="methods-h">Methods and assumptions</h2>
 <ol class="steps">
   <li><h3>Checked the starting point</h3><p>Spreadsheet calculations estimated the flame temperature and the time the flue gas spends in the post-combustion zone, to see whether the boiler suits SNCR.</p></li>
