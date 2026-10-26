@@ -1,16 +1,18 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>(function(){var d=document.documentElement,t=null;try{t=localStorage.getItem('theme')}catch(e){}if(t==='light'||t==='dark')d.setAttribute('data-theme',t);d.classList.add('js');if(window.matchMedia&&!matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('motion');setTimeout(function(){if(!window.__siteReady)d.classList.remove('motion')},2500)}})();</script>
+<script>(function(){var d=document.documentElement,t=null;try{t=localStorage.getItem('theme')}catch(e){}if(t==='light'||t==='dark')d.setAttribute('data-theme',t);d.classList.add('js');if(window.matchMedia&&!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('motion');})();</script>
 <title>Designing an SNCR retrofit for a biomass boiler – Ayush Suryawanshi</title>
 <meta name="description" content="SNCR retrofit design study for NOx reduction in a biomass boiler by a four-person NTNU team including Ayush Suryawanshi, for Norwegian industry partners, with Cantera combustion and kinetic models and a cost estimate.">
 <meta name="author" content="Ayush Suryawanshi">
 <meta name="robots" content="noindex, nofollow"><!-- STAGING COPY: kept out of search. The live build uses index, follow. -->
 <link rel="canonical" href="https://suryawanshi-ayush.github.io/projects/sncr-biomass-boiler/">
 <meta name="color-scheme" content="light dark">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2212%22%20fill%3D%22%2315191F%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2241%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2227%22%20fill%3D%22%23F7F6F2%22%20text-anchor%3D%22middle%22%3EAS%3C%2Ftext%3E%3C%2Fsvg%3E">
+<meta name="theme-color" content="#F5F7F8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F1A2E" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cpath%20d%3D%22M32%203%2057%2017.5v29L32%2061%207%2046.5v-29z%22%20fill%3D%22%2313213A%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2240%22%20font-family%3D%22Arial%2Csans-serif%22%20font-weight%3D%22700%22%20font-size%3D%2221%22%20fill%3D%22%23F5F7F8%22%20text-anchor%3D%22middle%22%3EAS%3C%2Ftext%3E%3C%2Fsvg%3E">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Ayush Suryawanshi">
 <meta property="og:title" content="Designing an SNCR retrofit for a biomass boiler – Ayush Suryawanshi">
@@ -22,50 +24,53 @@
 <meta name="twitter:title" content="Designing an SNCR retrofit for a biomass boiler – Ayush Suryawanshi">
 <meta name="twitter:description" content="SNCR retrofit design study for NOx reduction in a biomass boiler by a four-person NTNU team including Ayush Suryawanshi, for Norwegian industry partners, with Cantera combustion and kinetic models and a cost estimate.">
 <meta name="twitter:image" content="https://suryawanshi-ayush.github.io/images/ayush-suryawanshi-photo-5ee7ac61.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Serif:wght@400;500&display=swap">
-<link rel="stylesheet" href="/portfolio-staging/assets/site.aab239d9.css">
-<script src="/portfolio-staging/assets/site.abb21e94.js" defer></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://suryawanshi-ayush.github.io/"},{"@type":"ListItem","position":2,"name":"Projects","item":"https://suryawanshi-ayush.github.io/projects/"},{"@type":"ListItem","position":3,"name":"Designing an SNCR retrofit for a biomass boiler","item":"https://suryawanshi-ayush.github.io/projects/sncr-biomass-boiler/"}]},{"@type":"CreativeWork","name":"Designing an SNCR retrofit for a biomass boiler","headline":"Designing an SNCR retrofit for a biomass boiler","description":"SNCR retrofit design study for NOx reduction in a biomass boiler by a four-person NTNU team including Ayush Suryawanshi, for Norwegian industry partners, with Cantera combustion and kinetic models and a cost estimate.","url":"https://suryawanshi-ayush.github.io/projects/sncr-biomass-boiler/","author":{"@id":"https://suryawanshi-ayush.github.io/#person"},"inLanguage":"en","keywords":"Process design, Kinetic modelling, Python / Cantera, Process economics"}]}</script>
+<link rel="preload" href="/portfolio-staging/fonts/archivo-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/portfolio-staging/assets/site.5144cd7d.css">
+<script src="/portfolio-staging/assets/site.2f133d79.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://suryawanshi-ayush.github.io/"},{"@type":"ListItem","position":2,"name":"Work","item":"https://suryawanshi-ayush.github.io/projects/"},{"@type":"ListItem","position":3,"name":"Designing an SNCR retrofit for a biomass boiler","item":"https://suryawanshi-ayush.github.io/projects/sncr-biomass-boiler/"}]},{"@type":"CreativeWork","name":"Designing an SNCR retrofit for a biomass boiler","headline":"Designing an SNCR retrofit for a biomass boiler","description":"SNCR retrofit design study for NOx reduction in a biomass boiler by a four-person NTNU team including Ayush Suryawanshi, for Norwegian industry partners, with Cantera combustion and kinetic models and a cost estimate.","url":"https://suryawanshi-ayush.github.io/projects/sncr-biomass-boiler/","author":{"@id":"https://suryawanshi-ayush.github.io/#person"},"inLanguage":"en","keywords":"Process design, Kinetic modelling, Python / Cantera, Process economics"}]}</script>
 </head>
 <body class="">
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-head">
   <div class="wrap head-row">
-    <a class="brand" href="/portfolio-staging/" aria-label="Ayush Suryawanshi, home"><span class="mono-mark" aria-hidden="true">AS</span><span class="brand-name">Ayush Suryawanshi</span></a>
-    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav"><span class="sr-only">Open menu</span><span class="burger" aria-hidden="true"></span></button>
+    <a class="brand" href="/portfolio-staging/"><svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2.5 35.2 11.25v17.5L20 37.5 4.8 28.75v-17.5z"/><text x="20" y="25">AS</text></svg><span class="brand-name">Ayush Suryawanshi</span></a>
     <nav class="site-nav" id="site-nav" aria-label="Main">
       <ul><li><a href="/portfolio-staging/projects/" aria-current="page">Work</a></li><li><a href="/portfolio-staging/about/">About</a></li><li><a href="/portfolio-staging/cv/">CV</a></li><li><a href="#contact">Contact</a></li></ul>
     </nav>
     <button class="theme-btn" type="button" aria-label="Switch colour theme"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.6 6.6 0 0 0 10.7 10.7z"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg></button>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav"><span class="sr-only">Open menu</span><span class="burger" aria-hidden="true"></span></button>
   </div>
 </header>
 <main id="main">
 
 <article class="project">
-<header class="page-head proj-head">
+<header class="page-head sheet proj-head">
   <div class="wrap">
-    <nav class="crumbs" aria-label="Breadcrumb"><a href="/portfolio-staging/projects/">Projects</a><span aria-hidden="true">/</span><span aria-current="page">Designing an SNCR retrofit for a biomass boiler</span></nav>
-    <p class="eyebrow">Process engineering · NTNU, team of four</p>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/portfolio-staging/projects/">Work</a><span aria-hidden="true">/</span><span aria-current="page">Designing an SNCR retrofit for a biomass boiler</span></nav>
+    <ul class="tags "><li class="tag process">Process engineering</li><li class="tag modelling">Modelling</li></ul>
     <h1>Designing an SNCR retrofit for a biomass boiler</h1>
-    <p class="page-lede">A four-person design study: can selective non-catalytic reduction bring a biomass boiler under its NOx limit, and at what cost?</p>
-    <dl class="proj-meta">
+    <p class="lede">A four-person design study: can selective non-catalytic reduction bring a biomass boiler under its NOx limit, and at what cost?</p>
+    <dl class="datasheet">
+      <div class="ds-type"><dt>Type</dt><dd>Process engineering · NTNU, team of four</dd></div>
       <div><dt>When</dt><dd>Aug – Nov 2025</dd></div>
       <div><dt>Where</dt><dd>NTNU, Trondheim</dd></div>
-      <div><dt>Type</dt><dd>Process design project (TKP4170)</dd></div><div><dt>Team</dt><dd>Four students</dd></div><div><dt>Supervisor</dt><dd>Prof. Øyvind Weiby Gregersen</dd></div><div><dt>Industry partners</dt><dd>Billerud Viken; boiler operated by Vardar Varme AS</dd></div><div><dt>Tools</dt><dd>Python, Cantera, Excel</dd></div><div><dt>Presented at</dt><dd>Treforedlingsforum 2025, Oslo</dd></div>
+      <div><dt>Team</dt><dd>Four students</dd></div>
+      <div><dt>Supervisor</dt><dd>Prof. Øyvind Weiby Gregersen</dd></div>
+      <div><dt>Industry partners</dt><dd>Billerud Viken; boiler operated by Vardar Varme AS</dd></div>
+      <div><dt>Tools</dt><dd>Python, Cantera, Excel</dd></div>
+      <div><dt>Presented at</dt><dd>Treforedlingsforum 2025, Oslo</dd></div>
     </dl>
   </div>
 </header>
 <div class="wrap"><figure class="fig proj-hero natural"><img src="/portfolio-staging/images/w/sncr-team-poster-treforedlingsforum-oslo-640.webp" srcset="/portfolio-staging/images/w/sncr-team-poster-treforedlingsforum-oslo-640.webp 640w, /portfolio-staging/images/w/sncr-team-poster-treforedlingsforum-oslo-1280.webp 1280w" sizes="(min-width: 900px) 760px, 100vw" width="1280" height="960" alt="Ayush and two teammates standing beside their SNCR poster at a conference" loading="lazy" decoding="async" data-zoom="/portfolio-staging/images/w/sncr-team-poster-treforedlingsforum-oslo-1280.webp"><figcaption>With two of my teammates beside our poster at Treforedlingsforum 2025 in Oslo.</figcaption></figure></div>
 <div class="wrap proj-layout">
   <aside class="toc" aria-label="On this page">
-    <p class="eyebrow">On this page</p>
+    <p class="toc-h">On this page</p>
     <ol><li><a href="#glance">At a glance</a></li><li><a href="#problem">Problem and baseline</a></li><li><a href="#contribution">My contribution</a></li><li><a href="#methods">Methods and assumptions</a></li><li><a href="#results">Results</a></li><li><a href="#limits">Limitations</a></li><li><a href="#evidence">Supporting evidence</a></li></ol>
   </aside>
   <div class="prose">
     <section id="glance" class="glance" aria-labelledby="glance-h">
-      <h2 id="glance-h" class="sr-only">At a glance</h2>
+      <h2 id="glance-h">At a glance</h2>
       <dl><div><dt>Problem</dt><dd>An upgraded biomass boiler must stay under 300 mg/Nm³ NOx, and uncontrolled NOx was modelled at 280–330 mg/Nm³. Could an SNCR retrofit close the gap, and at what cost?</dd></div><div><dt>My contribution</dt><dd>Member of a four-person team and presenter of the poster in Oslo. The report does not itemise who did what, so the method and results below are the team’s work.</dd></div><div><dt>Key result</dt><dd>With a conservative design reduction of about 60% (the ideal model gave above 90%), modelled NOx falls to roughly 100–125 mg/Nm³, under the limit. Capital and running costs were estimated: not profitable at current NOx tax, but justified as a compliance cost.</dd></div><div><dt>Limits</dt><dd>Idealised model (perfect mixing, fixed temperature profile), very limited plant data for comparison, and a design study rather than a plant trial. On-site measurement was recommended.</dd></div></dl>
     </section>
     <section id="problem" aria-labelledby="problem-h"><h2 id="problem-h">Problem and baseline</h2>
@@ -80,14 +85,14 @@
   <li><h3>Modelled the SNCR</h3><p>A one-dimensional plug-flow reactor in Python with Cantera and the San Diego Reduced-N mechanism tracked NO reduction and ammonia slip for different injection temperatures and ammonia-to-NOx ratios (NSR).</p></li>
   <li><h3>Designed and costed the system</h3><p>Ammonia was chosen as the reagent for performance and cost. The team laid out storage, mixing and injection, sized the main equipment, set out safety measures and estimated capital and running costs.</p></li>
 </ol>
-<div class="table-wrap cols-2" role="region" aria-labelledby="tbl-3" tabindex="0"><table>
-  <caption id="tbl-3">Design assumptions and operating points</caption>
+<div class="table-wrap cols-2" role="region" aria-labelledby="tbl-1" tabindex="0"><table>
+  <caption id="tbl-1">Design assumptions and operating points</caption>
   <thead><tr><th scope="col">Item</th><th scope="col">Value used</th></tr></thead>
   <tbody><tr><th scope="row">SNCR temperature window</th><td>Reduction rises between 900 and 1000 °C and falls above it; injection recommended at the upper end, 1000–1100 °C</td></tr><tr><th scope="row">Reagent and dose</th><td>25 wt% ammonia solution; start at NSR 1.4 and tune from measurements; equipment sized at NSR 2.0</td></tr><tr><th scope="row">Model simplifications</th><td>Perfect mixing, fixed temperature profile, steady state: an upper-bound estimate</td></tr><tr><th scope="row">Economics</th><td>8% discount rate, 20-year life, savings measured against the NOx tax</td></tr></tbody>
 </table></div></section>
 <section id="results" aria-labelledby="results-h"><h2 id="results-h">Results</h2>
-<div class="table-wrap cols-4" role="region" aria-labelledby="tbl-4" tabindex="0"><table>
-  <caption id="tbl-4">Modelled NOx for the two feed cases (mg/Nm³, dry, 11% O₂)</caption>
+<div class="table-wrap cols-4" role="region" aria-labelledby="tbl-2" tabindex="0"><table>
+  <caption id="tbl-2">Modelled NOx for the two feed cases (mg/Nm³, dry, 11% O₂)</caption>
   <thead><tr><th scope="col">Case</th><th scope="col">Uncontrolled</th><th scope="col">Controlled</th><th scope="col">Reduction</th></tr></thead>
   <tbody><tr><th scope="row">Baseline feed, ideal</th><td>333</td><td>20</td><td>94%</td></tr><tr class="hl"><th scope="row">Baseline feed, realistic</th><td>333</td><td>124</td><td>63%</td></tr><tr><th scope="row">Lower feed, ideal</th><td>287</td><td>21</td><td>93%</td></tr><tr class="hl"><th scope="row">Lower feed, realistic</th><td>287</td><td>101</td><td>65%</td></tr></tbody>
 </table></div><p class="note">The “realistic” cases are not an independent prediction: the report tuned the model to about 60% reduction, which it describes as consistent with industrial experience, by running it at an unrealistically high 1400 °C. At that temperature modelled ammonia slip is zero, which the report calls optimistic.</p>
@@ -115,8 +120,8 @@
 </div>
 </details></section>
     <nav class="pager" aria-label="More projects">
-      <a class="prev" href="/portfolio-staging/projects/dft-orr-pt13/"><span class="eyebrow">Previous</span>Oxygen reduction on a 13-atom platinum cluster</a>
-      <a class="next" href="/portfolio-staging/projects/"><span class="eyebrow">Back to</span>All projects</a>
+      <a class="prev" href="/portfolio-staging/projects/loxim-effluent-treatment-study/"><span>Previous</span>A lower-cost treatment train for a high-sulphate effluent</a>
+      <a class="next" href="/portfolio-staging/projects/ntnu-synthesis-scale-up/"><span>Next</span>Reworking a catalyst synthesis after an ignition on the filter</a>
     </nav>
   </div>
 </div>
@@ -124,34 +129,33 @@
 </main>
 <footer class="site-foot" id="contact">
   <div class="wrap">
-    <div class="contact-grid">
-      <div>
-        <p class="eyebrow">Contact</p>
-        <h2 class="contact-title">Let’s talk about catalysts, cells or process design</h2>
-        <p class="contact-lede">Questions about a project, a collaboration, or something you read here are all welcome. Email is the quickest way to reach me.</p>
+    <div class="titleblock">
+      <div class="tb-main">
+        <h2 class="tb-title">Get in touch</h2>
+        <p>If you work on catalysts, electrochemistry or process design, I’d be glad to connect. Questions about anything on this site are welcome too. Email is the quickest way to reach me.</p>
+        <div class="tb-actions">
+          <a class="btn btn-solid" href="mailto:ayush.suryawanshi0803@gmail.com">Email me</a>
+          <a class="btn btn-line" href="/portfolio-staging/Ayush_CV_revised.pdf" download="Ayush_CV.pdf"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v8M4.5 7 8 10.5 11.5 7M3 13.5h10"/></svg>Download CV (PDF)</a>
+        </div>
       </div>
-      <div class="contact-actions">
-        <a class="btn btn-primary" href="mailto:ayush.suryawanshi0803@gmail.com">Email me <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5"/></svg></a>
-        <a class="btn btn-ghost" href="/portfolio-staging/Ayush_CV_revised.pdf" download="Ayush_CV.pdf">Download CV (PDF) <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v8M4.5 7 8 10.5 11.5 7M3 13.5h10"/></svg></a>
-        <ul class="contact-list">
-          <li><span class="k">Email</span><a href="mailto:ayush.suryawanshi0803@gmail.com">ayush.suryawanshi0803@gmail.com</a></li>
-          <li><span class="k">LinkedIn</span><a href="https://www.linkedin.com/in/ayush-suryawanshi" rel="me noopener" target="_blank">linkedin.com/in/ayush-suryawanshi</a></li>
-          <li><span class="k">Based in</span><span>Ahmedabad, India</span></li>
-        </ul>
-      </div>
+      <dl class="tb-cells">
+        <div><dt>Email</dt><dd><a href="mailto:ayush.suryawanshi0803@gmail.com">ayush.suryawanshi0803@gmail.com</a></dd></div>
+        <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/ayush-suryawanshi" rel="me noopener" target="_blank">linkedin.com/in/ayush-suryawanshi</a></dd></div>
+        <div><dt>Based in</dt><dd>Ahmedabad, India</dd></div>
+        <div><dt>Sheet</dt><dd>Designing an SNCR retrofit for a biomass boiler</dd></div>
+        <div><dt>Drawn by</dt><dd>Ayush Suryawanshi</dd></div>
+        <div><dt>Revised</dt><dd><time datetime="2026-10-26">October 2026</time></dd></div>
+      </dl>
     </div>
-    <div class="foot-row">
-      <p>© 2026 Ayush Suryawanshi. Last updated October 2026.</p>
-      <p><a href="/portfolio-staging/">Home</a> · <a href="/portfolio-staging/projects/">Work</a> · <a href="/portfolio-staging/about/">About</a> · <a href="/portfolio-staging/cv/">CV</a></p>
-    </div>
+    <p class="foot-note">© 2026 Ayush Suryawanshi. <a href="/portfolio-staging/">Home</a> <a href="/portfolio-staging/projects/">Work</a> <a href="/portfolio-staging/about/">About</a> <a href="/portfolio-staging/cv/">CV</a></p>
   </div>
 </footer>
 <dialog class="lightbox" aria-label="Enlarged image">
-  <form method="dialog"><button class="lb-close" aria-label="Close">Close <kbd>Esc</kbd></button></form>
-  <img alt="">
+  <form method="dialog"><button class="lb-close" type="submit" aria-label="Close">Close <kbd>Esc</kbd></button></form>
+  <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="">
   <p class="lb-cap"></p>
   <a class="lb-full" href="#" target="_blank" rel="noopener">Open full size in a new tab</a>
-  <div class="lb-nav"><button type="button" data-step="-1" aria-label="Previous image">←</button><button type="button" data-step="1" aria-label="Next image">→</button></div>
+  <div class="lb-nav"><button type="button" data-step="-1" aria-label="Previous image">‹</button><button type="button" data-step="1" aria-label="Next image">›</button></div>
 </dialog>
 </body>
 </html>

@@ -1,16 +1,18 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>(function(){var d=document.documentElement,t=null;try{t=localStorage.getItem('theme')}catch(e){}if(t==='light'||t==='dark')d.setAttribute('data-theme',t);d.classList.add('js');if(window.matchMedia&&!matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('motion');setTimeout(function(){if(!window.__siteReady)d.classList.remove('motion')},2500)}})();</script>
+<script>(function(){var d=document.documentElement,t=null;try{t=localStorage.getItem('theme')}catch(e){}if(t==='light'||t==='dark')d.setAttribute('data-theme',t);d.classList.add('js');if(window.matchMedia&&!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('motion');})();</script>
 <title>Balancing activity and current retention in Bi-modified Pt/C – Ayush Suryawanshi</title>
 <meta name="description" content="M.Tech thesis by Ayush Suryawanshi at IIT Madras: Bi-modified Pt/C catalysts and AQSA quinone mediation for formic acid oxidation, with synthesis, characterisation and half-cell durability testing.">
 <meta name="author" content="Ayush Suryawanshi">
 <meta name="robots" content="noindex, nofollow"><!-- STAGING COPY: kept out of search. The live build uses index, follow. -->
 <link rel="canonical" href="https://suryawanshi-ayush.github.io/projects/thesis-bi-pt-formic-acid/">
 <meta name="color-scheme" content="light dark">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2212%22%20fill%3D%22%2315191F%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2241%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2227%22%20fill%3D%22%23F7F6F2%22%20text-anchor%3D%22middle%22%3EAS%3C%2Ftext%3E%3C%2Fsvg%3E">
+<meta name="theme-color" content="#F5F7F8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F1A2E" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cpath%20d%3D%22M32%203%2057%2017.5v29L32%2061%207%2046.5v-29z%22%20fill%3D%22%2313213A%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2240%22%20font-family%3D%22Arial%2Csans-serif%22%20font-weight%3D%22700%22%20font-size%3D%2221%22%20fill%3D%22%23F5F7F8%22%20text-anchor%3D%22middle%22%3EAS%3C%2Ftext%3E%3C%2Fsvg%3E">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Ayush Suryawanshi">
 <meta property="og:title" content="Balancing activity and current retention in Bi-modified Pt/C – Ayush Suryawanshi">
@@ -22,53 +24,32 @@
 <meta name="twitter:title" content="Balancing activity and current retention in Bi-modified Pt/C – Ayush Suryawanshi">
 <meta name="twitter:description" content="M.Tech thesis by Ayush Suryawanshi at IIT Madras: Bi-modified Pt/C catalysts and AQSA quinone mediation for formic acid oxidation, with synthesis, characterisation and half-cell durability testing.">
 <meta name="twitter:image" content="https://suryawanshi-ayush.github.io/images/ayush-suryawanshi-photo-7d467c05.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Serif:wght@400;500&display=swap">
-<link rel="stylesheet" href="/portfolio-staging/assets/site.aab239d9.css">
-<script src="/portfolio-staging/assets/site.abb21e94.js" defer></script>
-<style>.lead-result { margin: 1.1rem 0 1.4rem; padding: 1rem 1.1rem; border: 1px solid var(--rule); border-left: 3px solid var(--accent); border-radius: var(--radius); background: var(--surface); max-width: 46rem; }
-.lead-result .lead-k { margin: 0 0 0.55rem; font: 500 0.74rem var(--mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
-.lead-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem 1.4rem; margin: 0; }
-.lead-grid > div { margin: 0; }
-.lead-grid dt { font: 500 0.72rem var(--mono); letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); margin: 0 0 0.25rem; }
-.lead-grid dd { margin: 0; color: var(--ink-2); font-size: 0.95rem; line-height: 1.35; }
-.lead-grid dd b { display: block; font: 600 1.55rem/1.15 var(--serif); color: var(--ink); }
-.lead-grid dd b span { font: 400 1rem var(--serif); color: var(--muted); }
-.lead-result .lead-note { margin: 0.7rem 0 0; font-size: 0.86rem; color: var(--muted); }
-@media (max-width: 480px) { .lead-grid dd b { font-size: 1.3rem; } }
-.fig .src { opacity: 1; }
-.fig-hint { font-size: 0.8rem; color: var(--muted); margin: 0.2rem 0 0.6rem; }
-@media (hover: hover) and (min-width: 900px) { .fig-hint { display: none; } }
-.prose .fig-row .fig { margin: 0.6rem 0; }
-.details-dl { margin: 0.8rem 0 0; }
-.details-dl div { display: grid; grid-template-columns: 9rem 1fr; gap: 1rem; padding: 0.5rem 0; border-bottom: 1px solid var(--rule); }
-.details-dl dt { font: 500 0.74rem var(--mono); letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
-.details-dl dd { margin: 0; color: var(--ink-2); }
-@media (max-width: 560px) { .details-dl div { grid-template-columns: 1fr; gap: 0.15rem; } }</style>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://suryawanshi-ayush.github.io/"},{"@type":"ListItem","position":2,"name":"Projects","item":"https://suryawanshi-ayush.github.io/projects/"},{"@type":"ListItem","position":3,"name":"Balancing activity and current retention in Bi-modified Pt/C","item":"https://suryawanshi-ayush.github.io/projects/thesis-bi-pt-formic-acid/"}]},{"@type":"CreativeWork","name":"Balancing activity and current retention in Bi-modified Pt/C","headline":"Balancing activity and current retention in Bi-modified Pt/C","description":"M.Tech thesis by Ayush Suryawanshi at IIT Madras: Bi-modified Pt/C catalysts and AQSA quinone mediation for formic acid oxidation, with synthesis, characterisation and half-cell durability testing.","url":"https://suryawanshi-ayush.github.io/projects/thesis-bi-pt-formic-acid/","author":{"@id":"https://suryawanshi-ayush.github.io/#person"},"inLanguage":"en","keywords":"Electrocatalysis, Formic acid oxidation, Potentiostat, FE-SEM / EDX / XRD"}]}</script>
+<link rel="preload" href="/portfolio-staging/fonts/archivo-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/portfolio-staging/assets/site.5144cd7d.css">
+<script src="/portfolio-staging/assets/site.2f133d79.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://suryawanshi-ayush.github.io/"},{"@type":"ListItem","position":2,"name":"Work","item":"https://suryawanshi-ayush.github.io/projects/"},{"@type":"ListItem","position":3,"name":"Balancing activity and current retention in Bi-modified Pt/C","item":"https://suryawanshi-ayush.github.io/projects/thesis-bi-pt-formic-acid/"}]},{"@type":"CreativeWork","name":"Balancing activity and current retention in Bi-modified Pt/C","headline":"Balancing activity and current retention in Bi-modified Pt/C","description":"M.Tech thesis by Ayush Suryawanshi at IIT Madras: Bi-modified Pt/C catalysts and AQSA quinone mediation for formic acid oxidation, with synthesis, characterisation and half-cell durability testing.","url":"https://suryawanshi-ayush.github.io/projects/thesis-bi-pt-formic-acid/","author":{"@id":"https://suryawanshi-ayush.github.io/#person"},"inLanguage":"en","keywords":"Electrocatalysis, Formic acid oxidation, Potentiostat, FE-SEM / EDX / XRD"}]}</script>
 </head>
 <body class="">
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-head">
   <div class="wrap head-row">
-    <a class="brand" href="/portfolio-staging/" aria-label="Ayush Suryawanshi, home"><span class="mono-mark" aria-hidden="true">AS</span><span class="brand-name">Ayush Suryawanshi</span></a>
-    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav"><span class="sr-only">Open menu</span><span class="burger" aria-hidden="true"></span></button>
+    <a class="brand" href="/portfolio-staging/"><svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2.5 35.2 11.25v17.5L20 37.5 4.8 28.75v-17.5z"/><text x="20" y="25">AS</text></svg><span class="brand-name">Ayush Suryawanshi</span></a>
     <nav class="site-nav" id="site-nav" aria-label="Main">
       <ul><li><a href="/portfolio-staging/projects/" aria-current="page">Work</a></li><li><a href="/portfolio-staging/about/">About</a></li><li><a href="/portfolio-staging/cv/">CV</a></li><li><a href="#contact">Contact</a></li></ul>
     </nav>
     <button class="theme-btn" type="button" aria-label="Switch colour theme"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.6 6.6 0 0 0 10.7 10.7z"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg></button>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav"><span class="sr-only">Open menu</span><span class="burger" aria-hidden="true"></span></button>
   </div>
 </header>
 <main id="main">
 
 <article class="project">
-<header class="page-head proj-head">
+<header class="page-head sheet proj-head">
   <div class="wrap">
-    <nav class="crumbs" aria-label="Breadcrumb"><a href="/portfolio-staging/projects/">Projects</a><span aria-hidden="true">/</span><span aria-current="page">Balancing activity and current retention in Bi-modified Pt/C</span></nav>
-    <p class="eyebrow">Experimental research · M.Tech thesis</p>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/portfolio-staging/projects/">Work</a><span aria-hidden="true">/</span><span aria-current="page">Keeping platinum clean in formic acid fuel cells</span></nav>
+    <ul class="tags "><li class="tag catalysis">Catalysis</li><li class="tag electrochemistry">Electrochemistry</li></ul>
     <h1>Balancing activity and current retention in Bi-modified Pt/C</h1>
-    <p class="page-lede">A formic-acid oxidation study of bismuth-modified Pt/C catalysts and a quinone mediator (AQSA), tested in three-electrode half-cells. Not a full fuel-cell demonstration.</p>
+    <p class="lede">A formic-acid oxidation study of bismuth-modified Pt/C catalysts and a quinone mediator (AQSA), tested in three-electrode half-cells. Not a full fuel-cell demonstration.</p>
     <div class="lead-result" role="group" aria-label="Main result">
       <p class="lead-k">Main result · one-hour current retention</p>
       <dl class="lead-grid">
@@ -77,17 +58,18 @@
       </dl>
       <p class="lead-note">Current after one hour relative to the current at 61 s (first 60 s excluded): it measures decay, not output. Half-cell tests; no replicate counts reported.</p>
     </div>
-    <dl class="proj-meta">
+    <dl class="datasheet">
+      <div class="ds-type"><dt>Type</dt><dd>Experimental research · M.Tech thesis</dd></div>
       <div><dt>When</dt><dd>May 2025 – May 2026</dd></div>
       <div><dt>Project</dt><dd>M.Tech thesis, IIT Madras; catalyst synthesis at NTNU, Norway</dd></div>
       <div><dt>Methods</dt><dd>Catalyst synthesis, SEM/EDX and XRD, cyclic voltammetry, chronoamperometry</dd></div>
     </dl>
   </div>
 </header>
-<div class="wrap"><figure class="fig proj-hero"><img src="/portfolio-staging/images/w/half-cell-electrodes-close-up-640.webp" srcset="/portfolio-staging/images/w/half-cell-electrodes-close-up-640.webp 640w, /portfolio-staging/images/w/half-cell-electrodes-close-up-1280.webp 1280w" sizes="(min-width: 1200px) 1160px, 100vw" width="1600" height="739" alt="Close-up of a glass three-electrode cell: a coiled platinum wire, an Ag/AgCl reference electrode and a catalyst-coated glassy carbon working electrode" loading="lazy" decoding="async" data-zoom="/portfolio-staging/images/w/half-cell-electrodes-close-up-1280.webp"><figcaption>Inside the half-cell: a coiled platinum wire as the counter electrode, an Ag/AgCl reference electrode, and the catalyst-coated glassy carbon working electrode used for the voltammetry.</figcaption></figure></div>
+<div class="wrap"><figure class="fig proj-hero"><img src="/portfolio-staging/images/w/half-cell-electrodes-close-up-640.webp" srcset="/portfolio-staging/images/w/half-cell-electrodes-close-up-640.webp 640w, /portfolio-staging/images/w/half-cell-electrodes-close-up-1280.webp 1280w" sizes="(min-width: 1200px) 1100px, 100vw" width="1600" height="739" alt="Close-up of a glass three-electrode cell: a coiled platinum wire, an Ag/AgCl reference electrode and a catalyst-coated glassy carbon working electrode" loading="lazy" decoding="async" data-zoom="/portfolio-staging/images/w/half-cell-electrodes-close-up-1280.webp"><figcaption>Inside the half-cell: a coiled platinum wire as the counter electrode, an Ag/AgCl reference electrode, and the catalyst-coated glassy carbon working electrode used for the voltammetry.</figcaption></figure></div>
 <div class="wrap proj-layout">
   <aside class="toc" aria-label="On this page">
-    <p class="eyebrow">On this page</p>
+    <p class="toc-h">On this page</p>
     <ol><li><a href="#question">The question</a></li><li><a href="#approach">My contribution and approach</a></li><li><a href="#findings">Key findings</a></li><li><a href="#limits">Evidence and study limits</a></li></ol>
   </aside>
   <div class="prose">
@@ -228,7 +210,7 @@
 </details></section>
     <nav class="pager" aria-label="More projects">
       <span></span>
-      <a class="next" href="/portfolio-staging/projects/ntnu-synthesis-scale-up/"><span class="eyebrow">Next</span>Reworking a catalyst synthesis after an ignition on the filter</a>
+      <a class="next" href="/portfolio-staging/projects/loxim-effluent-treatment-study/"><span>Next</span>A lower-cost treatment train for a high-sulphate effluent</a>
     </nav>
   </div>
 </div>
@@ -236,34 +218,33 @@
 </main>
 <footer class="site-foot" id="contact">
   <div class="wrap">
-    <div class="contact-grid">
-      <div>
-        <p class="eyebrow">Contact</p>
-        <h2 class="contact-title">Let’s talk about catalysts, cells or process design</h2>
-        <p class="contact-lede">Questions about a project, a collaboration, or something you read here are all welcome. Email is the quickest way to reach me.</p>
+    <div class="titleblock">
+      <div class="tb-main">
+        <h2 class="tb-title">Get in touch</h2>
+        <p>If you work on catalysts, electrochemistry or process design, I’d be glad to connect. Questions about anything on this site are welcome too. Email is the quickest way to reach me.</p>
+        <div class="tb-actions">
+          <a class="btn btn-solid" href="mailto:ayush.suryawanshi0803@gmail.com">Email me</a>
+          <a class="btn btn-line" href="/portfolio-staging/Ayush_CV_revised.pdf" download="Ayush_CV.pdf"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v8M4.5 7 8 10.5 11.5 7M3 13.5h10"/></svg>Download CV (PDF)</a>
+        </div>
       </div>
-      <div class="contact-actions">
-        <a class="btn btn-primary" href="mailto:ayush.suryawanshi0803@gmail.com">Email me <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5"/></svg></a>
-        <a class="btn btn-ghost" href="/portfolio-staging/Ayush_CV_revised.pdf" download="Ayush_CV.pdf">Download CV (PDF) <svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.5v8M4.5 7 8 10.5 11.5 7M3 13.5h10"/></svg></a>
-        <ul class="contact-list">
-          <li><span class="k">Email</span><a href="mailto:ayush.suryawanshi0803@gmail.com">ayush.suryawanshi0803@gmail.com</a></li>
-          <li><span class="k">LinkedIn</span><a href="https://www.linkedin.com/in/ayush-suryawanshi" rel="me noopener" target="_blank">linkedin.com/in/ayush-suryawanshi</a></li>
-          <li><span class="k">Based in</span><span>Ahmedabad, India</span></li>
-        </ul>
-      </div>
+      <dl class="tb-cells">
+        <div><dt>Email</dt><dd><a href="mailto:ayush.suryawanshi0803@gmail.com">ayush.suryawanshi0803@gmail.com</a></dd></div>
+        <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/ayush-suryawanshi" rel="me noopener" target="_blank">linkedin.com/in/ayush-suryawanshi</a></dd></div>
+        <div><dt>Based in</dt><dd>Ahmedabad, India</dd></div>
+        <div><dt>Sheet</dt><dd>Keeping platinum clean in formic acid fuel cells</dd></div>
+        <div><dt>Drawn by</dt><dd>Ayush Suryawanshi</dd></div>
+        <div><dt>Revised</dt><dd><time datetime="2026-10-26">October 2026</time></dd></div>
+      </dl>
     </div>
-    <div class="foot-row">
-      <p>© 2026 Ayush Suryawanshi. Last updated October 2026.</p>
-      <p><a href="/portfolio-staging/">Home</a> · <a href="/portfolio-staging/projects/">Work</a> · <a href="/portfolio-staging/about/">About</a> · <a href="/portfolio-staging/cv/">CV</a></p>
-    </div>
+    <p class="foot-note">© 2026 Ayush Suryawanshi. <a href="/portfolio-staging/">Home</a> <a href="/portfolio-staging/projects/">Work</a> <a href="/portfolio-staging/about/">About</a> <a href="/portfolio-staging/cv/">CV</a></p>
   </div>
 </footer>
 <dialog class="lightbox" aria-label="Enlarged image">
-  <form method="dialog"><button class="lb-close" aria-label="Close">Close <kbd>Esc</kbd></button></form>
-  <img alt="">
+  <form method="dialog"><button class="lb-close" type="submit" aria-label="Close">Close <kbd>Esc</kbd></button></form>
+  <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="">
   <p class="lb-cap"></p>
   <a class="lb-full" href="#" target="_blank" rel="noopener">Open full size in a new tab</a>
-  <div class="lb-nav"><button type="button" data-step="-1" aria-label="Previous image">←</button><button type="button" data-step="1" aria-label="Next image">→</button></div>
+  <div class="lb-nav"><button type="button" data-step="-1" aria-label="Previous image">‹</button><button type="button" data-step="1" aria-label="Next image">›</button></div>
 </dialog>
 </body>
 </html>

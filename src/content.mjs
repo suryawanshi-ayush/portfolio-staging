@@ -1,6 +1,6 @@
 // All facts on the site live here, so a date or number only ever needs changing once.
-// Sources: the original CV (October 2026, kept outside this repo), the thesis, UTFORSK and SNCR report figures already
-// published on the site, and the photos in images/.
+// Sources: the original CV (October 2026, kept outside this repo), the thesis, the UTFORSK, DFT and SNCR reports, the
+// LOXIM study (scope and relative saving only), and the photos in images/.
 import { fig, img } from './lib.mjs';
 
 export const person = {
@@ -12,7 +12,7 @@ export const person = {
   role: 'Chemical engineer',
   location: 'Ahmedabad, India',
   updated: 'October 2026',
-  updatedISO: '2026-10-16',
+  updatedISO: '2026-10-26',
 };
 
 export const education = [
@@ -48,9 +48,11 @@ export const experience = [
     org: 'LOXIM Industries Ltd., Ahmedabad',
     when: 'Jul 2026 – present',
     points: [
-      'Leading technology selection for sulphate removal from plant effluent. Comparing shortlisted options on projected operating cost; the selection is still in progress.', // REVIEW(disclosure): employer cost figures removed pending LOXIM clearance
+      // Disclosure: LOXIM's report is marked as company property. Only scope, methods and the relative saving are
+      // shown (approved by Ayush, Oct 2026); no supplier names, absolute costs, effluent analysis or report figures.
+      'Led a two-month study on a high-sulphate dye effluent: mapped where the treatment cost goes, compared electrochemical, membrane and crystallisation routes with suppliers, and proposed a treatment train that recovers the waste salt as a product, at about two-thirds lower modelled operating cost.',
       'Evaluated electrocoagulation and electroflocculation as pretreatment options.',
-      'Running screening, sample trials and feasibility checks with more than ten technology vendors.',
+      'Ran screening, sample trials and feasibility checks with more than ten technology vendors; handed the study over with a validation roadmap for further evaluation.',
       'Trained on HPLC, GC-MS, FTIR and UV-Vis; completed plant safety induction and HSE training.',
     ],
   },
@@ -88,11 +90,11 @@ export const skillEvidence = [
   },
   {
     title: 'From the current job',
-    note: 'Training and work at LOXIM Industries, from my CV. Not a research project.',
+    note: 'Work and training at LOXIM Industries.',
     rows: [
-      ['Analytical instruments', 'HPLC, GC-MS, FTIR and UV-Vis: training', [['#now', 'LOXIM role']]],
-      ['Plant safety', 'Plant HSE induction and SOP training', [['#now', 'LOXIM role']]],
-      ['Technology selection', 'Screening, sample trials and feasibility checks with vendors; pretreatment options', [['#now', 'LOXIM role']]],
+      ['Analytical instruments', 'HPLC, GC-MS, FTIR and UV-Vis: training', []],
+      ['Plant safety', 'Plant HSE induction and SOP training', []],
+      ['Technology selection and process economics', 'Supplier screening, sample trials and feasibility checks; DWSIM simulation and a stage-wise operating-cost model', [['loxim-effluent-treatment-study', 'LOXIM study']]],
     ],
   },
   {
@@ -119,60 +121,26 @@ export const recognition = [
   { title: 'Paper presentation, SCHEMCON 2021', where: 'MANIT and IISER Bhopal', when: 'Oct 2021' },
 ];
 
-// The four stages the home page uses to show how the work connects.
-export const stages = [
+// The three areas of work, shown on the home page as units on a process flow line. Each claim rests on a
+// project page; nothing here goes beyond them.
+export const pillars = [
   {
-    n: '01',
-    title: 'Catalyst synthesis',
-    text: 'Wet-chemical modification of commercial Pt/C: adsorption, borohydride reduction and annealing under argon, and, at NTNU, redesigning a literature route after an ignition on the filter.',
-    links: [['thesis-bi-pt-formic-acid', 'Bi-modified Pt/C series'], ['ntnu-synthesis-scale-up', 'Synthesis rework at NTNU']],
+    key: 'catalysis',
+    title: 'Catalysis',
+    text: 'Making and characterising catalysts: bismuth-modified Pt/C by wet chemistry, a synthesis route reworked at NTNU after an ignition on the filter, and DFT of oxygen reduction on a 13-atom platinum cluster.',
+    links: [['thesis-bi-pt-formic-acid', 'Bi-modified Pt/C'], ['ntnu-synthesis-scale-up', 'Synthesis rework at NTNU'], ['dft-orr-pt13', 'DFT on Pt₁₃']],
   },
   {
-    n: '02',
-    title: 'Electrodes and electrochemistry',
-    text: 'Catalyst inks and drop-cast electrodes on glassy carbon and carbon paper, tested in a three-electrode cell: CV, ECSA, mass activity and one-hour holds, backed by FE-SEM, EDX, XRD and BET.',
-    links: [['thesis-bi-pt-formic-acid', 'Durability results']],
+    key: 'electrochemistry',
+    title: 'Electrochemistry',
+    text: 'Catalyst inks and drop-cast electrodes tested in a three-electrode half-cell (cyclic voltammetry, active area, one-hour holds), and electrochemical pretreatment options for an industrial effluent.',
+    links: [['thesis-bi-pt-formic-acid', 'Half-cell testing'], ['loxim-effluent-treatment-study', 'Electrochemical pretreatment']],
   },
   {
-    n: '03',
-    title: 'Modelling and simulation',
-    text: 'DFT of oxygen reduction intermediates on a Pt<sub>13</sub> cluster in Gaussian 16, and combustion and SNCR reaction kinetics modelled in Python with Cantera.',
-    links: [['dft-orr-pt13', 'DFT of oxygen reduction'], ['sncr-biomass-boiler', 'SNCR kinetic model']],
-  },
-  {
-    n: '04',
+    key: 'process',
     title: 'Process engineering',
-    text: 'Design and technology selection under real constraints: an SNCR retrofit for a biomass boiler with Norwegian industry partners, and effluent treatment options at LOXIM Industries.',
-    links: [['sncr-biomass-boiler', 'SNCR retrofit design'], ['#now', 'Current work at LOXIM']],
-  },
-];
-
-// How the current industrial role connects to the lab and design work. Each item rests on the CV
-// (LOXIM) or a project source (SNCR report, NTNU synthesis); nothing here claims results beyond them.
-export const loximBridge = [
-  {
-    title: 'Technology selection',
-    text: 'Shortlisting effluent-treatment options and screening them for feasibility, the same kind of choice as picking ammonia as the SNCR reagent for performance and cost.',
-    link: ['sncr-biomass-boiler', 'SNCR design study'],
-  },
-  {
-    title: 'Electrochemical pretreatment',
-    text: 'Electrocoagulation and electroflocculation use electrodes and an applied current in the effluent, so what I learned about electrodes and electrochemical cells in the lab is relevant to evaluating them.',
-    link: ['thesis-bi-pt-formic-acid', 'Electrode and cell work'],
-  },
-  {
-    title: 'Vendor trials',
-    text: 'Screening, sample trials and feasibility checks with more than ten technology vendors, reading each claim against what the trial data can actually show.',
-  },
-  {
-    title: 'Process economics',
-    text: 'Comparing options on projected operating cost, with the selection still in progress. The SNCR study also costed capital and running costs.',
-    link: ['sncr-biomass-boiler', 'SNCR economics'],
-  },
-  {
-    title: 'Safety',
-    text: 'Plant safety induction and HSE training at LOXIM. Earlier, an ignition on a filter reworked a synthesis route at NTNU, and the SNCR design set out ammonia safety measures.',
-    link: ['ntnu-synthesis-scale-up', 'Synthesis rework'],
+    text: 'Kinetic models, equipment sizing, safety and cost for an SNCR retrofit, and an effluent treatment-train study with DWSIM simulation and a stage-wise operating-cost model.',
+    links: [['sncr-biomass-boiler', 'SNCR retrofit'], ['loxim-effluent-treatment-study', 'Treatment-train study']],
   },
 ];
 
@@ -181,7 +149,8 @@ export const timeline = [
     when: 'Jul 2026 – present',
     title: 'Management Trainee, LOXIM Industries',
     where: 'Ahmedabad',
-    text: 'My first industry role: technology selection for sulphate removal from plant effluent, including electrocoagulation and electroflocculation as pretreatment, with vendor screening, sample trials and feasibility checks.',
+    text: 'My first industry role. I led a two-month study on treating a high-sulphate dye effluent, from a cost baseline and supplier screening to a proposed treatment train that recovers the salt, and handed it over for further evaluation.',
+    link: ['projects/loxim-effluent-treatment-study/', 'The LOXIM study'],
   },
   {
     when: 'Jul 2026',
@@ -400,14 +369,14 @@ function retentionSummary() {
 </figure>`;
 }
 
-export const projects = [
+const projectList = [
   /* ------------------------------------------------------------------ thesis */
   {
     // Disclosure: the owner chose to show these unpublished thesis results; the thesis carries no embargo,
     // confidentiality or collaborator restriction. Keep recipes, operating parameters, compositions and raw
     // data off the page.
     slug: 'thesis-bi-pt-formic-acid',
-    kind: ['lab'],
+    kind: ['catalysis', 'electrochemistry'],
     kindLabel: 'Experimental research · M.Tech thesis',
     title: 'Keeping platinum clean in formic acid fuel cells',
     short: 'Bi-modified Pt/C catalysts and a quinone mediator, tested for how long they hold their current.',
@@ -455,26 +424,6 @@ export const projects = [
       ['Limits', 'Half-cell, acid, one hour. No replicate counts or error bars are reported, and there is no membrane electrode assembly or full-cell test yet.'],
     ],
     hero: ['ayush-suryawanshi-photo-7d467c05.jpg', 'Close-up of a glass three-electrode cell: a coiled platinum wire, an Ag/AgCl reference electrode and a catalyst-coated glassy carbon working electrode', 'Inside the half-cell: a coiled platinum wire as the counter electrode, an Ag/AgCl reference electrode, and the catalyst-coated glassy carbon working electrode used for the voltammetry.'],
-    // Styles used only on this page, so the shared stylesheet (and every other page) is unchanged.
-    style: `.lead-result { margin: 1.1rem 0 1.4rem; padding: 1rem 1.1rem; border: 1px solid var(--rule); border-left: 3px solid var(--accent); border-radius: var(--radius); background: var(--surface); max-width: 46rem; }
-.lead-result .lead-k { margin: 0 0 0.55rem; font: 500 0.74rem var(--mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
-.lead-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem 1.4rem; margin: 0; }
-.lead-grid > div { margin: 0; }
-.lead-grid dt { font: 500 0.72rem var(--mono); letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); margin: 0 0 0.25rem; }
-.lead-grid dd { margin: 0; color: var(--ink-2); font-size: 0.95rem; line-height: 1.35; }
-.lead-grid dd b { display: block; font: 600 1.55rem/1.15 var(--serif); color: var(--ink); }
-.lead-grid dd b span { font: 400 1rem var(--serif); color: var(--muted); }
-.lead-result .lead-note { margin: 0.7rem 0 0; font-size: 0.86rem; color: var(--muted); }
-@media (max-width: 480px) { .lead-grid dd b { font-size: 1.3rem; } }
-.fig .src { opacity: 1; }
-.fig-hint { font-size: 0.8rem; color: var(--muted); margin: 0.2rem 0 0.6rem; }
-@media (hover: hover) and (min-width: 900px) { .fig-hint { display: none; } }
-.prose .fig-row .fig { margin: 0.6rem 0; }
-.details-dl { margin: 0.8rem 0 0; }
-.details-dl div { display: grid; grid-template-columns: 9rem 1fr; gap: 1rem; padding: 0.5rem 0; border-bottom: 1px solid var(--rule); }
-.details-dl dt { font: 500 0.74rem var(--mono); letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
-.details-dl dd { margin: 0; color: var(--ink-2); }
-@media (max-width: 560px) { .details-dl div { grid-template-columns: 1fr; gap: 0.15rem; } }`,
     // Values and figures below are checked against the thesis (MTP_Final_Report_v5): Tables 4.4, 4.9, 4.10,
     // 4.11 and Figures 4.3, 4.14, 4.16. No embargo or confidentiality restriction was found in it. Recipe,
     // operating conditions, compositions and raw data stay off the page.
@@ -545,12 +494,95 @@ ${fig('ayush-suryawanshi-glass-cell-with-a-carbon-paper-electrode-and.jpg', 'Gla
     ],
   },
 
+  /* ---------------------------------------------------------------- LOXIM */
+  {
+    // Disclosure: the study report is LOXIM's property. Approved for the portfolio (Oct 2026): scope and methods in
+    // general terms and the relative saving only. No supplier names, absolute costs, effluent analysis, report
+    // figures or photos.
+    slug: 'loxim-effluent-treatment-study',
+    kind: ['process', 'electrochemistry', 'modelling'],
+    kindLabel: 'Industrial project · LOXIM Industries',
+    title: 'A lower-cost treatment train for a high-sulphate effluent',
+    short: 'A two-month study: where the treatment cost of a dye effluent goes, which routes could replace it, and a proposed train that recovers the waste salt as a product.',
+    description:
+      'Two-month industrial study by Ayush Suryawanshi at LOXIM Industries: cost baseline, supplier screening of electrochemical, membrane and crystallisation routes, DWSIM simulation and a stage-wise operating-cost model for a high-sulphate dye effluent.',
+    when: '2026, two months',
+    where: 'LOXIM Industries Ltd., Ahmedabad',
+    cardArt: 'train',
+    stats: [
+      ['≈ ⅔', 'lower modelled operating cost, quantified items only'],
+      ['10+', 'technology vendors screened'],
+    ],
+    tags: ['Effluent treatment', 'Technology selection', 'DWSIM', 'Process economics'],
+    meta: [
+      ['Type', 'Industrial study, Management Trainee'],
+      ['My role', 'Led the study, then handed it over'],
+      ['Methods', 'Cost baseline, supplier screening and trials, DWSIM simulation, stage-wise operating-cost model'],
+      ['Status', 'Handed over with a validation roadmap for further evaluation'],
+    ],
+    glance: [
+      ['Problem', 'A high-sulphate dye effluent had to be treated at a running cost, and its sulphate left the plant as a waste salt. Where does that cost go, and can the salt become a product?'],
+      ['My contribution', 'Led a two-month study: built the cost baseline, screened electrochemical, membrane and crystallisation routes with more than ten vendors, simulated the proposed train in DWSIM and modelled its operating cost stage by stage.'],
+      ['Key result', 'A proposed treatment train that recovers sodium sulphate as a product, at about two-thirds lower modelled operating cost than the current treatment (cost index 100 to about 36).'],
+      ['Limits', 'A desk and supplier study. The cost comparison covers quantified items only, and bench validation is still pending; the study was handed over for further evaluation.'],
+    ],
+    sections: () => [
+      ['question', 'The question', `
+<p>An effluent from dye production carried a high load of sulphate. Treating it had a running cost, and the sulphate ended up as a waste salt. The study asked where that cost actually goes, which treatment routes could lower it, and whether the salt could leave the plant as a product instead of a waste.</p>`],
+      ['approach', 'My contribution and approach', `
+<p>I led the study during my first months as a Management Trainee at LOXIM Industries.</p>
+<ol class="steps">
+  <li><h3>Mapped the cost</h3><p>Built a baseline of the current treatment, stage by stage, to see which steps drive the operating cost.</p></li>
+  <li><h3>Screened the routes</h3><p>Compared electrochemical, membrane and crystallisation routes, including electrocoagulation and electroflocculation as pretreatment, through screening, sample trials and feasibility checks with more than ten technology vendors.</p></li>
+  <li><h3>Built the train</h3><p>Combined the shortlisted steps into one treatment train and simulated it in DWSIM.</p></li>
+  <li><h3>Costed it</h3><p>Modelled the operating cost of each stage and compared the train with the current treatment on the same basis.</p></li>
+</ol>`],
+      ['train', 'The proposed treatment train', `
+<figure class="train-fig">
+  <ol class="train" aria-label="Proposed treatment train, in flow order">
+    <li class="u"><b>Effluent</b><span>High-sulphate dye stream</span></li>
+    <li class="u ec"><b>Electrochemical pretreatment</b><span>In place of the acid–alkali swing</span></li>
+    <li class="u"><b>Polishing</b><span>Adsorption and oxidation</span></li>
+    <li class="u pr"><b>High-pressure RO</b><span>Concentrates the stream; water recovered</span></li>
+    <li class="u pr"><b>Chilled crystalliser</b><span>Cooling crystallisation; mother liquor recycled</span></li>
+    <li class="u ok"><b>Sodium sulphate</b><span>Recovered as a product</span></li>
+  </ol>
+  <figcaption>Simplified block diagram of the proposed train. Bipolar membrane electrodialysis was also evaluated and not selected. Operating conditions and equipment sizes are not shown.</figcaption>
+</figure>`],
+      ['results', 'Result', `
+<figure class="chart cost" aria-labelledby="cost-title">
+  <div class="chart-head">
+    <p class="chart-title" id="cost-title">Modelled operating cost, as an index</p>
+    <p class="chart-sub">Current treatment set to 100. Quantified cost items only; bench validation pending.</p>
+  </div>
+  <div class="cost-rows" role="list">
+    <div class="cost-row" role="listitem"><span class="cost-label">Current treatment</span><span class="cost-track"><span class="cost-bar base" style="--v:100"></span></span><span class="cost-val">100</span></div>
+    <div class="cost-row" role="listitem"><span class="cost-label">Proposed train</span><span class="cost-track"><span class="cost-bar" style="--v:36"></span></span><span class="cost-val">≈ 36</span></div>
+  </div>
+</figure>
+<p>The proposed train came out at about two-thirds lower modelled operating cost than the current treatment, and it turns the sulphate into a saleable salt rather than a waste. The study was handed over with a validation roadmap, so the next stage of evaluation can test these numbers at bench scale.</p>`],
+      ['background', 'What earlier work brought to it', `
+<ul class="tight">
+  <li><strong>Electrochemistry.</strong> Electrocoagulation and electroflocculation run on electrodes and applied current, so my half-cell and electrode work helped in judging them. <a href="../thesis-bi-pt-formic-acid/">Thesis</a></li>
+  <li><strong>Process economics.</strong> The SNCR design study also chose a route on performance and cost and estimated running costs. <a href="../sncr-biomass-boiler/">SNCR study</a></li>
+  <li><strong>Reading claims against data.</strong> Vendor claims were checked against what each trial could actually show, the same habit as stating the limits of a half-cell result.</li>
+</ul>`],
+      ['limits', 'Limits and what is not shown', `
+<ul class="tight">
+  <li><strong>A modelled saving.</strong> The figure comes from a stage-wise operating-cost model, covers quantified items only, and has not been validated at bench or plant scale.</li>
+  <li><strong>Handed over.</strong> This was a short-term study. The proposal and its validation roadmap were passed on for further evaluation; no plant decision is claimed here.</li>
+  <li><strong>Company property.</strong> The effluent analysis, supplier names, absolute costs and the study report belong to LOXIM Industries and are not shown.</li>
+</ul>
+<p class="takeaway"><strong>What I took from it.</strong> In a plant, the best route is the one whose cost you can explain stage by stage. Mapping the cost first made the choice of technologies much clearer than comparing vendors' headline claims.</p>`],
+    ],
+  },
+
   /* -------------------------------------------------------------- NTNU synthesis */
   {
     // REVIEW(disclosure): ignition incident in a host lab, route changes, the 220 mg figure, SEM images
     // and the KinCat group name need Prof. Blekkan's agreement (source: unpublished UTFORSK report).
     slug: 'ntnu-synthesis-scale-up',
-    kind: ['lab'],
+    kind: ['catalysis'],
     kindLabel: 'Experimental research · KinCat group, NTNU',
     title: 'Reworking a catalyst synthesis after an ignition on the filter',
     short: 'Three batches of Bi-modified Pt/C: a low-yield first batch, an ignition in the second, and a changed aqueous route with no ignition observed.',
@@ -625,7 +657,7 @@ ${fig('ayush-suryawanshi-two-high-magnification-sem-micrographs.jpg', 'Two high-
     // REVIEW(disclosure): own course project; step energies, method and route line are low risk but
     // unpublished. Confirm with the course instructor if in doubt.
     slug: 'dft-orr-pt13',
-    kind: ['computation'],
+    kind: ['catalysis', 'modelling'],
     kindLabel: 'Modelling and simulation · Course project',
     title: 'Oxygen reduction on a 13-atom platinum cluster',
     short: 'A DFT study of the intermediates of the four-electron oxygen reduction pathway on Pt<sub>13</sub>.',
@@ -704,7 +736,7 @@ ${fig('ayush-suryawanshi-photo-4972ceff.jpg', 'Plot of the four tabulated step e
   /* ------------------------------------------------------------------------ SNCR */
   {
     slug: 'sncr-biomass-boiler',
-    kind: ['process', 'computation'],
+    kind: ['process', 'modelling'],
     kindLabel: 'Process engineering · NTNU, team of four',
     title: 'Designing an SNCR retrofit for a biomass boiler',
     short: 'A four-person design study: can selective non-catalytic reduction bring a biomass boiler under its NOx limit, and at what cost?',
@@ -800,9 +832,19 @@ ${fig('ayush-suryawanshi-plot-of-no-reduction-and-ammonia-slip-against.jpg', 'Pl
   },
 ];
 
+// Display order: thesis first, then industrial and design work, then the supporting studies.
+const ORDER = ['thesis-bi-pt-formic-acid', 'loxim-effluent-treatment-study', 'sncr-biomass-boiler', 'ntnu-synthesis-scale-up', 'dft-orr-pt13'];
+export const projects = ORDER.map((slug) => {
+  const p = projectList.find((x) => x.slug === slug);
+  if (!p) throw new Error('missing project ' + slug);
+  return p;
+});
+if (projects.length !== projectList.length) throw new Error('project order is incomplete');
+
 export const kinds = [
-  ['all', 'All', ''],
-  ['lab', 'Experimental research', 'Making catalysts and electrodes and measuring what they do.'],
-  ['computation', 'Modelling and simulation', 'DFT of reaction intermediates and reaction-kinetics models.'],
-  ['process', 'Process engineering', 'Designing and choosing processes under cost, safety and emission limits.'],
+  ['all', 'All work', ''],
+  ['catalysis', 'Catalysis', 'Making, characterising and modelling catalysts.'],
+  ['electrochemistry', 'Electrochemistry', 'Electrodes, half-cell testing and electrochemical treatment.'],
+  ['process', 'Process engineering', 'Designing and costing processes under emission, cost and safety limits.'],
+  ['modelling', 'Modelling', 'DFT, reaction kinetics and process simulation.'],
 ];

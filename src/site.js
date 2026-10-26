@@ -4,7 +4,6 @@
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => Array.from(el.querySelectorAll(s));
-  window.__siteReady = true;
 
   /* ---------- theme ---------- */
   const themeBtn = $('.theme-btn');
@@ -34,22 +33,16 @@
     if (e.key === 'Escape' && menuBtn?.getAttribute('aria-expanded') === 'true') { setMenu(false); menuBtn.focus(); }
   });
 
-  /* ---------- reveal on scroll ---------- */
-  const reveal = $$('[data-reveal], .chart');
+  /* ---------- the one orchestrated motion: the process-flow line draws in; charts fill when seen ---------- */
+  const watch = $$('.pfd, .chart');
   if (root.classList.contains('motion') && 'IntersectionObserver' in window) {
-    // Stagger items that share a parent (cards, stages) so they arrive in reading order.
-    reveal.forEach((el) => {
-      const sibs = Array.from(el.parentElement.children).filter((c) => c.hasAttribute('data-reveal'));
-      const i = sibs.indexOf(el);
-      if (i > 0) el.style.transitionDelay = `${Math.min(i, 5) * 70}ms`;
-    });
     const io = new IntersectionObserver(
       (entries) => entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } }),
-      { rootMargin: '0px 0px -8% 0px', threshold: 0.08 },
+      { rootMargin: '0px 0px -10% 0px', threshold: 0.15 },
     );
-    reveal.forEach((el) => io.observe(el));
+    watch.forEach((el) => io.observe(el));
   } else {
-    reveal.forEach((el) => el.classList.add('in'));
+    watch.forEach((el) => el.classList.add('in'));
   }
 
   /* ---------- chart series toggle ---------- */
@@ -66,19 +59,19 @@
   /* ---------- project filters ---------- */
   const filters = $('.filters');
   if (filters) {
-    const cards = $$('.card[data-kind]');
-    const count = $('[data-count]', filters);
+    const rows = $$('.work-row[data-kind]');
+    const count = $('[data-count]');
     $$('button', filters).forEach((b) =>
       b.addEventListener('click', () => {
         $$('button', filters).forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
         const k = b.dataset.filter;
         let n = 0;
-        cards.forEach((c) => {
-          const show = k === 'all' || c.dataset.kind.split(' ').includes(k);
-          c.hidden = !show;
-          if (show) { n++; c.classList.add('in'); }
+        rows.forEach((r) => {
+          const show = k === 'all' || r.dataset.kind.split(' ').includes(k);
+          r.hidden = !show;
+          if (show) n++;
         });
-        count.textContent = `${n} project${n === 1 ? '' : 's'}`;
+        if (count) count.textContent = `${n} project${n === 1 ? '' : 's'} shown`;
       }),
     );
   }
