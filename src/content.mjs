@@ -265,7 +265,7 @@ function dftChart() {
   return `<figure class="chart" aria-labelledby="dft-title">
   <div class="chart-head">
     <p class="chart-title" id="dft-title">Tabulated step energies (eV)</p>
-    <p class="chart-sub">Associative four-electron pathway on Pt<sub>13</sub>, UB3LYP, from the report’s step table. Electronic energies only: no zero-point, thermal or entropy corrections, and no barriers.</p>
+    <p class="chart-sub">Associative four-electron pathway on Pt<sub>13</sub>, UB3LYP, electronic energies only: no zero-point, thermal or entropy corrections, and no barriers.</p>
   </div>
   <div class="neg" role="list">${rows}
     <div class="neg-axis" aria-hidden="true"><span>−5</span><span>−4</span><span>−3</span><span>−2</span><span>−1</span><span>0</span></div>
@@ -355,7 +355,7 @@ function retentionSummary() {
   return `<figure class="chart" data-chart="durability" aria-labelledby="ret-title">
   <div class="chart-head">
     <p class="chart-title" id="ret-title">One-hour current retention: endpoint summary</p>
-    <p class="chart-sub">Current at 3600 s relative to the current at 61 s (first 60 s excluded), from thesis Tables 4.9 and 4.10, rounded to one decimal. Half-cell, one-hour hold. No replicate counts or error bars are reported.</p>
+    <p class="chart-sub">Current at 3600 s relative to the current at 61 s (first 60 s excluded), rounded to one decimal. Half-cell, one-hour hold. No replicate counts or error bars are reported.</p>
     <div class="seg" role="group" aria-label="Series shown">
       <button type="button" aria-pressed="true" data-show="both">Both</button>
       <button type="button" aria-pressed="false" data-show="fa">Without AQSA</button>
@@ -445,10 +445,10 @@ ${mechanism({ conceptual: true })}`],
 ${retentionSummary()}
 <p>The lowest-bismuth catalyst, Bi(1.25)-Pt/C, had the highest one-hour current retention in both electrolytes, and the highest loading had the lowest without AQSA. Activity ranked differently: Bi(5)-Pt/C had the highest forward-scan Peak 2 mass activity of the series (851.7 against 596.7 mA mg<sup>−1</sup><sub>Pt</sub> for Bi(1.25)-Pt/C), which the thesis assigns largely to oxidative removal of CO that had already adsorbed rather than to the direct pathway. It retained less current over the hour.</p>
 <p>Retention is not output. Because it started higher, Bi(5)-Pt/C still had the highest absolute current density at the end of the hold without AQSA; Bi(1.25)-Pt/C ended only slightly above commercial Pt/C. Its advantage is slower decay.</p>
-<details class="more"><summary>Source curves: thesis Figures 4.14 and 4.16</summary>
+<details class="more"><summary>Retention curves over the one-hour hold</summary>
 <div class="fig-row">
-${fig('thesis-figure-retention-formic-acid.jpg', 'Line graph of current retention against time over one hour without AQSA for five catalysts. Bi(1.25)-Pt/C rises briefly above 100 percent, stays highest throughout and ends highest; Bi(10)-Pt/C falls furthest.', '<strong>Without AQSA.</strong> Retention against time, normalised to each catalyst’s current at 61 s. End labels are as printed in the thesis.', { source: 'Thesis Figure 4.14', sizes: '(min-width: 1100px) 340px, (min-width: 561px) 45vw, 100vw' })}
-${fig('thesis-figure-retention-with-aqsa.jpg', 'Line graph of current retention against time over one hour with AQSA for five catalysts. Bi(1.25)-Pt/C ends highest and Bi(5)-Pt/C lowest.', '<strong>With AQSA.</strong> The same hold and normalisation with the mediator added. End labels are as printed in the thesis.', { source: 'Thesis Figure 4.16', sizes: '(min-width: 1100px) 340px, (min-width: 561px) 45vw, 100vw' })}
+${fig('thesis-figure-retention-formic-acid.jpg', 'Line graph of current retention against time over one hour without AQSA for five catalysts. Bi(1.25)-Pt/C rises briefly above 100 percent, stays highest throughout and ends highest; Bi(10)-Pt/C falls furthest.', '<strong>Without AQSA.</strong> Retention against time, normalised to each catalyst’s current at 61 s.', { sizes: '(min-width: 1100px) 340px, (min-width: 561px) 45vw, 100vw' })}
+${fig('thesis-figure-retention-with-aqsa.jpg', 'Line graph of current retention against time over one hour with AQSA for five catalysts. Bi(1.25)-Pt/C ends highest and Bi(5)-Pt/C lowest.', '<strong>With AQSA.</strong> The same hold and normalisation with the mediator added.', { sizes: '(min-width: 1100px) 340px, (min-width: 561px) 45vw, 100vw' })}
 </div>
 <p class="fig-hint">Tap a figure to enlarge it.</p>
 <p class="note">The brief rise above 100% for Bi(1.25)-Pt/C early in the hold is attributed in the thesis to bismuth rearranging on the surface; that is an interpretation, not a measurement.</p>
@@ -459,12 +459,12 @@ ${fig('thesis-figure-retention-with-aqsa.jpg', 'Line graph of current retention 
 
 <h3>3. Supporting characterisation and ink optimisation</h3>
 <p>At the two lowest loadings, electron microscopy showed no separate bismuth crystallites and X-ray diffraction resolved no distinct crystalline bismuth reflections, consistent with a thin bismuth decoration on the platinum. At the highest loading, bismuth-rich agglomerates appeared in SEM and EDX. These observations support, but do not prove, the proposed surface-decoration model.</p>
-<details class="more"><summary>X-ray diffraction patterns: thesis Figure 4.3</summary>
+<details class="more"><summary>X-ray diffraction patterns</summary>
 <div class="fig-row">
-${fig('thesis-figure-xrd-low-bi.jpg', 'Stacked X-ray diffraction patterns of Pt/C and the two lowest-bismuth catalysts, intensity against two-theta from 5 to 90 degrees, each showing broad platinum peaks near 40, 46, 68 and 81 degrees and the carbon hump near 25 degrees.', '<strong>Lower loadings.</strong> Pt/C and the two lowest-bismuth catalysts.', { source: 'Thesis Figure 4.3, left panel', sizes: '(min-width: 1100px) 340px, (min-width: 561px) 45vw, 100vw' })}
-${fig('thesis-figure-xrd-high-bi.jpg', 'Stacked X-ray diffraction patterns of Pt/C and the two highest-bismuth catalysts; the highest loading shows many additional sharp peaks between about 20 and 60 degrees.', '<strong>Higher loadings.</strong> Pt/C and the two highest-bismuth catalysts.', { source: 'Thesis Figure 4.3, right panel', sizes: '(min-width: 1100px) 340px, (min-width: 561px) 45vw, 100vw' })}
+${fig('thesis-figure-xrd-low-bi.jpg', 'Stacked X-ray diffraction patterns of Pt/C and the two lowest-bismuth catalysts, intensity against two-theta from 5 to 90 degrees, each showing broad platinum peaks near 40, 46, 68 and 81 degrees and the carbon hump near 25 degrees.', '<strong>Lower loadings.</strong> Pt/C and the two lowest-bismuth catalysts.', { sizes: '(min-width: 1100px) 340px, (min-width: 561px) 45vw, 100vw' })}
+${fig('thesis-figure-xrd-high-bi.jpg', 'Stacked X-ray diffraction patterns of Pt/C and the two highest-bismuth catalysts; the highest loading shows many additional sharp peaks between about 20 and 60 degrees.', '<strong>Higher loadings.</strong> Pt/C and the two highest-bismuth catalysts.', { sizes: '(min-width: 1100px) 340px, (min-width: 561px) 45vw, 100vw' })}
 </div>
-<p class="note">FCC platinum reflections remain visible across the series, weakest at the highest loading, and no distinct crystalline bismuth reflections are resolved at the two lowest loadings. The highest loading shows additional sharp reflections, which the thesis tentatively attributes to a bismuth-containing phase. Legend labels are as in the thesis; its text does not define the “HT-” prefix on two samples.</p>
+<p class="note">FCC platinum reflections remain visible across the series, weakest at the highest loading, and no distinct crystalline bismuth reflections are resolved at the two lowest loadings. The highest loading shows additional sharp reflections, which the thesis tentatively attributes to a bismuth-containing phase.</p>
 </details>
 <p>Optimising the ink mattered too. A thinner Nafion binder film gave about 2.5–2.8 times the forward-scan peak current of a thicker one, on commercial Pt/C and on a Bi-modified catalyst, even though on Pt/C the thicker film showed more electrochemically active area. The thinner ink was used for all later comparisons.</p>`],
       ['limits', 'Evidence and study limits', `
@@ -728,7 +728,7 @@ ${dftChart()}
       ['evidence', 'Supporting evidence', `
 <p>This page summarises my course project report. The report, the Gaussian input and output files and the structure files are not published here.</p>
 <details class="more"><summary>See the optimised structures</summary>
-${fig('ayush-suryawanshi-photo-4972ceff.jpg', 'Plot of the four tabulated step energies against step number, with the optimised structure drawn at each point', 'The optimised structure of each state, as drawn in the project report. The curve is a smoothed guide through the four tabulated values and is not a minimum-energy path: no transition states were calculated.', { sizes: '(min-width: 1100px) 720px, 100vw' })}
+${fig('ayush-suryawanshi-photo-4972ceff.jpg', 'Plot of the four tabulated step energies against step number, with the optimised structure drawn at each point', 'The optimised structure of each state. The curve is a smoothed guide through the four tabulated values and is not a minimum-energy path: no transition states were calculated.', { sizes: '(min-width: 1100px) 720px, 100vw' })}
 </details>`],
     ],
   },
