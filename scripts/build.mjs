@@ -210,7 +210,7 @@ function projectCard(p, { headingLevel = 3 } = {}) {
 /* ---------- intro video (home hero) ---------- */
 // Plays muted on arrival, with captions drawn by site.js so they stay readable on phones.
 // Without JavaScript the native controls and the caption track still work.
-const INTRO = { seconds: 100, label: '1:40', uploaded: '2026-10-26' };
+const INTRO = { seconds: 99, label: '1:39', uploaded: '2026-10-26' };
 const ICON_PLAY = '<svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-play" d="M8 5.5v13l10.5-6.5z"/><path class="i-pause" d="M7 5h3.6v14H7zM13.4 5H17v14h-3.6z"/></svg>';
 const ICON_SOUND = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path class="i-on" d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/><path class="i-off" d="m15.5 9.5 5 5m0-5-5 5"/></svg>';
 const ICON_CC = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M10.5 10.3a2.3 2.3 0 1 0 0 3.4M17 10.3a2.3 2.3 0 1 0 0 3.4"/></svg>';
@@ -238,7 +238,7 @@ function introVideo() {
       </div>
       <figcaption class="iv-meta">
         <span class="k" id="iv-title">Introduction · ${INTRO.label}</span>
-        <span id="iv-desc">Catalysts, electrochemistry and process engineering, and what I’m looking for next. Captions on; narrated with an AI version of my own voice.</span>
+        <span id="iv-desc">My background and work across catalysts, electrochemistry and process engineering. Captions on; narrated with an AI version of my own voice.</span>
       </figcaption>
     </figure>`;
 }
@@ -246,11 +246,11 @@ const introVideoLd = {
   '@type': 'VideoObject',
   '@id': liveUrl('#intro-video'),
   name: 'Ayush Suryawanshi – a short introduction',
-  description: 'A 90-second introduction: catalyst synthesis, electrochemical testing, process design and effluent-treatment work, and the roles Ayush is looking for next.',
+  description: 'A short introduction: education, catalyst synthesis, electrochemical testing, process design and effluent-treatment work, in Ayush’s own words.',
   thumbnailUrl: liveUrl('media/intro-poster.jpg'),
   contentUrl: liveUrl('media/intro-1080p.mp4'),
   uploadDate: INTRO.uploaded,
-  duration: `PT1M${INTRO.seconds - 60}S`,
+  duration: `PT${Math.floor(INTRO.seconds / 60)}M${INTRO.seconds % 60}S`,
   inLanguage: 'en',
   creator: { '@id': liveUrl('#person') },
 };
