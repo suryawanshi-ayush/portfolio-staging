@@ -10,9 +10,9 @@
 <meta name="robots" content="noindex, nofollow"><!-- STAGING COPY: kept out of search. The live build uses index, follow. -->
 <link rel="canonical" href="https://suryawanshi-ayush.github.io/projects/sncr-biomass-boiler/">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#F5F7F8" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0F1A2E" media="(prefers-color-scheme: dark)">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cpath%20d%3D%22M32%203%2057%2017.5v29L32%2061%207%2046.5v-29z%22%20fill%3D%22%2313213A%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2240%22%20font-family%3D%22Arial%2Csans-serif%22%20font-weight%3D%22700%22%20font-size%3D%2221%22%20fill%3D%22%23F5F7F8%22%20text-anchor%3D%22middle%22%3EAS%3C%2Ftext%3E%3C%2Fsvg%3E">
+<meta name="theme-color" content="#F7F6F2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111419" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cpath%20d%3D%22M32%203%2057%2017.5v29L32%2061%207%2046.5v-29z%22%20fill%3D%22%2315191F%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2240%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2222%22%20fill%3D%22%23F7F6F2%22%20text-anchor%3D%22middle%22%3EAS%3C%2Ftext%3E%3C%2Fsvg%3E">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Ayush Suryawanshi">
 <meta property="og:title" content="Designing an SNCR retrofit for a biomass boiler – Ayush Suryawanshi">
@@ -24,8 +24,9 @@
 <meta name="twitter:title" content="Designing an SNCR retrofit for a biomass boiler – Ayush Suryawanshi">
 <meta name="twitter:description" content="SNCR retrofit design study for NOx reduction in a biomass boiler by a four-person NTNU team including Ayush Suryawanshi, for Norwegian industry partners, with Cantera combustion and kinetic models and a cost estimate.">
 <meta name="twitter:image" content="https://suryawanshi-ayush.github.io/images/ayush-suryawanshi-photo-5ee7ac61.jpg">
-<link rel="preload" href="/portfolio-staging/fonts/archivo-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/portfolio-staging/assets/site.5144cd7d.css">
+<link rel="preload" href="/portfolio-staging/fonts/ibm-plex-sans-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/portfolio-staging/fonts/ibm-plex-serif-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/portfolio-staging/assets/site.45726d25.css">
 <script src="/portfolio-staging/assets/site.2f133d79.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://suryawanshi-ayush.github.io/"},{"@type":"ListItem","position":2,"name":"Work","item":"https://suryawanshi-ayush.github.io/projects/"},{"@type":"ListItem","position":3,"name":"Designing an SNCR retrofit for a biomass boiler","item":"https://suryawanshi-ayush.github.io/projects/sncr-biomass-boiler/"}]},{"@type":"CreativeWork","name":"Designing an SNCR retrofit for a biomass boiler","headline":"Designing an SNCR retrofit for a biomass boiler","description":"SNCR retrofit design study for NOx reduction in a biomass boiler by a four-person NTNU team including Ayush Suryawanshi, for Norwegian industry partners, with Cantera combustion and kinetic models and a cost estimate.","url":"https://suryawanshi-ayush.github.io/projects/sncr-biomass-boiler/","author":{"@id":"https://suryawanshi-ayush.github.io/#person"},"inLanguage":"en","keywords":"Process design, Kinetic modelling, Python / Cantera, Process economics"}]}</script>
 </head>
@@ -71,11 +72,11 @@
   <div class="prose">
     <section id="glance" class="glance" aria-labelledby="glance-h">
       <h2 id="glance-h">At a glance</h2>
-      <dl><div><dt>Problem</dt><dd>An upgraded biomass boiler must stay under 300 mg/Nm³ NOx, and uncontrolled NOx was modelled at 280–330 mg/Nm³. Could an SNCR retrofit close the gap, and at what cost?</dd></div><div><dt>My contribution</dt><dd>Member of a four-person team and presenter of the poster in Oslo. The report does not itemise who did what, so the method and results below are the team’s work.</dd></div><div><dt>Key result</dt><dd>With a conservative design reduction of about 60% (the ideal model gave above 90%), modelled NOx falls to roughly 100–125 mg/Nm³, under the limit. Capital and running costs were estimated: not profitable at current NOx tax, but justified as a compliance cost.</dd></div><div><dt>Limits</dt><dd>Idealised model (perfect mixing, fixed temperature profile), very limited plant data for comparison, and a design study rather than a plant trial. On-site measurement was recommended.</dd></div></dl>
+      <dl><div><dt>Problem</dt><dd>An upgraded biomass boiler must stay under the 300 mg/Nm³ NOx limit, and its modelled uncontrolled NOx sat around that limit. Could an SNCR retrofit give a safe margin, and at what cost?</dd></div><div><dt>My contribution</dt><dd>Member of a four-person team and presenter of the poster in Oslo. The report does not itemise who did what, so the method and results below are the team’s work.</dd></div><div><dt>Key result</dt><dd>With a conservative design reduction of about 60% (the ideal model gave above 90%), modelled emissions fall well under the limit. Capital and running costs were estimated: not profitable at current NOx tax, but justified as a compliance cost.</dd></div><div><dt>Limits</dt><dd>Idealised model (perfect mixing, fixed temperature profile), very limited plant data for comparison, and a design study rather than a plant trial. On-site measurement was recommended.</dd></div></dl>
     </section>
     <section id="problem" aria-labelledby="problem-h"><h2 id="problem-h">Problem and baseline</h2>
-<p>A biomass boiler at a Norwegian industrial site is to be upgraded to supply process steam to a pulp production line. Burning biomass produces NOx, and the plant has to stay under the Norwegian limit of 300 mg/Nm³ (dry, 11% O<sub>2</sub>). The team asked whether a selective non-catalytic reduction (SNCR) retrofit, injecting ammonia into the hot flue gas, could get it there.</p>
-<p><strong>Baseline.</strong> The models gave uncontrolled NOx of 333 mg/Nm³ for the baseline feed and 287 mg/Nm³ for the lower feed case. The only plant measurement available for comparison was older and lower than the modelled baseline.</p></section>
+<p>An existing biomass boiler at a Norwegian industrial site is to be upgraded to supply process steam to a planned pulp mill. Burning biomass produces NOx, and the plant has to stay under a limit of 300 mg/Nm³. The team asked whether a selective non-catalytic reduction (SNCR) retrofit, injecting ammonia into the hot flue gas, could keep it there with a safe margin.</p>
+<p><strong>Baseline.</strong> The combustion models put uncontrolled NOx around the limit for both fuel cases studied, which is the range where SNCR is known to work. Only one older plant measurement was available for comparison.</p></section>
 <section id="contribution" aria-labelledby="contribution-h"><h2 id="contribution-h">My contribution</h2>
 <p>I was one of four authors of the design report and presented the work as a poster at Treforedlingsforum 2025 in Oslo, 18–19 November. The report does not divide the work between authors, so I describe the study as the team’s and do not claim individual parts of the modelling or cost estimate here.</p></section>
 <section id="methods" aria-labelledby="methods-h"><h2 id="methods-h">Methods and assumptions</h2>
@@ -91,14 +92,14 @@
   <tbody><tr><th scope="row">SNCR temperature window</th><td>Reduction rises between 900 and 1000 °C and falls above it; injection recommended at the upper end, 1000–1100 °C</td></tr><tr><th scope="row">Reagent and dose</th><td>25 wt% ammonia solution; start at NSR 1.4 and tune from measurements; equipment sized at NSR 2.0</td></tr><tr><th scope="row">Model simplifications</th><td>Perfect mixing, fixed temperature profile, steady state: an upper-bound estimate</td></tr><tr><th scope="row">Economics</th><td>8% discount rate, 20-year life, savings measured against the NOx tax</td></tr></tbody>
 </table></div></section>
 <section id="results" aria-labelledby="results-h"><h2 id="results-h">Results</h2>
-<div class="table-wrap cols-4" role="region" aria-labelledby="tbl-2" tabindex="0"><table>
-  <caption id="tbl-2">Modelled NOx for the two feed cases (mg/Nm³, dry, 11% O₂)</caption>
-  <thead><tr><th scope="col">Case</th><th scope="col">Uncontrolled</th><th scope="col">Controlled</th><th scope="col">Reduction</th></tr></thead>
-  <tbody><tr><th scope="row">Baseline feed, ideal</th><td>333</td><td>20</td><td>94%</td></tr><tr class="hl"><th scope="row">Baseline feed, realistic</th><td>333</td><td>124</td><td>63%</td></tr><tr><th scope="row">Lower feed, ideal</th><td>287</td><td>21</td><td>93%</td></tr><tr class="hl"><th scope="row">Lower feed, realistic</th><td>287</td><td>101</td><td>65%</td></tr></tbody>
-</table></div><p class="note">The “realistic” cases are not an independent prediction: the report tuned the model to about 60% reduction, which it describes as consistent with industrial experience, by running it at an unrealistically high 1400 °C. At that temperature modelled ammonia slip is zero, which the report calls optimistic.</p>
+<div class="table-wrap cols-3" role="region" aria-labelledby="tbl-2" tabindex="0"><table>
+  <caption id="tbl-2">Modelled NOx reduction for the two fuel cases</caption>
+  <thead><tr><th scope="col">Case</th><th scope="col">Ideal model</th><th scope="col">Design case</th></tr></thead>
+  <tbody><tr><th scope="row">Baseline fuel case</th><td>94%</td><td>63%</td></tr><tr><th scope="row">Lower fuel case</th><td>93%</td><td>65%</td></tr></tbody>
+</table></div><p class="note">The design cases are not an independent prediction: the report tuned the model to about 60% reduction, which it describes as consistent with industrial experience, by running it at an unrealistically high 1400 °C, where modelled ammonia slip is zero. The report calls this optimistic. Absolute emission levels, fuel flows and plant data are not shown here because they depend on the industry partners’ information.</p>
 <ul class="tight">
-  <li><strong>Temperature matters most.</strong> Reduction is limited below about 850 °C, rises quickly between 900 and 1000 °C and falls at higher temperatures as ammonia oxidises. At the cooler end of the window the modelled ammonia slip exceeds 40 mg/Nm³, so the recommendation is to inject near the upper end.</li>
-  <li><strong>Reagent and cost.</strong> The baseline case needs about 5800 litres of 25 wt% ammonia solution a month at NSR 1.4, and reagent use dominates running cost. Capital and running costs were estimated with standard cost correlations. At current NOx tax rates the project is not profitable, but the report judges the investment justified as a compliance measure.</li>
+  <li><strong>Temperature matters most.</strong> Reduction is limited below about 850 °C, rises quickly between 900 and 1000 °C and falls at higher temperatures as ammonia oxidises. At the cooler end of the window modelled ammonia slip rises sharply, so the recommendation is to inject between 900 and 1100 °C, near the upper end.</li>
+  <li><strong>Reagent and cost.</strong> Reagent use dominates the running cost. Capital and running costs were estimated with standard cost correlations and public prices. At current NOx tax rates the project is not profitable, but the report judges the investment justified as a compliance measure.</li>
   <li><strong>Safety was part of the design.</strong> Ammonia is hazardous, so the design included a moat around the tank, ammonia sensors with alarms that switch off the pumps, emergency showers and enclosed mixing and distribution modules.</li>
   <li><strong>Recommendations.</strong> Measure temperature and uncontrolled NOx on site before tuning, and design for variations in load and fuel.</li>
 </ul></section>
@@ -106,18 +107,15 @@
 <ul class="tight">
   <li><strong>Idealised models.</strong> Perfect mixing, a fixed temperature profile and steady state make the SNCR results an upper bound; real furnaces have imperfect mixing and temperature variation, and real ammonia slip is likely to be higher.</li>
   <li><strong>The 60% is an assumption.</strong> It is a conservative design value chosen from industrial experience, not a result the model produced.</li>
-  <li><strong>Thin plant data.</strong> The baseline came from models, with only one older plant measurement for comparison, and the modelled uncontrolled NOx was higher than it.</li>
+  <li><strong>Thin plant data.</strong> The baseline came from models, with only one older plant measurement for comparison.</li>
   <li><strong>High-level costs.</strong> The cost estimates are early-stage, and the report notes that some equipment costs are less accurate than the storage tank estimate.</li>
   <li><strong>A design study.</strong> Nothing here was tested on the boiler.</li>
 </ul>
 <p class="takeaway"><strong>What I took from it.</strong> This was my first design project for an industry client. It taught me to work from incomplete plant data, state assumptions clearly, and give a recommendation a client can act on, including an honest note that the economics only work as a compliance cost.</p></section>
 <section id="evidence" aria-labelledby="evidence-h"><h2 id="evidence-h">Supporting evidence</h2>
-<p>This page summarises the team’s TKP4170 design report for NTNU. The report, the poster, the model code and the model outputs are not published here; two model plots are below.</p>
-<details class="more"><summary>Model plots</summary>
-<div class="fig-row">
-<figure class="fig "><img src="/portfolio-staging/images/w/plot-of-nox-and-ammonia-slip-against-sncr-640.webp" srcset="/portfolio-staging/images/w/plot-of-nox-and-ammonia-slip-against-sncr-640.webp 640w, /portfolio-staging/images/w/plot-of-nox-and-ammonia-slip-against-sncr-1280.webp 1280w" sizes="(min-width: 720px) 340px, 100vw" width="1281" height="705" alt="Plot of NOx and ammonia slip against SNCR temperature" loading="lazy" decoding="async" data-zoom="/portfolio-staging/images/w/plot-of-nox-and-ammonia-slip-against-sncr-1280.webp"><figcaption>Modelled NOx with and without SNCR across injection temperatures. The dashed line is the 300 mg/Nm³ limit and the shaded band is the usual SNCR window: inject too cold and ammonia slips through, too hot and it burns to NOx itself.</figcaption></figure>
-<figure class="fig "><img src="/portfolio-staging/images/w/plot-of-no-reduction-and-ammonia-slip-against-640.webp" srcset="/portfolio-staging/images/w/plot-of-no-reduction-and-ammonia-slip-against-640.webp 640w, /portfolio-staging/images/w/plot-of-no-reduction-and-ammonia-slip-against-1280.webp 1280w" sizes="(min-width: 720px) 340px, 100vw" width="1400" height="930" alt="Plot of NO reduction and ammonia slip against the normalised stoichiometric ratio" loading="lazy" decoding="async" data-zoom="/portfolio-staging/images/w/plot-of-no-reduction-and-ammonia-slip-against-1280.webp"><figcaption>More ammonia removes more NO, but past a point the unreacted ammonia slipping through rises steeply. The design dose sits where reduction is high and slip is still low.</figcaption></figure>
-</div>
+<p>This page summarises the team’s TKP4170 design report for NTNU. The report, the poster, the model code and the plant-specific inputs and outputs are not published here; one model trend is below.</p>
+<details class="more"><summary>Model trend: ammonia dose against reduction and slip</summary>
+<figure class="fig "><img src="/portfolio-staging/images/w/plot-of-no-reduction-and-ammonia-slip-against-640.webp" srcset="/portfolio-staging/images/w/plot-of-no-reduction-and-ammonia-slip-against-640.webp 640w, /portfolio-staging/images/w/plot-of-no-reduction-and-ammonia-slip-against-1280.webp 1280w" sizes="(min-width: 720px) 720px, 100vw" width="1400" height="930" alt="Plot of NO reduction and ammonia slip against the normalised stoichiometric ratio" loading="lazy" decoding="async" data-zoom="/portfolio-staging/images/w/plot-of-no-reduction-and-ammonia-slip-against-1280.webp"><figcaption>More ammonia removes more NO, but past a point the unreacted ammonia slipping through rises steeply. The design dose sits where reduction is high and slip is still low.</figcaption></figure>
 </details></section>
     <nav class="pager" aria-label="More projects">
       <a class="prev" href="/portfolio-staging/projects/loxim-effluent-treatment-study/"><span>Previous</span>A lower-cost treatment train for a high-sulphate effluent</a>

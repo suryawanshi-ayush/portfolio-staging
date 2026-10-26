@@ -1,7 +1,7 @@
 // Builds the static site into the repository root, which is what GitHub Pages serves.
 // Usage: node scripts/build.mjs   (no dependencies; Node 18+)
 //
-// Design: an engineering-drawing identity. Light theme is drawing paper, dark theme is blueprint navy.
+// Design: an engineering-drawing layout on a paper-and-ink palette. Light theme is warm paper, dark theme soft charcoal.
 // The one bold element is the process-flow line on the home page, where the three areas of work are
 // drawn as unit operations; everything else stays quiet so the evidence reads first.
 import { mkdirSync, writeFileSync, readFileSync, rmSync } from 'node:fs';
@@ -28,13 +28,13 @@ const asset = (name) => {
   out(`assets/${base}.${hash}.${ext}`, src);
   return url(`assets/${base}.${hash}.${ext}`);
 };
-// Fonts are self-hosted from fonts/ (SIL Open Font License), so no third-party requests are made.
+// Fonts (IBM Plex Serif, Sans and Mono) are self-hosted from fonts/ (SIL Open Font License), so no third-party requests are made.
 // The stylesheet refers to them relative to assets/, i.e. ../fonts/.
 const CSS = asset('site.css');
 const JS = asset('site.js');
 
 const ICON = `data:image/svg+xml,${encodeURIComponent(
-  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M32 3 57 17.5v29L32 61 7 46.5v-29z" fill="#13213A"/><text x="32" y="40" font-family="Arial,sans-serif" font-weight="700" font-size="21" fill="#F5F7F8" text-anchor="middle">AS</text></svg>',
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M32 3 57 17.5v29L32 61 7 46.5v-29z" fill="#15191F"/><text x="32" y="40" font-family="Georgia,serif" font-size="22" fill="#F7F6F2" text-anchor="middle">AS</text></svg>',
 )}`;
 
 // Old single-page links such as /#/project/x or /#/cv keep working.
@@ -174,8 +174,8 @@ ${THEME_INIT}
 <meta name="robots" content="${robots}">${config.staging ? '<!-- STAGING COPY: kept out of search. The live build uses index, follow. -->' : ''}
 <link rel="canonical" href="${canonical}">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#F5F7F8" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0F1A2E" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F7F6F2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111419" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="${ICON}">
 <meta property="og:type" content="${path === '' ? 'profile' : 'article'}">
 <meta property="og:site_name" content="${person.name}">
@@ -188,7 +188,8 @@ ${THEME_INIT}
 <meta name="twitter:title" content="${esc(title)}">
 <meta name="twitter:description" content="${esc(description)}">
 <meta name="twitter:image" content="${ogImage}">
-<link rel="preload" href="${url('fonts/archivo-variable-latin.woff2')}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="${url('fonts/ibm-plex-sans-latin-400.woff2')}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="${url('fonts/ibm-plex-serif-latin-400.woff2')}" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="${CSS}">
 <script src="${JS}" defer></script>
 ${extraHead}${jsonld.length ? ld(jsonld) : ''}

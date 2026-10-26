@@ -11,12 +11,12 @@ There is no framework and no npm install: one Node script turns the content into
 
 ```
 src/content.mjs     every fact, date, number and project write-up (edit this to change content)
-src/site.css        design tokens, layout, light (drawing paper) and dark (blueprint navy) themes, motion rules
+src/site.css        design tokens, layout, light (warm paper) and dark (soft charcoal) themes, motion rules
 src/site.js         interactions: theme, menu, flow-line reveal, chart toggle, filters, lightbox, schematic, intro video
 src/lib.mjs         image and URL helpers
 src/images.json     image sizes, used for responsive srcset and width/height
 scripts/build.mjs   page templates; writes the site into the repo root
-fonts/              self-hosted Archivo (variable width) and IBM Plex Mono, SIL Open Font License
+fonts/              self-hosted IBM Plex Serif, Sans and Mono, SIL Open Font License
 media/              intro video (1080p and 720p), poster and WebVTT captions
 site.config.json    staging flag, base path and canonical origin
 ```
@@ -26,14 +26,17 @@ site.config.json    staging flag, base path and canonical origin
 Redesigned from scratch in October 2026 (the previous version is kept in the private repository
 `portfolio_n-1`, branch `staging-backup-2026-10-26`).
 
-- Identity: an engineering drawing. Light theme is drawing paper, dark theme is blueprint navy (never black).
+- Identity: an engineering-drawing layout on a calm paper-and-ink palette. Light theme is warm paper, dark theme
+  soft charcoal (never pure black), the colours of the earlier site, which read more comfortably.
 - One bold element: on the home page the three areas of work (catalysis, electrochemistry, process
   engineering) are drawn as unit operations on a process-flow line, each linking to its projects. The
   footer is a drawing title block. Everything else stays quiet so the evidence reads first.
-- Colours per discipline match the intro video: catalysis violet, electrochemistry blue, process amber.
-- Type: Archivo for everything (wide for headings), IBM Plex Mono only for tags and readings.
+- Colours per discipline are muted versions of the intro video's: catalysis violet, electrochemistry blue, process amber.
+- Type: IBM Plex Serif for headings, Plex Sans for text, Plex Mono for tags and readings, as in the intro video.
 - Motion: only the flow line draws in once and charts fill when seen; nothing moves with reduced motion.
 - Accessibility: WCAG 2.1 AA checked with axe on every page, both themes, desktop and phone.
+- Disclosure: industry-linked work (SNCR, LOXIM) shows methods, trends, percentages and public limits only;
+  plant data, absolute figures from partners, costs and reports stay off the site. See the notes in src/content.mjs.
 
 Build after any change, then commit the source and the generated files together:
 
