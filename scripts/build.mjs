@@ -52,7 +52,7 @@ const tagEvents = (html) =>
         .replace(/<a ([^>]*)href="https:\/\/www\.linkedin\.com\/in\/ayush-suryawanshi"/g, '<a $1data-goatcounter-click="linkedin-click" data-goatcounter-title="LinkedIn link clicked" href="https://www.linkedin.com/in/ayush-suryawanshi"');
 
 const ICON = `data:image/svg+xml,${encodeURIComponent(
-  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M32 3 57 17.5v29L32 61 7 46.5v-29z" fill="#15191F"/><text x="32" y="40" font-family="Georgia,serif" font-size="22" fill="#F7F6F2" text-anchor="middle">AS</text></svg>',
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M32 3 57 17.5v29L32 61 7 46.5v-29z" fill="#0F5566"/><text x="32" y="40" font-family="Georgia,serif" font-size="22" fill="#FFFFFF" text-anchor="middle">AS</text></svg>',
 )}`;
 
 // Old single-page links such as /#/project/x or /#/cv keep working.
@@ -193,8 +193,8 @@ ${THEME_INIT}
 <meta name="robots" content="${robots}">${config.staging ? '<!-- STAGING COPY: kept out of search. The live build uses index, follow. -->' : ''}
 <link rel="canonical" href="${canonical}">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#F7F6F2" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#111419" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#FAF8F4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E1B20" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="${ICON}">
 <meta property="og:type" content="${path === '' ? 'profile' : 'article'}">
 <meta property="og:site_name" content="${person.name}">

@@ -26,12 +26,15 @@ site.config.json    staging flag, base path and canonical origin
 Redesigned from scratch in October 2026 (the previous version is kept in the private repository
 `portfolio_n-1`, branch `staging-backup-2026-10-26`).
 
-- Identity: an engineering-drawing layout on a calm paper-and-ink palette. Light theme is warm paper, dark theme
-  soft charcoal (never pure black), the colours of the earlier site, which read more comfortably.
+- Identity: an engineering-drawing layout in the Fjord palette (October 2026), following a 60-30-10 split:
+  warm white (#faf8f4) as the base, deep teal (#0f5566) as the main colour and coral (#d9572b) as the accent,
+  with mustard as a third colour. Dark theme is deep teal-charcoal (#0e1b20), never pure black. Colour is part
+  of the structure: a tinted hero, tinted bands for the process flow and the timeline, and a deep teal footer card.
 - One bold element: on the home page the three areas of work (catalysis, electrochemistry, process
   engineering) are drawn as unit operations on a process-flow line, each linking to its projects. The
   footer is a drawing title block. Everything else stays quiet so the evidence reads first.
-- Colours per discipline are muted versions of the intro video's: catalysis violet, electrochemistry blue, process amber.
+- Colours per discipline match the intro video, which was re-rendered in the same palette: catalysis coral,
+  electrochemistry teal, process mustard.
 - Type: IBM Plex Serif for headings, Plex Sans for text, Plex Mono for tags and readings, as in the intro video.
 - Motion: only the flow line draws in once and charts fill when seen; nothing moves with reduced motion.
 - Accessibility: WCAG 2.1 AA checked with axe on every page, both themes, desktop and phone.
