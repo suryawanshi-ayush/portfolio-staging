@@ -33,6 +33,24 @@ const asset = (name) => {
 const CSS = asset('site.css');
 const JS = asset('site.js');
 
+/* ---------- visitor analytics (optional, off unless site.config.json sets "goatcounter") ---------- */
+// GoatCounter counts page views without cookies or personal data, so no consent banner is needed.
+// The counter script (ISC licence, src/goatcounter.js) is self-hosted and only loads when the visitor's browser
+// does not send Do Not Track or Global Privacy Control. Staging keeps it off so test visits are not counted.
+const GC = config.goatcounter ? `https://${config.goatcounter}.goatcounter.com/count` : '';
+const GC_JS = GC ? asset('goatcounter.js') : '';
+const ANALYTICS = GC
+  ? `<script>(function(){var n=navigator;if(n.doNotTrack==='1'||window.doNotTrack==='1'||n.globalPrivacyControl===true)return;var s=document.createElement('script');s.async=true;s.src='${GC_JS}';s.setAttribute('data-goatcounter','${GC}');document.head.appendChild(s);})();</script>\n`
+  : '';
+// Anonymous counts of the actions that matter (no visitor details): CV downloads, email and LinkedIn clicks.
+const tagEvents = (html) =>
+  !GC
+    ? html
+    : html
+        .replace(/<a ([^>]*)download="Ayush_CV\.pdf"/g, '<a $1download="Ayush_CV.pdf" data-goatcounter-click="cv-download" data-goatcounter-title="CV downloaded"')
+        .replace(/<a ([^>]*)href="mailto:/g, '<a $1data-goatcounter-click="email-click" data-goatcounter-title="Email link clicked" href="mailto:')
+        .replace(/<a ([^>]*)href="https:\/\/www\.linkedin\.com\/in\/ayush-suryawanshi"/g, '<a $1data-goatcounter-click="linkedin-click" data-goatcounter-title="LinkedIn link clicked" href="https://www.linkedin.com/in/ayush-suryawanshi"');
+
 const ICON = `data:image/svg+xml,${encodeURIComponent(
   '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path d="M32 3 57 17.5v29L32 61 7 46.5v-29z" fill="#15191F"/><text x="32" y="40" font-family="Georgia,serif" font-size="22" fill="#F7F6F2" text-anchor="middle">AS</text></svg>',
 )}`;
@@ -146,7 +164,8 @@ function footer(sheet) {
         <div><dt>Revised</dt><dd><time datetime="${person.updatedISO}">${person.updated}</time></dd></div>
       </dl>
     </div>
-    <p class="foot-note">© 2026 ${person.name}. <a href="${url()}">Home</a> <a href="${url('projects/')}">Work</a> <a href="${url('about/')}">About</a> <a href="${url('cv/')}">CV</a></p>
+    <p class="foot-note">© 2026 ${person.name}. <a href="${url()}">Home</a> <a href="${url('projects/')}">Work</a> <a href="${url('about/')}">About</a> <a href="${url('cv/')}">CV</a></p>${GC ? `
+    <p class="foot-note privacy">Visits are counted anonymously with <a href="https://www.goatcounter.com/help/gdpr" rel="noopener" target="_blank">GoatCounter</a>: no cookies, no personal data, and nothing is counted if your browser asks not to be tracked.</p>` : ''}
   </div>
 </footer>
 <dialog class="lightbox" aria-label="Enlarged image">
@@ -162,7 +181,7 @@ function page({ path, title, description, active, sheet, body, jsonld = [], imag
   const canonical = liveUrl(path);
   const ogImage = liveUrl(image || 'images/portrait-of-ayush-suryawanshi.jpg');
   const robots = config.staging ? 'noindex, nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1';
-  return `<!DOCTYPE html>
+  return tagEvents(`<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -192,7 +211,7 @@ ${THEME_INIT}
 <link rel="preload" href="${url('fonts/ibm-plex-serif-latin-400.woff2')}" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="${CSS}">
 <script src="${JS}" defer></script>
-${extraHead}${jsonld.length ? ld(jsonld) : ''}
+${ANALYTICS}${extraHead}${jsonld.length ? ld(jsonld) : ''}
 </head>
 <body class="${bodyClass}">
 ${header(active)}
@@ -202,7 +221,7 @@ ${body}
 ${footer(sheet || strip(title).split(' – ')[0])}
 </body>
 </html>
-`;
+`);
 }
 
 /* ---------- card visuals ---------- */

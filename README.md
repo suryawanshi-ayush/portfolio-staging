@@ -74,6 +74,28 @@ for search and AI crawlers, and fixes all links for the root path. Keep the live
 The two chart series were checked with a colour-vision-deficiency validator against both
 backgrounds: light `#2457C5` / `#C27C1A` on `#FFFFFF`, dark `#5F8BF0` / `#B77B26` on `#161B22`.
 
+## Visitor statistics (GoatCounter)
+
+The live site counts visits with [GoatCounter](https://www.goatcounter.com): no cookies, no personal data, no
+consent banner needed. It is switched on by one line in `site.config.json` on the live repo:
+
+```json
+"goatcounter": "your-goatcounter-code"
+```
+
+Leave it out (as on staging) and nothing is loaded. When it is on:
+
+- the counter script is self-hosted (`src/goatcounter.js`, ISC licence) and is not loaded at all for visitors
+  whose browser sends Do Not Track or Global Privacy Control;
+- page views, referrers, countries, browsers and screen sizes appear in the GoatCounter dashboard;
+- these actions are counted as anonymous events: `cv-download`, `email-click`, `linkedin-click`,
+  `intro-video-sound` and `intro-video-complete`;
+- links you share can carry a tag that shows up as the referrer, e.g. `https://suryawanshi-ayush.github.io/?ref=linkedin`
+  or `?ref=application-companyname`;
+- visit `https://suryawanshi-ayush.github.io/#toggle-goatcounter` once in each of your own browsers to stop
+  counting your own visits;
+- the footer says that visits are counted and how.
+
 ## CV
 
 The site links to `Ayush_CV_revised.pdf` (it downloads as `Ayush_CV.pdf`). It is generated from the content in

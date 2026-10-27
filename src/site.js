@@ -214,6 +214,12 @@
       if (e.key === ' ' || e.key === 'k') { e.preventDefault(); userToggle(); }
     });
 
+    // Anonymous event counts (only when the GoatCounter script is present): sound turned on, video watched to the end.
+    const countEvent = (path, title) => { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path, title, event: true }); };
+    let soundTracked = false;
+    v.addEventListener('volumechange', () => { if (!v.muted && !soundTracked) { soundTracked = true; countEvent('intro-video-sound', 'Intro video: sound on'); } });
+    v.addEventListener('ended', () => countEvent('intro-video-complete', 'Intro video: watched to the end'));
+
     // First "Watch with sound" restarts from the top so the visitor hears it all.
     soundPill.addEventListener('click', () => {
       v.muted = false;
