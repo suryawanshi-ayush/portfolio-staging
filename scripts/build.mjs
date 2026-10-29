@@ -256,7 +256,7 @@ const stat = ([v, k]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`;
 /* ---------- intro video (home hero) ---------- */
 // Plays muted on arrival, with captions drawn by site.js so they stay readable on phones.
 // Without JavaScript the native controls and the caption track still work.
-const INTRO = { seconds: 99, label: '1:39', uploaded: '2026-10-26' };
+const INTRO = { seconds: 94, label: '1:34', uploaded: '2026-10-29' };
 const ICON_PLAY = '<svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-play" d="M8 5.5v13l10.5-6.5z"/><path class="i-pause" d="M7 5h3.6v14H7zM13.4 5H17v14h-3.6z"/></svg>';
 const ICON_SOUND = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path class="i-on" d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/><path class="i-off" d="m15.5 9.5 5 5m0-5-5 5"/></svg>';
 const ICON_CC = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M10.5 10.3a2.3 2.3 0 1 0 0 3.4M17 10.3a2.3 2.3 0 1 0 0 3.4"/></svg>';
@@ -365,15 +365,15 @@ function home() {
         <div class="fb-text">
           ${tags(thesis.kind)}
           <h3><a href="${projectUrl(thesis.slug)}">${thesis.title}</a></h3>
-          <p>For my M.Tech thesis I modified commercial Pt/C with small amounts of bismuth to resist carbon monoxide poisoning during formic acid oxidation, and tested a quinone mediator. The catalyst with the least bismuth held its current best; the mediator lowered one-hour retention.</p>
+          <p>For my M.Tech thesis I modified commercial Pt/C with small amounts of bismuth to resist carbon monoxide poisoning in formic acid fuel cells, and tested a quinone mediator. The lowest-bismuth catalyst held its current markedly better than commercial Pt/C, and the results mapped a clear trade-off between peak activity and durability.</p>
           <a class="btn btn-line" href="${projectUrl(thesis.slug)}">Read the thesis project</a>
         </div>
         <div class="fb-data">
           <dl class="readings">
-            <div><dt>Bi(1.25)-Pt/C, current kept after a one-hour hold</dt><dd>92.9%</dd></div>
-            <div><dt>Commercial Pt/C, same test</dt><dd>58.5%</dd></div>
+            <div><dt>Bi-modified catalysts made, characterised and tested</dt><dd>4</dd></div>
+            <div><dt>techniques, from voltammetry to electron microscopy</dt><dd>7</dd></div>
           </dl>
-          <p class="note">Three-electrode half-cell results in acid, relative to each catalyst’s own current after the first minute, so they measure decay rather than output. No replicate counts are reported.</p>
+          <p class="note">Unpublished M.Tech research: exact values and data plots are held back until publication, and I am happy to walk through them in an interview.</p>
         </div>
       </div>
     </article>

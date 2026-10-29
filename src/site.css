@@ -660,6 +660,11 @@ dl.defs dd { color: var(--ink-2); }
 .lead-grid dd b { display: block; font: 500 1.5rem/1.2 var(--mono); color: var(--ink); letter-spacing: -0.02em; }
 .lead-grid dd b span { font: 400 0.95rem var(--sans); color: var(--muted); letter-spacing: 0; }
 .lead-note { margin: 0.75rem 0 0; font-size: 0.86rem; color: var(--muted); }
+.lead-grid dd b.w { font: 400 1.4rem/1.2 var(--serif); letter-spacing: -0.01em; color: var(--head); margin-bottom: 0.15rem; }
+/* Unpublished work: what the full dataset holds, offered for interview */
+.data-held { margin: 1.6rem 0 0.4rem; padding: 1rem 1.2rem; border: 1px dashed var(--accent); border-radius: var(--r-s); background: var(--sheet); }
+.data-held-k { margin: 0 0 0.35rem; font: 500 0.78rem var(--mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-text); }
+.data-held p:last-child { margin: 0; }
 @media (max-width: 480px) { .lead-grid { grid-template-columns: 1fr; } }
 
 /* figures */

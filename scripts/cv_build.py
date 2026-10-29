@@ -224,16 +224,15 @@ def story():
     s += section("Research Experience")
     s += entry("M.Tech Thesis: Bi-Modified Pt/C Anode Catalysts for Formic Acid Fuel Cells", "May 2025 – May 2026",
                "IIT Madras, Chennai | Guide: Prof. Raghuram Chetty", [
-        "Synthesised a Bi-modified Pt/C series from commercial Pt/C at four Bi precursor concentrations (1.25–10 mM) by "
-        "aqueous adsorption, NaBH4 reduction and heat treatment at 300 °C under argon.",
+        "Synthesised a series of four Bi-modified Pt/C catalysts from commercial Pt/C by a wet-chemical route "
+        "(adsorption, borohydride reduction, heat treatment under argon).",
         "Assembled and ran three-electrode cells (glassy carbon and carbon paper working electrodes, Pt counter, Ag/AgCl "
         "reference) on an Autolab potentiostat for CV, chronoamperometry, ECSA and mass activity.",
-        "Optimised ionomer loading: cutting Nafion in the catalyst ink from 20 µL to 5 µL raised the formic acid oxidation "
-        "peak current by about 2.5–2.8 times.",
-        "In one-hour holds at 0.55 V vs RHE, Bi(1.25)-Pt/C retained <b>92.9%</b> of its current versus 58.5% for commercial "
-        "Pt/C; with 1 mM AQSA mediator, retention fell for every catalyst (70.4% and 55.6%).",
-        "Identified an activity-durability trade-off: Bi(5)-Pt/C gave the highest peak mass activity but retained only "
-        "52.8%; related Bi loading to morphology and structure by FE-SEM, EDX, XRD and BET.",
+        "Optimised the catalyst ink: a thinner Nafion binder film more than doubled the formic acid oxidation peak current.",
+        "In one-hour durability holds, the lowest-Bi catalyst held its current markedly better than commercial Pt/C, "
+        "with and without a quinone (AQSA) mediator; the mediator lowered retention for every catalyst.",
+        "Mapped an activity-durability trade-off across the series and related Bi loading to morphology and structure "
+        "by FE-SEM, EDX, XRD and BET. Unpublished; exact values available to discuss in interview.",
     ])
     s += entry("Thesis Catalyst Synthesis, KinCat Group, NTNU", "Aug 2025 – Dec 2025",
                "Trondheim, Norway | UTFORSK mobility scholarship | Host: Prof. Edd Anders Blekkan", [
