@@ -29,8 +29,16 @@ const asset = (name) => {
   return url(`assets/${base}.${hash}.${ext}`);
 };
 // Fonts (IBM Plex Serif, Sans and Mono) are self-hosted from fonts/ (SIL Open Font License), so no third-party requests are made.
-// The stylesheet refers to them relative to assets/, i.e. ../fonts/.
-const CSS = asset('site.css');
+// The stylesheet is small (about 13 KB compressed), so it is minified and placed inside each page: the browser can
+// draw the page without waiting for a separate request. Its font paths (../fonts/) are rewritten for that.
+const minifyCss = (css) =>
+  css
+    .replace(/\/\*[\s\S]*?\*\//g, '')
+    .replace(/\s+/g, ' ')
+    .replace(/\s*([{};,>])\s*/g, '$1')
+    .replace(/;}/g, '}')
+    .trim();
+const CSS_INLINE = minifyCss(readFileSync(ROOT + 'src/site.css', 'utf8')).replace(/url\("\.\.\/fonts\//g, `url("${url('fonts/')}`);
 const JS = asset('site.js');
 
 /* ---------- visitor analytics (optional, off unless site.config.json sets "goatcounter") ---------- */
@@ -209,7 +217,7 @@ ${THEME_INIT}
 <meta name="twitter:image" content="${ogImage}">
 <link rel="preload" href="${url('fonts/ibm-plex-sans-latin-400.woff2')}" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="${url('fonts/ibm-plex-serif-latin-400.woff2')}" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="${CSS}">
+<style>${CSS_INLINE}</style>
 <script src="${JS}" defer></script>
 ${ANALYTICS}${extraHead}${jsonld.length ? ld(jsonld) : ''}
 </head>
@@ -256,10 +264,9 @@ const ICON_FS = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M2
 function introVideo() {
   return `<figure class="intro-video" aria-labelledby="iv-title">
       <div class="iv-frame" data-state="idle">
-        <video class="iv-video" muted playsinline preload="metadata" controls width="1920" height="1080"
-          poster="${url('media/intro-poster.webp')}" aria-describedby="iv-desc">
-          <source src="${url('media/intro-720p.mp4')}" type="video/mp4" media="(max-width: 767px)">
-          <source src="${url('media/intro-1080p.mp4')}" type="video/mp4">
+        <video class="iv-video" muted playsinline preload="none" controls width="1920" height="1080"
+          poster="${url('media/intro-poster.webp')}" aria-describedby="iv-desc" data-hd="${url('media/intro-1080p.mp4')}">
+          <source src="${url('media/intro-720p.mp4')}" type="video/mp4">
           <track kind="captions" src="${url('media/intro.en.vtt')}" srclang="en" label="English" default>
         </video>
         <p class="iv-caption" aria-hidden="true"></p>
@@ -745,32 +752,41 @@ out(
         .join('\n')}\nSitemap: ${liveUrl('sitemap.xml')}\n`,
 );
 
-// Plain-text profile for AI assistants, generated from the same content as the pages.
+// Plain-text profile for AI assistants (llms.txt format: H1, summary blockquote, plain details, then H2 sections
+// that list links), generated from the same content as the pages.
 out(
   'llms.txt',
   `# ${person.name}
 
 > ${person.name} is an Indian chemical engineer working across catalysis, electrochemistry and process engineering. Ayush holds an M.Tech in Catalysis Technology from IIT Madras (2026, CGPA 8.51/10), spent a research semester at NTNU, Norway (2025), and has been a Management Trainee at LOXIM Industries Ltd., Ahmedabad, since July 2026. The work spans catalyst synthesis and characterisation, electrode preparation and three-electrode electrochemical testing, DFT and reaction-kinetics modelling, process design and costing, and effluent treatment.
 
-Website: ${liveUrl()}
-LinkedIn: ${person.linkedin}
-Email: ${person.email}
-CV (PDF): ${liveUrl(person.cv)}
+Contact: ${person.email} · LinkedIn: ${person.linkedin}
 
-## Education
+**Education**
 ${education.map((e) => `- ${e.title}, ${e.org}, ${e.when}. ${e.detail}`).join('\n')}
 
-## Experience
+**Experience**
 ${experience.map((e) => `- ${e.title}, ${e.org} (${e.when}): ${e.points.join(' ')}`).join('\n')}
 
-## Projects
-${projects.map((p) => `- ${strip(p.title)} (${p.when}, ${strip(p.where)}): ${p.glance.map(([k, v]) => `${k}: ${strip(v)}`).join(' ')} Details: ${liveUrl(`projects/${p.slug}/`)}`).join('\n')}
+**Skills**
+${skillEvidence.map((g) => g.rows.map(([k, v]) => `- ${k}: ${strip(v)}`).join('\n')).join('\n')}
 
-## Skills
-${skillEvidence.map((g) => `### ${g.title}\n${g.rows.map(([k, v]) => `- ${k}: ${strip(v)}`).join('\n')}`).join('\n\n')}
-
-## Conferences, awards and scholarships
+**Conferences, awards and scholarships**
 ${recognition.map((r) => `- ${r.title}, ${r.where} (${r.when})`).join('\n')}
+
+## Pages
+- [Home](${liveUrl()}): Overview of the three areas of work, selected projects and a short video introduction
+- [Work](${liveUrl('projects/')}): All projects, filterable by catalysis, electrochemistry, process engineering and modelling
+- [About](${liveUrl('about/')}): Background, education, experience and the path from B.Tech to industry
+- [CV](${liveUrl('cv/')}): Curriculum vitae as a web page
+- [CV (PDF)](${liveUrl(person.cv)}): Downloadable CV
+
+## Projects
+${projects.map((p) => `- [${strip(p.title)}](${liveUrl(`projects/${p.slug}/`)}): ${strip(p.short)} (${p.when}, ${strip(p.where)})`).join('\n')}
+
+## Optional
+- [LinkedIn](${person.linkedin}): Professional profile
+- [Sitemap](${liveUrl('sitemap.xml')}): All pages of the site
 `,
 );
 

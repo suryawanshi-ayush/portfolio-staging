@@ -38,6 +38,10 @@ Redesigned from scratch in October 2026 (the previous version is kept in the pri
 - Type: IBM Plex Serif for headings, Plex Sans for text, Plex Mono for tags and readings, as in the intro video.
 - Motion: only the flow line draws in once and charts fill when seen; nothing moves with reduced motion.
 - Accessibility: WCAG 2.1 AA checked with axe on every page, both themes, desktop and phone.
+- Performance (PageSpeed, Oct 2026): styles are minified and inlined in each page (no render-blocking request);
+  photos come in 240, 480, 640 and 1280 px WebP; the intro video plays the 720p file and switches to 1080p only in
+  full screen on a large display, and its silent autoplay starts after the page has loaded (never on data-saver or
+  2G connections). GitHub Pages sets a fixed 10-minute cache and no security headers, which cannot be changed there.
 - Disclosure: industry-linked work (SNCR, LOXIM) shows methods, trends, percentages and public limits only;
   plant data, absolute figures from partners, costs and reports stay off the site. See the notes in src/content.mjs.
 
