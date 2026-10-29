@@ -360,7 +360,7 @@ function home() {
     </div>
 
     <article class="feature">
-      <a class="feature-media" href="${projectUrl(thesis.slug)}" tabindex="-1" aria-hidden="true">${img(thesis.hero[0], thesis.hero[1], { sizes: '(min-width: 1200px) 1180px, 100vw', pos: '60% 50%' })}</a>
+      <a class="feature-media" href="${projectUrl(thesis.slug)}" tabindex="-1" aria-hidden="true">${img((thesis.banner || thesis.hero)[0], (thesis.banner || thesis.hero)[1], { sizes: '(min-width: 1200px) 1180px, 100vw', pos: '50% 50%' })}</a>
       <div class="feature-body">
         <div class="fb-text">
           ${tags(thesis.kind)}

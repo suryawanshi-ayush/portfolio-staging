@@ -16,7 +16,6 @@ IMG = ROOT / "images"
 OUT = IMG / "w"
 # Clearer public names for files whose original names carry no meaning.
 RENAME = {
-    "ayush-suryawanshi-photo-7d467c05": "half-cell-electrodes-close-up",
     "ayush-suryawanshi-photo-baa04525": "ayush-sem-workstation-ntnu-cleanroom",
     "ayush-suryawanshi-photo-4972ceff": "dft-orr-pt13-step-energies-figure",
     "ayush-suryawanshi-photo-5ee7ac61": "sncr-team-poster-treforedlingsforum-oslo",
@@ -34,6 +33,8 @@ def main():
         # 240 and 480 px serve small slots (profile photo, thumbnails); 640 and 1280 px the rest.
         widths = sorted({min(x, w) for x in (240, 480, 640, 1280)} | ({w} if 640 < w < 1280 else set()))
         widths = [x for x in widths if x == w or x in (240, 480, 640, 1280)]
+        if 'banner' in stem and w > 1280:
+            widths.append(min(w, 2400))  # wide banners need a sharper copy for high-density screens
         if 'poster' in stem and w > 1280:
             widths.append(w)  # posters need full resolution to be readable when enlarged
         figure = stem.startswith("thesis-figure-")

@@ -73,16 +73,6 @@
    554
   ]
  },
- "ayush-suryawanshi-glass-cell-with-a-carbon-paper-electrode-and.jpg": {
-  "name": "glass-cell-with-a-carbon-paper-electrode-and",
-  "w": 554,
-  "h": 1200,
-  "widths": [
-   240,
-   480,
-   554
-  ]
- },
  "ayush-suryawanshi-glass-cell-with-glassy-carbon-electrode-and-potentiostat.jpg": {
   "name": "glass-cell-with-glassy-carbon-electrode-and-potentiostat",
   "w": 554,
@@ -130,17 +120,6 @@
   "name": "sncr-team-poster-treforedlingsforum-oslo",
   "w": 1280,
   "h": 960,
-  "widths": [
-   240,
-   480,
-   640,
-   1280
-  ]
- },
- "ayush-suryawanshi-photo-7d467c05.jpg": {
-  "name": "half-cell-electrodes-close-up",
-  "w": 1600,
-  "h": 739,
   "widths": [
    240,
    480,
@@ -223,6 +202,18 @@
    480,
    640,
    1280
+  ]
+ },
+ "thesis-workflow-synthesis-testing-sem-banner.jpg": {
+  "name": "thesis-workflow-synthesis-testing-sem-banner",
+  "w": 2172,
+  "h": 720,
+  "widths": [
+   240,
+   480,
+   640,
+   1280,
+   2172
   ]
  }
 }

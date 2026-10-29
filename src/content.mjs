@@ -365,11 +365,13 @@ const projectList = [
     when: 'May 2025 – May 2026',
     where: 'IIT Madras, with synthesis at NTNU, Norway',
     card: 'half-cell-electrodes',
-    cardImg: ['ayush-suryawanshi-photo-7d467c05.jpg', 'Glassy carbon working electrode, platinum coil and reference electrode inside a glass half-cell'],
+    cardImg: ['ayush-suryawanshi-glass-cell-with-glassy-carbon-electrode-and-potentiostat.jpg', 'Three-electrode glass cell with clear electrolyte, wired to the potentiostat leads', '50% 66%'],
+    // Wide banner for the home page: synthesis, testing and characterisation (stirring at NTNU, half-cell, SEM).
+    banner: ['thesis-workflow-synthesis-testing-sem-banner.jpg', 'Three photos: catalyst slurry stirring on a hotplate, the three-electrode half-cell wired to the potentiostat, and Ayush at the SEM in the NTNU cleanroom'],
     stats: [
       ['4', 'Bi-modified catalysts made, characterised and tested'],
       ['7', 'techniques, from voltammetry to electron microscopy'],
-      ['1 h', 'durability holds, with and without a quinone mediator'],
+      ['2', 'test conditions for the durability holds: with and without a quinone mediator'],
     ],
     tags: ['Electrocatalysis', 'Formic acid oxidation', 'Potentiostat', 'FE-SEM / EDX / XRD'],
     meta: [
@@ -386,7 +388,8 @@ const projectList = [
       ['Key result', 'The lowest-bismuth catalyst was the most durable of the series in both electrolytes, holding its current markedly better than commercial Pt/C over a one-hour hold. The most active catalyst was not the most durable, and the quinone mediator lowered retention.'],
       ['Limits', 'Half-cell tests in acid over one hour; testing in a membrane electrode assembly and a full cell is the next step. Exact values are held back until the work is published.'],
     ],
-    hero: ['ayush-suryawanshi-photo-7d467c05.jpg', 'Close-up of a glass three-electrode cell: a coiled platinum wire, an Ag/AgCl reference electrode and a catalyst-coated glassy carbon working electrode', 'Inside the half-cell: a coiled platinum wire as the counter electrode, an Ag/AgCl reference electrode, and the catalyst-coated glassy carbon working electrode used for the voltammetry.'],
+    hero: ['ayush-suryawanshi-glass-cell-with-glassy-carbon-electrode-and-potentiostat.jpg', 'Three-electrode glass cell with clear electrolyte: glassy carbon working electrode, platinum counter and reference electrode, wired to the potentiostat leads', 'The three-electrode half-cell wired to the potentiostat, ready for cyclic voltammetry and the one-hour durability holds.'],
+    heroFit: 'natural',
     // Statements below are checked against the thesis (MTP_Final_Report_v5, Tables 4.4 and 4.9–4.11): retention
     // ranks first for the lowest loading in both electrolytes, falls at higher loadings, drops with AQSA for all
     // five catalysts; the highest peak mass activity is at a higher loading; a thinner Nafion film gives
@@ -438,12 +441,6 @@ ${mechanism({ conceptual: true })}`],
   <div><dt>At NTNU</dt><dd>KinCat group; hosted and supervised by Prof. Edd Anders Blekkan</dd></div>
   <div><dt>Tools</dt><dd>Autolab potentiostat with NOVA, OriginPro</dd></div>
 </dl>
-</details>
-<details class="more"><summary>The test setup</summary>
-<div class="fig-row">
-${fig('ayush-suryawanshi-glass-cell-with-glassy-carbon-electrode-and-potentiostat.jpg', 'Sealed glass cell with a glassy carbon electrode, connected to the potentiostat leads', 'The three-electrode cell connected to the potentiostat for cyclic voltammetry.', { cls: 'tall', sizes: '(min-width: 720px) 340px, 50vw' })}
-${fig('ayush-suryawanshi-glass-cell-with-a-carbon-paper-electrode-and.jpg', 'Glass cell with formic acid electrolyte, a glassy carbon working electrode and a coiled platinum counter electrode', 'The same cell filled with electrolyte for a voltammetry run.', { cls: 'tall', sizes: '(min-width: 720px) 340px, 50vw' })}
-</div>
 </details>`],
     ],
   },
