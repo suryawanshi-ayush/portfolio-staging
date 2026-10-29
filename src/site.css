@@ -935,3 +935,15 @@ a { text-decoration-color: color-mix(in srgb, var(--accent) 70%, transparent); }
 :root[data-theme="dark"] .titleblock .btn-solid { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .titleblock .btn-solid { background: var(--accent); border-color: var(--accent); color: var(--on-accent); } }
 @media print { .hero.sheet, .proj-head, .page-head, .pfd.sheet, .section.path-sec { background: none; } .titleblock { background: none; color: #000; } }
+
+/* Relative-retention chart (thesis): commercial Pt/C = 1.0 */
+.rr .legend .sw { width: 12px; height: 12px; border-radius: 3px; display: inline-block; background: var(--c); }
+.rr-ref { --c: var(--pt-edge); }
+.rr-best { --c: var(--s1); }
+.rr-rows { display: grid; gap: 1rem; }
+.rr-row { display: grid; grid-template-columns: 11rem 1fr; gap: 0.4rem 1rem; align-items: center; }
+.rr-label { font-size: 0.92rem; color: var(--ink-2); }
+.rr-pair { display: grid; gap: 0.35rem; }
+.rr-bar { display: flex; align-items: center; justify-content: flex-end; height: 26px; width: calc(var(--r) / 1.8 * 100%); background: var(--c); border-radius: 4px; padding-right: 0.5rem; }
+.rr-val { font: 500 0.86rem var(--mono); color: var(--on-solid); }
+@media (max-width: 560px) { .rr-row { grid-template-columns: 1fr; } }

@@ -360,20 +360,20 @@ function home() {
     </div>
 
     <article class="feature">
-      <a class="feature-media" href="${projectUrl(thesis.slug)}" tabindex="-1" aria-hidden="true">${img((thesis.banner || thesis.hero)[0], (thesis.banner || thesis.hero)[1], { sizes: '(min-width: 1200px) 1180px, 100vw', pos: '50% 50%' })}</a>
+      <a class="feature-media" href="${projectUrl(thesis.slug)}" tabindex="-1" aria-hidden="true">${img(thesis.hero[0], thesis.hero[1], { sizes: '(min-width: 1200px) 1180px, 100vw', pos: '50% 50%' })}</a>
       <div class="feature-body">
         <div class="fb-text">
           ${tags(thesis.kind)}
           <h3><a href="${projectUrl(thesis.slug)}">${thesis.title}</a></h3>
-          <p>For my M.Tech thesis I modified commercial Pt/C with small amounts of bismuth to resist carbon monoxide poisoning in formic acid fuel cells, and tested a quinone mediator. The lowest-bismuth catalyst held its current markedly better than commercial Pt/C, and the results mapped a clear trade-off between peak activity and durability.</p>
+          <p>For my M.Tech thesis I modified commercial Pt/C with small amounts of bismuth to resist carbon monoxide poisoning in formic acid fuel cells, and tested a quinone mediator. Over a one-hour hold, the lowest-bismuth catalyst kept about 1.6 times the share of its starting current that commercial Pt/C kept, and the results mapped a clear trade-off between peak activity and durability.</p>
           <a class="btn btn-line" href="${projectUrl(thesis.slug)}">Read the thesis project</a>
         </div>
         <div class="fb-data">
           <dl class="readings">
-            <div><dt>Bi-modified catalysts made, characterised and tested</dt><dd>4</dd></div>
-            <div><dt>techniques, from voltammetry to electron microscopy</dt><dd>7</dd></div>
+            <div><dt>current retention vs commercial Pt/C after a one-hour hold</dt><dd>1.6×</dd></div>
+            <div><dt>peak mass activity, most active vs most durable catalyst</dt><dd>1.4×</dd></div>
           </dl>
-          <p class="note">Unpublished M.Tech research: exact values and data plots are held back until publication, and I am happy to walk through them in an interview.</p>
+          <p class="note">Rounded ratios from unpublished M.Tech research: exact values and data plots are held back until publication, and I am happy to walk through them in an interview.</p>
         </div>
       </div>
     </article>

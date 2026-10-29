@@ -175,7 +175,7 @@ export const timeline = [
     where: 'Department of Chemical Engineering · CGPA 8.51/10',
     text: 'Two years on how catalysts work and how to make and test them: adsorption and catalysis, solids and surfaces, reactor theory, thermodynamics and transport, a catalyst preparation and characterisation lab, and computational methods in catalysis.',
     blocks: [
-      ['Thesis', 'Formic acid can power small fuel cells, but the platinum catalyst that oxidises it gets clogged by carbon monoxide from a side reaction, and the current fades within an hour. With Prof. Raghuram Chetty I tested two remedies: a sub-monolayer of bismuth on commercial Pt/C, which is thought to leave fewer of the neighbouring platinum sites that CO needs to form, and a dissolved quinone (AQSA) that acts as a redox mediator. In three-electrode half-cell tests the catalyst with the least bismuth was the most durable of the series, holding its current markedly better than unmodified Pt/C over a one-hour hold.', 'projects/thesis-bi-pt-formic-acid/'],
+      ['Thesis', 'Formic acid can power small fuel cells, but the platinum catalyst that oxidises it gets clogged by carbon monoxide from a side reaction, and the current fades within an hour. With Prof. Raghuram Chetty I tested two remedies: a sub-monolayer of bismuth on commercial Pt/C, which is thought to leave fewer of the neighbouring platinum sites that CO needs to form, and a dissolved quinone (AQSA) that acts as a redox mediator. In three-electrode half-cell tests the catalyst with the least bismuth was the most durable of the series: over a one-hour hold it kept about 1.6 times the share of its starting current that unmodified Pt/C kept.', 'projects/thesis-bi-pt-formic-acid/'],
       ['Also', 'A DFT study of oxygen reduction on a 13-atom platinum cluster (Jan – May 2025) and a GIAN course on characterising heterogeneous catalysts (Apr – May 2025).', 'projects/dft-orr-pt13/'],
       ['Role', 'Deputy Placement and Internship Coordinator, Placement and Internship Cell, IIT Madras (Aug 2024 – Jul 2025). Handled placements and internships for the 2023–25 and 2024–26 M.Tech batches; 75% of M.Tech chemical engineers were placed.'],
     ],
@@ -332,12 +332,30 @@ const table = (caption, head, rows, { hl = [], note = '' } = {}) => {
 
 const defs = (rows) => `<dl class="defs">${rows.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>`;
 
+// Relative figures only (the thesis is unpublished): retention of the lowest-bismuth catalyst divided by that of
+// commercial Pt/C after the one-hour hold, from thesis Tables 4.9 and 4.10 (92.9/58.5 = 1.59; 70.4/55.6 = 1.27).
+function relativeRetention() {
+  const rows = [
+    ['Without the mediator', 1.6],
+    ['With the mediator (AQSA)', 1.3],
+  ];
+  const bar = (label, r, cls) => `<span class="rr-bar ${cls}" style="--r:${r}"><span class="rr-val">${r.toFixed(1)}×</span><span class="sr-only"> ${label}</span></span>`;
+  return `<figure class="chart rr" aria-labelledby="rr-title">
+  <p class="chart-title" id="rr-title">Current retention relative to commercial Pt/C</p>
+  <p class="chart-sub">Share of starting current kept after a one-hour hold, with commercial Pt/C set to 1.0. Ratios from unpublished half-cell data.</p>
+  <ul class="legend" aria-hidden="true"><li><i class="sw rr-ref"></i>Commercial Pt/C</li><li><i class="sw rr-best"></i>Lowest-bismuth catalyst</li></ul>
+  <div class="rr-rows" role="list">${rows
+    .map(([label, r]) => `<div class="rr-row" role="listitem"><span class="rr-label">${label}</span><span class="rr-pair">${bar('commercial Pt/C', 1, 'rr-ref')}${bar('lowest-bismuth catalyst', r, 'rr-best')}</span></div>`)
+    .join('')}</div>
+</figure>`;
+}
+
 const projectList = [
   /* ------------------------------------------------------------------ thesis */
   {
-    // Disclosure (Oct 2026): the thesis is unpublished, so the page describes methods and findings in words only.
-    // No exact values, data plots, compositions, recipes or operating conditions. Restore them, with the DOI,
-    // once the work is published.
+    // Disclosure (Oct 2026): the thesis is unpublished, so the page shows findings in words and as rounded ratios
+    // (relative to commercial Pt/C or between catalysts) only. No exact values, data plots, compositions, recipes or
+    // operating conditions. Restore them, with the DOI, once the work is published.
     slug: 'thesis-bi-pt-formic-acid',
     kind: ['catalysis', 'electrochemistry'],
     kindLabel: 'Experimental research · M.Tech thesis',
@@ -349,10 +367,10 @@ const projectList = [
     lead: `<div class="lead-result" role="group" aria-label="Main findings">
       <p class="lead-k">Main findings · one-hour durability tests</p>
       <dl class="lead-grid">
-        <div><dt>Most durable</dt><dd><b class="w">Least bismuth</b>The lowest-bismuth catalyst held its current markedly better than commercial Pt/C, with and without the mediator.</dd></div>
-        <div><dt>Trade-off</dt><dd><b class="w">Activity ≠ durability</b>The most active catalyst in voltammetry was not the one that held its current best.</dd></div>
+        <div><dt>Durability vs commercial Pt/C</dt><dd><b>1.6×</b>The lowest-bismuth catalyst kept about 1.6 times the share of its starting current that commercial Pt/C kept (about 1.3 times with the mediator).</dd></div>
+        <div><dt>Activity vs durability</dt><dd><b>1.4×</b>The most active catalyst gave about 1.4 times the peak mass activity of the most durable one, but lost current faster.</dd></div>
       </dl>
-      <p class="lead-note">Unpublished M.Tech research: exact values, data plots and recipes are held back because the work is not yet published. I am happy to walk through the full dataset in an interview.</p>
+      <p class="lead-note">Unpublished M.Tech research: figures are rounded ratios; exact values, data plots and recipes are held back until publication. I am happy to walk through the full dataset in an interview.</p>
     </div>`,
     heroMeta: [
       ['When', 'May 2025 – May 2026'],
@@ -366,12 +384,10 @@ const projectList = [
     where: 'IIT Madras, with synthesis at NTNU, Norway',
     card: 'half-cell-electrodes',
     cardImg: ['ayush-suryawanshi-glass-cell-with-glassy-carbon-electrode-and-potentiostat.jpg', 'Three-electrode glass cell with clear electrolyte, wired to the potentiostat leads', '50% 66%'],
-    // Wide banner for the home page: synthesis, testing and characterisation (stirring at NTNU, half-cell, SEM).
-    banner: ['thesis-workflow-synthesis-testing-sem-banner.jpg', 'Three photos: catalyst slurry stirring on a hotplate, the three-electrode half-cell wired to the potentiostat, and Ayush at the SEM in the NTNU cleanroom'],
     stats: [
+      ['1.6×', 'current retention of the best catalyst vs commercial Pt/C (one-hour hold)'],
+      ['1.4×', 'peak mass activity, most active vs most durable catalyst'],
       ['4', 'Bi-modified catalysts made, characterised and tested'],
-      ['7', 'techniques, from voltammetry to electron microscopy'],
-      ['2', 'test conditions for the durability holds: with and without a quinone mediator'],
     ],
     tags: ['Electrocatalysis', 'Formic acid oxidation', 'Potentiostat', 'FE-SEM / EDX / XRD'],
     meta: [
@@ -385,11 +401,10 @@ const projectList = [
     glance: [
       ['Problem', 'Platinum oxidises formic acid well at first, but adsorbed CO builds up and the current falls within an hour.'],
       ['My contribution', 'Made and characterised four Bi-modified Pt/C catalysts, tuned the catalyst ink, and tested them with and without a quinone mediator (AQSA) in a three-electrode half-cell.'],
-      ['Key result', 'The lowest-bismuth catalyst was the most durable of the series in both electrolytes, holding its current markedly better than commercial Pt/C over a one-hour hold. The most active catalyst was not the most durable, and the quinone mediator lowered retention.'],
+      ['Key result', 'The lowest-bismuth catalyst was the most durable of the series: over a one-hour hold it kept about 1.6 times the share of its starting current that commercial Pt/C kept (about 1.3 times with the mediator). The most active catalyst was not the most durable, and the quinone mediator lowered retention.'],
       ['Limits', 'Half-cell tests in acid over one hour; testing in a membrane electrode assembly and a full cell is the next step. Exact values are held back until the work is published.'],
     ],
-    hero: ['ayush-suryawanshi-glass-cell-with-glassy-carbon-electrode-and-potentiostat.jpg', 'Three-electrode glass cell with clear electrolyte: glassy carbon working electrode, platinum counter and reference electrode, wired to the potentiostat leads', 'The three-electrode half-cell wired to the potentiostat, ready for cyclic voltammetry and the one-hour durability holds.'],
-    heroFit: 'natural',
+    hero: ['thesis-workflow-synthesis-testing-sem-banner.jpg', 'Three photos: catalyst slurry stirring on a hotplate, the three-electrode half-cell wired to the potentiostat, and Ayush at the SEM in the NTNU cleanroom', 'From synthesis to testing to characterisation: catalyst slurry stirring at NTNU, the three-electrode half-cell wired to the potentiostat, and SEM imaging in the NTNU cleanroom.'],
     // Statements below are checked against the thesis (MTP_Final_Report_v5, Tables 4.4 and 4.9–4.11): retention
     // ranks first for the lowest loading in both electrolytes, falls at higher loadings, drops with AQSA for all
     // five catalysts; the highest peak mass activity is at a higher loading; a thinner Nafion film gives
@@ -409,23 +424,24 @@ const projectList = [
 ${mechanism({ conceptual: true })}`],
       ['findings', 'Key findings', `
 <h3>1. The most durable catalyst was the one with the least bismuth</h3>
-<p>In one-hour constant-potential holds, the lowest-bismuth catalyst kept the largest share of its starting current of the five catalysts tested, in both electrolytes, and clearly more than commercial Pt/C. Higher bismuth loadings retained less. Durability, not just activity, is what decides whether an anode catalyst is useful in a real cell.</p>
+<p>In one-hour constant-potential holds, the lowest-bismuth catalyst kept the largest share of its starting current of the five catalysts tested, in both electrolytes: about 1.6 times the share that commercial Pt/C kept, and still about 1.3 times with the mediator. Higher bismuth loadings retained less. Durability, not just activity, is what decides whether an anode catalyst is useful in a real cell.</p>
+${relativeRetention()}
 
 <h3>2. Peak activity and durability pulled in different directions</h3>
-<p>Voltammetry ranked the series differently: a higher-loading catalyst gave the highest peak mass activity, which the thesis assigns largely to oxidative removal of CO that had already adsorbed, but it lost current faster over the hour. Retention measures decay, not output, so the two properties point to different choices: more current at the start, or current that holds. Mapping that trade-off, rather than reporting the best-looking voltammogram, is the main contribution of the thesis.</p>
+<p>Voltammetry ranked the series differently: a higher-loading catalyst gave the highest peak mass activity, about 1.4 times that of the most durable catalyst, which the thesis assigns largely to oxidative removal of CO that had already adsorbed, but it lost current faster over the hour. Retention measures decay, not output, so the two properties point to different choices: more current at the start, or current that holds. Mapping that trade-off, rather than reporting the best-looking voltammogram, is the main contribution of the thesis.</p>
 
 <h3>3. The quinone mediator lowered retention</h3>
 <p>With AQSA in the electrolyte, one-hour retention dropped for all five catalysts, and the lowest-bismuth catalyst stayed the most durable. This is a clear negative result for the single mediator concentration used in the durability tests, and it narrows where a mediator could help; it is not a general verdict on quinone mediation.</p>
 
 <h3>4. Characterisation and ink optimisation backed the picture</h3>
-<p>At the lowest loadings, electron microscopy and X-ray diffraction showed no separate bismuth crystallites, consistent with a thin bismuth decoration on the platinum; at the highest loading, bismuth-rich agglomerates appeared. Optimising the catalyst ink first also paid off: a thinner Nafion binder film more than doubled the peak current, and that ink was used for every comparison.</p>
+<p>At the lowest loadings, electron microscopy and X-ray diffraction showed no separate bismuth crystallites, consistent with a thin bismuth decoration on the platinum; at the highest loading, bismuth-rich agglomerates appeared. Optimising the catalyst ink first also paid off: a thinner Nafion binder film gave about 2.5 times the peak current, and that ink was used for every comparison.</p>
 
 <div class="data-held">
   <p class="data-held-k">Held back until publication</p>
   <p>The full dataset covers retention curves for five catalysts in two electrolytes, cyclic voltammetry and mass activity, electrochemically active surface area, FE-SEM and EDX maps, X-ray diffraction and BET surface area. It is not shown here because the work is unpublished; I am glad to walk through it in an interview.</p>
 </div>`],
       ['limits', 'Evidence and study limits', `
-<p>This page describes unpublished thesis results in words. Exact values, data plots, recipes, compositions and operating conditions are held back until the work is published.</p>
+<p>This page describes unpublished thesis results in words and rounded ratios. Exact values, data plots, recipes, compositions and operating conditions are held back until the work is published.</p>
 <ul class="tight">
   <li><strong>Half-cell, not a fuel cell.</strong> All results come from three-electrode half-cell tests in acid at room temperature. They rank catalysts against each other; a membrane electrode assembly and single-cell tests are the next step named in the thesis.</li>
   <li><strong>One hour.</strong> Retention was measured over a one-hour hold; practical devices run for hundreds to thousands of hours.</li>

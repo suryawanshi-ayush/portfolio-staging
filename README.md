@@ -44,9 +44,11 @@ Redesigned from scratch in October 2026 (the previous version is kept in the pri
   2G connections). GitHub Pages sets a fixed 10-minute cache and no security headers, which cannot be changed there.
 - Disclosure: industry-linked work (SNCR, LOXIM) shows methods, trends, percentages and public limits only;
   plant data, absolute figures from partners, costs and reports stay off the site. See the notes in src/content.mjs.
-- Unpublished thesis (Oct 2026): the M.Tech thesis results are described in words only, on the site, in the public CV,
-  in llms.txt and in the intro video (the two narrated sentences with figures were cut). No exact values, data plots,
-  compositions, recipes or operating conditions until the work is published; then restore them with the DOI.
+- Unpublished thesis (Oct 2026): the M.Tech thesis results appear in words and rounded ratios only (1.6x and 1.3x
+  retention vs commercial Pt/C, 1.4x peak mass activity, 2.5x peak current from the thinner ink), on the site, in the
+  public CV, in llms.txt and in the intro video (the two narrated sentences with exact figures were cut). No exact
+  values, data plots, compositions, recipes or operating conditions until the work is published; then restore them
+  with the DOI.
 
 Build after any change, then commit the source and the generated files together:
 

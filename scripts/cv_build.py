@@ -228,11 +228,11 @@ def story():
         "(adsorption, borohydride reduction, heat treatment under argon).",
         "Assembled and ran three-electrode cells (glassy carbon and carbon paper working electrodes, Pt counter, Ag/AgCl "
         "reference) on an Autolab potentiostat for CV, chronoamperometry, ECSA and mass activity.",
-        "Optimised the catalyst ink: a thinner Nafion binder film more than doubled the formic acid oxidation peak current.",
-        "In one-hour durability holds, the lowest-Bi catalyst held its current markedly better than commercial Pt/C, "
-        "with and without a quinone (AQSA) mediator; the mediator lowered retention for every catalyst.",
-        "Mapped an activity-durability trade-off across the series and related Bi loading to morphology and structure "
-        "by FE-SEM, EDX, XRD and BET. Unpublished; exact values available to discuss in interview.",
+        "Optimised the catalyst ink: a thinner Nafion binder film gave about 2.5× the formic acid oxidation peak current.",
+        "In one-hour durability holds, the lowest-Bi catalyst kept about <b>1.6×</b> the share of its starting current that "
+        "commercial Pt/C kept (about 1.3× with the AQSA mediator); the mediator lowered retention for every catalyst.",
+        "Mapped an activity-durability trade-off (the most active catalyst gave about 1.4× the peak mass activity but "
+        "lost current faster); characterised by FE-SEM, EDX, XRD and BET. Unpublished; full data available in interview.",
     ])
     s += entry("Thesis Catalyst Synthesis, KinCat Group, NTNU", "Aug 2025 – Dec 2025",
                "Trondheim, Norway | UTFORSK mobility scholarship | Host: Prof. Edd Anders Blekkan", [
