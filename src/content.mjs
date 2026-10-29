@@ -333,7 +333,7 @@ const table = (caption, head, rows, { hl = [], note = '' } = {}) => {
 const defs = (rows) => `<dl class="defs">${rows.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>`;
 
 // Relative figures only (the thesis is unpublished): retention of the lowest-bismuth catalyst divided by that of
-// commercial Pt/C after the one-hour hold, from thesis Tables 4.9 and 4.10 (92.9/58.5 = 1.59; 70.4/55.6 = 1.27).
+// commercial Pt/C after the one-hour hold, rounded to one decimal from the thesis tables (exact values stay offline).
 function relativeRetention() {
   const rows = [
     ['Without the mediator', 1.6],
@@ -405,10 +405,8 @@ const projectList = [
       ['Limits', 'Half-cell tests in acid over one hour; testing in a membrane electrode assembly and a full cell is the next step. Exact values are held back until the work is published.'],
     ],
     hero: ['thesis-workflow-synthesis-testing-sem-banner.jpg', 'Three photos: catalyst slurry stirring on a hotplate, the three-electrode half-cell wired to the potentiostat, and Ayush at the SEM in the NTNU cleanroom', 'From synthesis to testing to characterisation: catalyst slurry stirring at NTNU, the three-electrode half-cell wired to the potentiostat, and SEM imaging in the NTNU cleanroom.'],
-    // Statements below are checked against the thesis (MTP_Final_Report_v5, Tables 4.4 and 4.9–4.11): retention
-    // ranks first for the lowest loading in both electrolytes, falls at higher loadings, drops with AQSA for all
-    // five catalysts; the highest peak mass activity is at a higher loading; a thinner Nafion film gives
-    // 2.5–2.8× the peak current ("more than doubled").
+    // Statements below are checked against the thesis tables; only rounded ratios appear on the page (exact values
+    // stay offline until the work is published).
     sections: () => [
       ['question', 'The question', `
 <p>Platinum oxidises formic acid well at first, but a side pathway leaves adsorbed carbon monoxide (CO) on the surface and the current decays. Modifying platinum with small amounts of bismuth has been reported to reduce this poisoning.</p>

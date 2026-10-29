@@ -938,7 +938,14 @@ a { text-decoration-color: color-mix(in srgb, var(--accent) 70%, transparent); }
 
 /* Relative-retention chart (thesis): commercial Pt/C = 1.0 */
 .rr .legend .sw { width: 12px; height: 12px; border-radius: 3px; display: inline-block; background: var(--c); }
-.rr-ref { --c: var(--pt-edge); }
+.rr-ref { --c: var(--pt); }
+.rr-ref .rr-val { color: var(--ink); }
+:root[data-theme="dark"] .rr-ref { --c: var(--pt-edge); }
+:root[data-theme="dark"] .rr-ref .rr-val { color: var(--on-solid); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .rr-ref { --c: var(--pt-edge); }
+  :root:not([data-theme="light"]) .rr-ref .rr-val { color: var(--on-solid); }
+}
 .rr-best { --c: var(--s1); }
 .rr-rows { display: grid; gap: 1rem; }
 .rr-row { display: grid; grid-template-columns: 11rem 1fr; gap: 0.4rem 1rem; align-items: center; }
